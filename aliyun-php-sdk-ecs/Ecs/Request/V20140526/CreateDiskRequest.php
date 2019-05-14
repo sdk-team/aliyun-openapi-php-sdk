@@ -9,21 +9,21 @@ namespace Ecs\Request\V20140526;
  *
  * @method string getResourceOwnerId()
  * @method string getSnapshotId()
- * @method string getResourceOwnerAccount()
  * @method string getClientToken()
- * @method string getOwnerAccount()
  * @method string getDescription()
- * @method string getOwnerId()
  * @method string getDiskName()
  * @method string getResourceGroupId()
- * @method string getSize()
- * @method string getEncrypted()
  * @method string getDiskCategory()
- * @method string getZoneId()
  * @method array getTags()
  * @method array getArns()
- * @method string getKMSKeyId()
  * @method string getAdvancedFeatures()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
+ * @method string getSize()
+ * @method string getEncrypted()
+ * @method string getZoneId()
+ * @method string getKMSKeyId()
  */
 class CreateDiskRequest extends \RpcAcsRequest
 {
@@ -73,19 +73,6 @@ class CreateDiskRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $clientToken
      *
      * @return $this
@@ -99,19 +86,6 @@ class CreateDiskRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $description
      *
      * @return $this
@@ -120,19 +94,6 @@ class CreateDiskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Description'] = $description;
         $this->queryParameters['Description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }
@@ -164,32 +125,6 @@ class CreateDiskRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $size
-     *
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->requestParameters['Size'] = $size;
-        $this->queryParameters['Size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * @param string $encrypted
-     *
-     * @return $this
-     */
-    public function setEncrypted($encrypted)
-    {
-        $this->requestParameters['Encrypted'] = $encrypted;
-        $this->queryParameters['Encrypted'] = $encrypted;
-
-        return $this;
-    }
-
-    /**
      * @param string $diskCategory
      *
      * @return $this
@@ -198,19 +133,6 @@ class CreateDiskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DiskCategory'] = $diskCategory;
         $this->queryParameters['DiskCategory'] = $diskCategory;
-
-        return $this;
-    }
-
-    /**
-     * @param string $zoneId
-     *
-     * @return $this
-     */
-    public function setZoneId($zoneId)
-    {
-        $this->requestParameters['ZoneId'] = $zoneId;
-        $this->queryParameters['ZoneId'] = $zoneId;
 
         return $this;
     }
@@ -249,19 +171,6 @@ class CreateDiskRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $kMSKeyId
-     *
-     * @return $this
-     */
-    public function setKMSKeyId($kMSKeyId)
-    {
-        $this->requestParameters['KMSKeyId'] = $kMSKeyId;
-        $this->queryParameters['KMSKeyId'] = $kMSKeyId;
-
-        return $this;
-    }
-
-    /**
      * @param string $advancedFeatures
      *
      * @return $this
@@ -270,6 +179,97 @@ class CreateDiskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['AdvancedFeatures'] = $advancedFeatures;
         $this->queryParameters['AdvancedFeatures'] = $advancedFeatures;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $size
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->requestParameters['Size'] = $size;
+        $this->queryParameters['Size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * @param string $encrypted
+     *
+     * @return $this
+     */
+    public function setEncrypted($encrypted)
+    {
+        $this->requestParameters['Encrypted'] = $encrypted;
+        $this->queryParameters['Encrypted'] = $encrypted;
+
+        return $this;
+    }
+
+    /**
+     * @param string $zoneId
+     *
+     * @return $this
+     */
+    public function setZoneId($zoneId)
+    {
+        $this->requestParameters['ZoneId'] = $zoneId;
+        $this->queryParameters['ZoneId'] = $zoneId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $kMSKeyId
+     *
+     * @return $this
+     */
+    public function setKMSKeyId($kMSKeyId)
+    {
+        $this->requestParameters['KMSKeyId'] = $kMSKeyId;
+        $this->queryParameters['KMSKeyId'] = $kMSKeyId;
 
         return $this;
     }

@@ -8,16 +8,16 @@ namespace Ecs\Request\V20140526;
  * Request of DescribeRecommendInstanceType
  *
  * @method string getResourceOwnerId()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
  * @method string getchannel()
  * @method string getNetworkType()
- * @method string getOwnerId()
  * @method string getoperator()
- * @method string gettoken()
  * @method string getScene()
  * @method string getInstanceType()
  * @method string getproxyId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
+ * @method string gettoken()
  */
 class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
 {
@@ -54,32 +54,6 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $channel
      *
      * @return $this
@@ -106,19 +80,6 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
      * @param string $operator
      *
      * @return $this
@@ -127,19 +88,6 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['operator'] = $operator;
         $this->queryParameters['operator'] = $operator;
-
-        return $this;
-    }
-
-    /**
-     * @param string $token
-     *
-     * @return $this
-     */
-    public function settoken($token)
-    {
-        $this->requestParameters['token'] = $token;
-        $this->queryParameters['token'] = $token;
 
         return $this;
     }
@@ -179,6 +127,58 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['proxyId'] = $proxyId;
         $this->queryParameters['proxyId'] = $proxyId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $token
+     *
+     * @return $this
+     */
+    public function settoken($token)
+    {
+        $this->requestParameters['token'] = $token;
+        $this->queryParameters['token'] = $token;
 
         return $this;
     }

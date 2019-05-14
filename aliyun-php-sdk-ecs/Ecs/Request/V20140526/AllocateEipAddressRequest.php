@@ -8,13 +8,13 @@ namespace Ecs\Request\V20140526;
  * Request of AllocateEipAddress
  *
  * @method string getResourceOwnerId()
+ * @method string getClientToken()
+ * @method string getISP()
  * @method string getResourceOwnerAccount()
  * @method string getBandwidth()
- * @method string getClientToken()
- * @method string getInternetChargeType()
- * @method string getISP()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getInternetChargeType()
  */
 class AllocateEipAddressRequest extends \RpcAcsRequest
 {
@@ -51,6 +51,32 @@ class AllocateEipAddressRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $clientToken
+     *
+     * @return $this
+     */
+    public function setClientToken($clientToken)
+    {
+        $this->requestParameters['ClientToken'] = $clientToken;
+        $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $iSP
+     *
+     * @return $this
+     */
+    public function setISP($iSP)
+    {
+        $this->requestParameters['ISP'] = $iSP;
+        $this->queryParameters['ISP'] = $iSP;
+
+        return $this;
+    }
+
+    /**
      * @param string $resourceOwnerAccount
      *
      * @return $this
@@ -77,45 +103,6 @@ class AllocateEipAddressRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $clientToken
-     *
-     * @return $this
-     */
-    public function setClientToken($clientToken)
-    {
-        $this->requestParameters['ClientToken'] = $clientToken;
-        $this->queryParameters['ClientToken'] = $clientToken;
-
-        return $this;
-    }
-
-    /**
-     * @param string $internetChargeType
-     *
-     * @return $this
-     */
-    public function setInternetChargeType($internetChargeType)
-    {
-        $this->requestParameters['InternetChargeType'] = $internetChargeType;
-        $this->queryParameters['InternetChargeType'] = $internetChargeType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $iSP
-     *
-     * @return $this
-     */
-    public function setISP($iSP)
-    {
-        $this->requestParameters['ISP'] = $iSP;
-        $this->queryParameters['ISP'] = $iSP;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -137,6 +124,19 @@ class AllocateEipAddressRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $internetChargeType
+     *
+     * @return $this
+     */
+    public function setInternetChargeType($internetChargeType)
+    {
+        $this->requestParameters['InternetChargeType'] = $internetChargeType;
+        $this->queryParameters['InternetChargeType'] = $internetChargeType;
 
         return $this;
     }

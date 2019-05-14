@@ -15,6 +15,7 @@ namespace Ecs\Request\V20140526;
  * @method string getOwnerAccount()
  * @method string getOwnerId()
  * @method array getInstanceIds()
+ * @method string getParameters()
  */
 class InvokeCommandRequest extends \RpcAcsRequest
 {
@@ -139,6 +140,19 @@ class InvokeCommandRequest extends \RpcAcsRequest
         foreach ($instanceId as $i => $iValue) {
             $this->queryParameters['InstanceId.' . ($i + 1)] = $iValue;
         }
+
+        return $this;
+    }
+
+    /**
+     * @param string $parameters
+     *
+     * @return $this
+     */
+    public function setParameters($parameters)
+    {
+        $this->requestParameters['Parameters'] = $parameters;
+        $this->queryParameters['Parameters'] = $parameters;
 
         return $this;
     }

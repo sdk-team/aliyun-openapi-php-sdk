@@ -7,11 +7,11 @@ namespace Ecs\Request\V20140526;
  *
  * Request of RemoveBandwidthPackageIps
  *
- * @method array getRemovedIpAddressess()
  * @method string getResourceOwnerId()
+ * @method string getClientToken()
+ * @method array getRemovedIpAddressess()
  * @method string getBandwidthPackageId()
  * @method string getResourceOwnerAccount()
- * @method string getClientToken()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
  */
@@ -37,6 +37,32 @@ class RemoveBandwidthPackageIpsRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $resourceOwnerId
+     *
+     * @return $this
+     */
+    public function setResourceOwnerId($resourceOwnerId)
+    {
+        $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
+        $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $clientToken
+     *
+     * @return $this
+     */
+    public function setClientToken($clientToken)
+    {
+        $this->requestParameters['ClientToken'] = $clientToken;
+        $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
      * @param array $removedIpAddresses
      *
      * @return $this
@@ -47,19 +73,6 @@ class RemoveBandwidthPackageIpsRequest extends \RpcAcsRequest
         foreach ($removedIpAddresses as $i => $iValue) {
             $this->queryParameters['RemovedIpAddresses.' . ($i + 1)] = $iValue;
         }
-
-        return $this;
-    }
-
-    /**
-     * @param string $resourceOwnerId
-     *
-     * @return $this
-     */
-    public function setResourceOwnerId($resourceOwnerId)
-    {
-        $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
-        $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
 
         return $this;
     }
@@ -86,19 +99,6 @@ class RemoveBandwidthPackageIpsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
         $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $clientToken
-     *
-     * @return $this
-     */
-    public function setClientToken($clientToken)
-    {
-        $this->requestParameters['ClientToken'] = $clientToken;
-        $this->queryParameters['ClientToken'] = $clientToken;
 
         return $this;
     }

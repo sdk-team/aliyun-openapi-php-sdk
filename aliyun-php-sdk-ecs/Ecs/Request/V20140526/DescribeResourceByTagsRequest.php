@@ -8,12 +8,12 @@ namespace Ecs\Request\V20140526;
  * Request of DescribeResourceByTags
  *
  * @method string getResourceOwnerId()
- * @method string getResourceOwnerAccount()
+ * @method string getPageNumber()
  * @method string getPageSize()
  * @method array getTags()
+ * @method string getResourceOwnerAccount()
  * @method string getOwnerId()
  * @method string getResourceType()
- * @method string getPageNumber()
  */
 class DescribeResourceByTagsRequest extends \RpcAcsRequest
 {
@@ -50,14 +50,14 @@ class DescribeResourceByTagsRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
+     * @param string $pageNumber
      *
      * @return $this
      */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
+    public function setPageNumber($pageNumber)
     {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->requestParameters['PageNumber'] = $pageNumber;
+        $this->queryParameters['PageNumber'] = $pageNumber;
 
         return $this;
     }
@@ -92,6 +92,19 @@ class DescribeResourceByTagsRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -113,19 +126,6 @@ class DescribeResourceByTagsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceType'] = $resourceType;
         $this->queryParameters['ResourceType'] = $resourceType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pageNumber
-     *
-     * @return $this
-     */
-    public function setPageNumber($pageNumber)
-    {
-        $this->requestParameters['PageNumber'] = $pageNumber;
-        $this->queryParameters['PageNumber'] = $pageNumber;
 
         return $this;
     }

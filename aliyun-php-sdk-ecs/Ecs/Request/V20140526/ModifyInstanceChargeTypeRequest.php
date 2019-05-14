@@ -8,17 +8,17 @@ namespace Ecs\Request\V20140526;
  * Request of ModifyInstanceChargeType
  *
  * @method string getResourceOwnerId()
+ * @method string getClientToken()
+ * @method string getInstanceChargeType()
  * @method string getPeriod()
  * @method string getDryRun()
  * @method string getAutoPay()
  * @method string getIncludeDataDisks()
  * @method string getResourceOwnerAccount()
- * @method string getClientToken()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
  * @method string getPeriodUnit()
  * @method string getInstanceIds()
- * @method string getInstanceChargeType()
  */
 class ModifyInstanceChargeTypeRequest extends \RpcAcsRequest
 {
@@ -50,6 +50,32 @@ class ModifyInstanceChargeTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $clientToken
+     *
+     * @return $this
+     */
+    public function setClientToken($clientToken)
+    {
+        $this->requestParameters['ClientToken'] = $clientToken;
+        $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceChargeType
+     *
+     * @return $this
+     */
+    public function setInstanceChargeType($instanceChargeType)
+    {
+        $this->requestParameters['InstanceChargeType'] = $instanceChargeType;
+        $this->queryParameters['InstanceChargeType'] = $instanceChargeType;
 
         return $this;
     }
@@ -120,19 +146,6 @@ class ModifyInstanceChargeTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $clientToken
-     *
-     * @return $this
-     */
-    public function setClientToken($clientToken)
-    {
-        $this->requestParameters['ClientToken'] = $clientToken;
-        $this->queryParameters['ClientToken'] = $clientToken;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -180,19 +193,6 @@ class ModifyInstanceChargeTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['InstanceIds'] = $instanceIds;
         $this->queryParameters['InstanceIds'] = $instanceIds;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceChargeType
-     *
-     * @return $this
-     */
-    public function setInstanceChargeType($instanceChargeType)
-    {
-        $this->requestParameters['InstanceChargeType'] = $instanceChargeType;
-        $this->queryParameters['InstanceChargeType'] = $instanceChargeType;
 
         return $this;
     }
