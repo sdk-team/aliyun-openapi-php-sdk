@@ -30,8 +30,7 @@ class DeleteHpcClusterRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteHpcCluster',
-            'ecs'
+            'DeleteHpcCluster'
         );
     }
 

@@ -29,8 +29,7 @@ class DescribeInstanceAttributeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInstanceAttribute',
-            'ecs'
+            'DescribeInstanceAttribute'
         );
     }
 

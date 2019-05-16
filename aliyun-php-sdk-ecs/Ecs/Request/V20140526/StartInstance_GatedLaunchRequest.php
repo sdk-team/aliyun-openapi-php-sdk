@@ -29,8 +29,7 @@ class StartInstance_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'StartInstance_GatedLaunch',
-            'ecs'
+            'StartInstance_GatedLaunch'
         );
     }
 

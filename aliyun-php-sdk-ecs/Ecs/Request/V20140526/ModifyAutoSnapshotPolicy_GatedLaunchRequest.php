@@ -36,8 +36,7 @@ class ModifyAutoSnapshotPolicy_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyAutoSnapshotPolicy_GatedLaunch',
-            'ecs'
+            'ModifyAutoSnapshotPolicy_GatedLaunch'
         );
     }
 

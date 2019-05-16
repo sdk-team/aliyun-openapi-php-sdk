@@ -34,8 +34,7 @@ class ModifyInstanceAttribute_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyInstanceAttribute_GatedLaunch',
-            'ecs'
+            'ModifyInstanceAttribute_GatedLaunch'
         );
     }
 

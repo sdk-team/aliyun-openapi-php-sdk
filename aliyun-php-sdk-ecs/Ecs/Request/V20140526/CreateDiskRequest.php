@@ -20,6 +20,7 @@ namespace Ecs\Request\V20140526;
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getInstanceId()
  * @method string getSize()
  * @method string getEncrypted()
  * @method string getZoneId()
@@ -41,8 +42,7 @@ class CreateDiskRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateDisk',
-            'ecs'
+            'CreateDisk'
         );
     }
 
@@ -218,6 +218,19 @@ class CreateDiskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

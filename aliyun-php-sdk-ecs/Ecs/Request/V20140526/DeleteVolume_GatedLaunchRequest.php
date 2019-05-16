@@ -29,8 +29,7 @@ class DeleteVolume_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteVolume_GatedLaunch',
-            'ecs'
+            'DeleteVolume_GatedLaunch'
         );
     }
 

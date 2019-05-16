@@ -31,8 +31,7 @@ class ModifyIntranetBandwidthKb_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyIntranetBandwidthKb_GatedLaunch',
-            'ecs'
+            'ModifyIntranetBandwidthKb_GatedLaunch'
         );
     }
 

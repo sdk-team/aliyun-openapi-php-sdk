@@ -29,8 +29,7 @@ class DescribeInstanceVncUrl_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInstanceVncUrl_GatedLaunch',
-            'ecs'
+            'DescribeInstanceVncUrl_GatedLaunch'
         );
     }
 

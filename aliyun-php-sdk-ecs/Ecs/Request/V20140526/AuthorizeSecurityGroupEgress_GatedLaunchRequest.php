@@ -39,8 +39,7 @@ class AuthorizeSecurityGroupEgress_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AuthorizeSecurityGroupEgress_GatedLaunch',
-            'ecs'
+            'AuthorizeSecurityGroupEgress_GatedLaunch'
         );
     }
 

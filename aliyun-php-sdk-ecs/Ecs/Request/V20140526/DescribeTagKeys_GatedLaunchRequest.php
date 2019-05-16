@@ -31,8 +31,7 @@ class DescribeTagKeys_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeTagKeys_GatedLaunch',
-            'ecs'
+            'DescribeTagKeys_GatedLaunch'
         );
     }
 

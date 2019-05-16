@@ -29,8 +29,7 @@ class DescribeInstancePhysicalAttribute_GatedLaunchRequest extends \RpcAcsReques
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInstancePhysicalAttribute_GatedLaunch',
-            'ecs'
+            'DescribeInstancePhysicalAttribute_GatedLaunch'
         );
     }
 

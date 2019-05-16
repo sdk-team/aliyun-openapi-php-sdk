@@ -31,8 +31,7 @@ class ResizeVolume_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ResizeVolume_GatedLaunch',
-            'ecs'
+            'ResizeVolume_GatedLaunch'
         );
     }
 

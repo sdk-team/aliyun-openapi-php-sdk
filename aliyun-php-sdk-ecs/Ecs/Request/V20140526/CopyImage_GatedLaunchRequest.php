@@ -42,8 +42,7 @@ class CopyImage_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CopyImage_GatedLaunch',
-            'ecs'
+            'CopyImage_GatedLaunch'
         );
     }
 

@@ -30,8 +30,7 @@ class ReleasePublicIpAddress_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ReleasePublicIpAddress_GatedLaunch',
-            'ecs'
+            'ReleasePublicIpAddress_GatedLaunch'
         );
     }
 
