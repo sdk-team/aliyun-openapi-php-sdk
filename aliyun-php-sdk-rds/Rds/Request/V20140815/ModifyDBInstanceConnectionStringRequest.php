@@ -9,12 +9,12 @@ namespace Rds\Request\V20140815;
  *
  * @method string getResourceOwnerId()
  * @method string getConnectionStringPrefix()
- * @method string getResourceOwnerAccount()
- * @method string getPort()
- * @method string getOwnerAccount()
  * @method string getDBInstanceId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
  * @method string getOwnerId()
  * @method string getCurrentConnectionString()
+ * @method string getPort()
  */
 class ModifyDBInstanceConnectionStringRequest extends \RpcAcsRequest
 {
@@ -32,8 +32,7 @@ class ModifyDBInstanceConnectionStringRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyDBInstanceConnectionString',
-            'rds'
+            'ModifyDBInstanceConnectionString'
         );
     }
 
@@ -64,6 +63,19 @@ class ModifyDBInstanceConnectionStringRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+
+        return $this;
+    }
+
+    /**
      * @param string $resourceOwnerAccount
      *
      * @return $this
@@ -77,19 +89,6 @@ class ModifyDBInstanceConnectionStringRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $port
-     *
-     * @return $this
-     */
-    public function setPort($port)
-    {
-        $this->requestParameters['Port'] = $port;
-        $this->queryParameters['Port'] = $port;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -98,19 +97,6 @@ class ModifyDBInstanceConnectionStringRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -137,6 +123,19 @@ class ModifyDBInstanceConnectionStringRequest extends \RpcAcsRequest
     {
         $this->requestParameters['CurrentConnectionString'] = $currentConnectionString;
         $this->queryParameters['CurrentConnectionString'] = $currentConnectionString;
+
+        return $this;
+    }
+
+    /**
+     * @param string $port
+     *
+     * @return $this
+     */
+    public function setPort($port)
+    {
+        $this->requestParameters['Port'] = $port;
+        $this->queryParameters['Port'] = $port;
 
         return $this;
     }

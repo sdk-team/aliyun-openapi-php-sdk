@@ -8,12 +8,12 @@ namespace Rds\Request\V20140815;
  * Request of ImportDatabaseBetweenInstances
  *
  * @method string getResourceOwnerId()
- * @method string getSourceDBInstanceId()
- * @method string getResourceOwnerAccount()
  * @method string getDBInfo()
- * @method string getOwnerAccount()
  * @method string getDBInstanceId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getSourceDBInstanceId()
  */
 class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
 {
@@ -31,8 +31,7 @@ class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ImportDatabaseBetweenInstances',
-            'rds'
+            'ImportDatabaseBetweenInstances'
         );
     }
 
@@ -45,32 +44,6 @@ class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $sourceDBInstanceId
-     *
-     * @return $this
-     */
-    public function setSourceDBInstanceId($sourceDBInstanceId)
-    {
-        $this->requestParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
-        $this->queryParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
 
         return $this;
     }
@@ -89,19 +62,6 @@ class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $dBInstanceId
      *
      * @return $this
@@ -115,6 +75,32 @@ class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -123,6 +109,19 @@ class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $sourceDBInstanceId
+     *
+     * @return $this
+     */
+    public function setSourceDBInstanceId($sourceDBInstanceId)
+    {
+        $this->requestParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
+        $this->queryParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
 
         return $this;
     }

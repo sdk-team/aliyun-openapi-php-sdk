@@ -8,11 +8,11 @@ namespace Rds\Request\V20140815;
  * Request of DeleteAccount
  *
  * @method string getResourceOwnerId()
- * @method string getAccountName()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getAccountName()
+ * @method string getDBInstanceId()
  */
 class DeleteAccountRequest extends \RpcAcsRequest
 {
@@ -30,8 +30,7 @@ class DeleteAccountRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DeleteAccount',
-            'rds'
+            'DeleteAccount'
         );
     }
 
@@ -44,19 +43,6 @@ class DeleteAccountRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $accountName
-     *
-     * @return $this
-     */
-    public function setAccountName($accountName)
-    {
-        $this->requestParameters['AccountName'] = $accountName;
-        $this->queryParameters['AccountName'] = $accountName;
 
         return $this;
     }
@@ -88,19 +74,6 @@ class DeleteAccountRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -109,6 +82,32 @@ class DeleteAccountRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $accountName
+     *
+     * @return $this
+     */
+    public function setAccountName($accountName)
+    {
+        $this->requestParameters['AccountName'] = $accountName;
+        $this->queryParameters['AccountName'] = $accountName;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

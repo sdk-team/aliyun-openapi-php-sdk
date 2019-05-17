@@ -10,9 +10,9 @@ namespace Rds\Request\V20140815;
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
  * @method string getCurrentConnectionString()
+ * @method string getDBInstanceId()
  */
 class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
 {
@@ -30,8 +30,7 @@ class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ReleaseInstancePublicConnection',
-            'rds'
+            'ReleaseInstancePublicConnection'
         );
     }
 
@@ -75,19 +74,6 @@ class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -109,6 +95,19 @@ class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['CurrentConnectionString'] = $currentConnectionString;
         $this->queryParameters['CurrentConnectionString'] = $currentConnectionString;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

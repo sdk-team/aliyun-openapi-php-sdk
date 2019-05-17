@@ -8,13 +8,13 @@ namespace Rds\Request\V20140815;
  * Request of RenewInstance
  *
  * @method string getResourceOwnerId()
+ * @method string getClientToken()
+ * @method string getDBInstanceId()
+ * @method string getBusinessInfo()
  * @method string getPeriod()
  * @method string getAutoPay()
  * @method string getResourceOwnerAccount()
- * @method string getClientToken()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
- * @method string getBusinessInfo()
  */
 class RenewInstanceRequest extends \RpcAcsRequest
 {
@@ -32,8 +32,7 @@ class RenewInstanceRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'RenewInstance',
-            'rds'
+            'RenewInstance'
         );
     }
 
@@ -46,6 +45,45 @@ class RenewInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $clientToken
+     *
+     * @return $this
+     */
+    public function setClientToken($clientToken)
+    {
+        $this->requestParameters['ClientToken'] = $clientToken;
+        $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $businessInfo
+     *
+     * @return $this
+     */
+    public function setBusinessInfo($businessInfo)
+    {
+        $this->requestParameters['BusinessInfo'] = $businessInfo;
+        $this->queryParameters['BusinessInfo'] = $businessInfo;
 
         return $this;
     }
@@ -90,32 +128,6 @@ class RenewInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $clientToken
-     *
-     * @return $this
-     */
-    public function setClientToken($clientToken)
-    {
-        $this->requestParameters['ClientToken'] = $clientToken;
-        $this->queryParameters['ClientToken'] = $clientToken;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -124,19 +136,6 @@ class RenewInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $businessInfo
-     *
-     * @return $this
-     */
-    public function setBusinessInfo($businessInfo)
-    {
-        $this->requestParameters['BusinessInfo'] = $businessInfo;
-        $this->queryParameters['BusinessInfo'] = $businessInfo;
 
         return $this;
     }

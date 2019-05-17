@@ -9,10 +9,10 @@ namespace Rds\Request\V20140815;
  *
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
- * @method string getProxyConfigurationKey()
  * @method string getProxyConfigurationValue()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getProxyConfigurationKey()
+ * @method string getDBInstanceId()
  */
 class ModifyDBInstanceProxyConfigurationRequest extends \RpcAcsRequest
 {
@@ -30,8 +30,7 @@ class ModifyDBInstanceProxyConfigurationRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyDBInstanceProxyConfiguration',
-            'rds'
+            'ModifyDBInstanceProxyConfiguration'
         );
     }
 
@@ -62,19 +61,6 @@ class ModifyDBInstanceProxyConfigurationRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $proxyConfigurationKey
-     *
-     * @return $this
-     */
-    public function setProxyConfigurationKey($proxyConfigurationKey)
-    {
-        $this->requestParameters['ProxyConfigurationKey'] = $proxyConfigurationKey;
-        $this->queryParameters['ProxyConfigurationKey'] = $proxyConfigurationKey;
-
-        return $this;
-    }
-
-    /**
      * @param string $proxyConfigurationValue
      *
      * @return $this
@@ -88,19 +74,6 @@ class ModifyDBInstanceProxyConfigurationRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -109,6 +82,32 @@ class ModifyDBInstanceProxyConfigurationRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $proxyConfigurationKey
+     *
+     * @return $this
+     */
+    public function setProxyConfigurationKey($proxyConfigurationKey)
+    {
+        $this->requestParameters['ProxyConfigurationKey'] = $proxyConfigurationKey;
+        $this->queryParameters['ProxyConfigurationKey'] = $proxyConfigurationKey;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

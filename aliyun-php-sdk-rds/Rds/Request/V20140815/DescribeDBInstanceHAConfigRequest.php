@@ -10,8 +10,8 @@ namespace Rds\Request\V20140815;
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getDBInstanceId()
  */
 class DescribeDBInstanceHAConfigRequest extends \RpcAcsRequest
 {
@@ -29,8 +29,7 @@ class DescribeDBInstanceHAConfigRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeDBInstanceHAConfig',
-            'rds'
+            'DescribeDBInstanceHAConfig'
         );
     }
 
@@ -74,19 +73,6 @@ class DescribeDBInstanceHAConfigRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -95,6 +81,19 @@ class DescribeDBInstanceHAConfigRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

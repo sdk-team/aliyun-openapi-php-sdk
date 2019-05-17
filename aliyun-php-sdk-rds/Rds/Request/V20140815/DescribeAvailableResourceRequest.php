@@ -8,14 +8,14 @@ namespace Rds\Request\V20140815;
  * Request of DescribeAvailableResource
  *
  * @method string getResourceOwnerId()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
  * @method string getEngineVersion()
- * @method string getOwnerId()
  * @method string getEngine()
- * @method string getZoneId()
  * @method string getDBInstanceId()
  * @method string getInstanceChargeType()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
+ * @method string getZoneId()
  * @method string getOrderType()
  */
 class DescribeAvailableResourceRequest extends \RpcAcsRequest
@@ -34,8 +34,7 @@ class DescribeAvailableResourceRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeAvailableResource',
-            'rds'
+            'DescribeAvailableResource'
         );
     }
 
@@ -48,6 +47,58 @@ class DescribeAvailableResourceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $engineVersion
+     *
+     * @return $this
+     */
+    public function setEngineVersion($engineVersion)
+    {
+        $this->requestParameters['EngineVersion'] = $engineVersion;
+        $this->queryParameters['EngineVersion'] = $engineVersion;
+
+        return $this;
+    }
+
+    /**
+     * @param string $engine
+     *
+     * @return $this
+     */
+    public function setEngine($engine)
+    {
+        $this->requestParameters['Engine'] = $engine;
+        $this->queryParameters['Engine'] = $engine;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceChargeType
+     *
+     * @return $this
+     */
+    public function setInstanceChargeType($instanceChargeType)
+    {
+        $this->requestParameters['InstanceChargeType'] = $instanceChargeType;
+        $this->queryParameters['InstanceChargeType'] = $instanceChargeType;
 
         return $this;
     }
@@ -79,19 +130,6 @@ class DescribeAvailableResourceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $engineVersion
-     *
-     * @return $this
-     */
-    public function setEngineVersion($engineVersion)
-    {
-        $this->requestParameters['EngineVersion'] = $engineVersion;
-        $this->queryParameters['EngineVersion'] = $engineVersion;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -105,19 +143,6 @@ class DescribeAvailableResourceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $engine
-     *
-     * @return $this
-     */
-    public function setEngine($engine)
-    {
-        $this->requestParameters['Engine'] = $engine;
-        $this->queryParameters['Engine'] = $engine;
-
-        return $this;
-    }
-
-    /**
      * @param string $zoneId
      *
      * @return $this
@@ -126,32 +151,6 @@ class DescribeAvailableResourceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ZoneId'] = $zoneId;
         $this->queryParameters['ZoneId'] = $zoneId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceChargeType
-     *
-     * @return $this
-     */
-    public function setInstanceChargeType($instanceChargeType)
-    {
-        $this->requestParameters['InstanceChargeType'] = $instanceChargeType;
-        $this->queryParameters['InstanceChargeType'] = $instanceChargeType;
 
         return $this;
     }

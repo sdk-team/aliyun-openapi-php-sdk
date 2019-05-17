@@ -8,12 +8,12 @@ namespace Rds\Request\V20140815;
  * Request of ModifyAccountDescription
  *
  * @method string getResourceOwnerId()
+ * @method string getAccountDescription()
  * @method string getAccountName()
+ * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
- * @method string getAccountDescription()
  */
 class ModifyAccountDescriptionRequest extends \RpcAcsRequest
 {
@@ -31,8 +31,7 @@ class ModifyAccountDescriptionRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyAccountDescription',
-            'rds'
+            'ModifyAccountDescription'
         );
     }
 
@@ -50,6 +49,19 @@ class ModifyAccountDescriptionRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $accountDescription
+     *
+     * @return $this
+     */
+    public function setAccountDescription($accountDescription)
+    {
+        $this->requestParameters['AccountDescription'] = $accountDescription;
+        $this->queryParameters['AccountDescription'] = $accountDescription;
+
+        return $this;
+    }
+
+    /**
      * @param string $accountName
      *
      * @return $this
@@ -58,6 +70,19 @@ class ModifyAccountDescriptionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['AccountName'] = $accountName;
         $this->queryParameters['AccountName'] = $accountName;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -89,19 +114,6 @@ class ModifyAccountDescriptionRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -110,19 +122,6 @@ class ModifyAccountDescriptionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $accountDescription
-     *
-     * @return $this
-     */
-    public function setAccountDescription($accountDescription)
-    {
-        $this->requestParameters['AccountDescription'] = $accountDescription;
-        $this->queryParameters['AccountDescription'] = $accountDescription;
 
         return $this;
     }

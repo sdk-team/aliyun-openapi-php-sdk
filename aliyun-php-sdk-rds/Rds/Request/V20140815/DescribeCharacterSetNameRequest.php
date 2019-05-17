@@ -9,9 +9,9 @@ namespace Rds\Request\V20140815;
  *
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
- * @method string getEngine()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getEngine()
  */
 class DescribeCharacterSetNameRequest extends \RpcAcsRequest
 {
@@ -29,8 +29,7 @@ class DescribeCharacterSetNameRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeCharacterSetName',
-            'rds'
+            'DescribeCharacterSetName'
         );
     }
 
@@ -61,19 +60,6 @@ class DescribeCharacterSetNameRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $engine
-     *
-     * @return $this
-     */
-    public function setEngine($engine)
-    {
-        $this->requestParameters['Engine'] = $engine;
-        $this->queryParameters['Engine'] = $engine;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -95,6 +81,19 @@ class DescribeCharacterSetNameRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $engine
+     *
+     * @return $this
+     */
+    public function setEngine($engine)
+    {
+        $this->requestParameters['Engine'] = $engine;
+        $this->queryParameters['Engine'] = $engine;
 
         return $this;
     }

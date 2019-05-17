@@ -11,8 +11,8 @@ namespace Rds\Request\V20140815;
  * @method string getResourceOwnerAccount()
  * @method string getClientToken()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getDBInstanceId()
  */
 class PurgeDBInstanceLogRequest extends \RpcAcsRequest
 {
@@ -30,8 +30,7 @@ class PurgeDBInstanceLogRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'PurgeDBInstanceLog',
-            'rds'
+            'PurgeDBInstanceLog'
         );
     }
 
@@ -88,19 +87,6 @@ class PurgeDBInstanceLogRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -109,6 +95,19 @@ class PurgeDBInstanceLogRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

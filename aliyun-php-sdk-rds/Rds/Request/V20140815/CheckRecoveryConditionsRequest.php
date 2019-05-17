@@ -8,12 +8,12 @@ namespace Rds\Request\V20140815;
  * Request of CheckRecoveryConditions
  *
  * @method string getResourceOwnerId()
+ * @method string getDBInstanceId()
  * @method string getRestoreTime()
  * @method string getResourceOwnerAccount()
  * @method string getBackupFile()
  * @method string getBackupId()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
  */
 class CheckRecoveryConditionsRequest extends \RpcAcsRequest
@@ -32,8 +32,7 @@ class CheckRecoveryConditionsRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CheckRecoveryConditions',
-            'rds'
+            'CheckRecoveryConditions'
         );
     }
 
@@ -46,6 +45,19 @@ class CheckRecoveryConditionsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -111,19 +123,6 @@ class CheckRecoveryConditionsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

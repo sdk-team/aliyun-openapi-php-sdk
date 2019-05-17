@@ -8,11 +8,11 @@ namespace Rds\Request\V20140815;
  * Request of CancelImport
  *
  * @method string getResourceOwnerId()
- * @method string getImportId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getImportId()
+ * @method string getDBInstanceId()
  */
 class CancelImportRequest extends \RpcAcsRequest
 {
@@ -30,8 +30,7 @@ class CancelImportRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CancelImport',
-            'rds'
+            'CancelImport'
         );
     }
 
@@ -44,19 +43,6 @@ class CancelImportRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $importId
-     *
-     * @return $this
-     */
-    public function setImportId($importId)
-    {
-        $this->requestParameters['ImportId'] = $importId;
-        $this->queryParameters['ImportId'] = $importId;
 
         return $this;
     }
@@ -88,19 +74,6 @@ class CancelImportRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -109,6 +82,32 @@ class CancelImportRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $importId
+     *
+     * @return $this
+     */
+    public function setImportId($importId)
+    {
+        $this->requestParameters['ImportId'] = $importId;
+        $this->queryParameters['ImportId'] = $importId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

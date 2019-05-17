@@ -8,12 +8,12 @@ namespace Rds\Request\V20140815;
  * Request of ResetAccountForPG
  *
  * @method string getResourceOwnerId()
- * @method string getAccountPassword()
  * @method string getAccountName()
+ * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getAccountPassword()
  */
 class ResetAccountForPGRequest extends \RpcAcsRequest
 {
@@ -31,8 +31,7 @@ class ResetAccountForPGRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ResetAccountForPG',
-            'rds'
+            'ResetAccountForPG'
         );
     }
 
@@ -50,19 +49,6 @@ class ResetAccountForPGRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $accountPassword
-     *
-     * @return $this
-     */
-    public function setAccountPassword($accountPassword)
-    {
-        $this->requestParameters['AccountPassword'] = $accountPassword;
-        $this->queryParameters['AccountPassword'] = $accountPassword;
-
-        return $this;
-    }
-
-    /**
      * @param string $accountName
      *
      * @return $this
@@ -71,6 +57,19 @@ class ResetAccountForPGRequest extends \RpcAcsRequest
     {
         $this->requestParameters['AccountName'] = $accountName;
         $this->queryParameters['AccountName'] = $accountName;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -102,19 +101,6 @@ class ResetAccountForPGRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -123,6 +109,19 @@ class ResetAccountForPGRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $accountPassword
+     *
+     * @return $this
+     */
+    public function setAccountPassword($accountPassword)
+    {
+        $this->requestParameters['AccountPassword'] = $accountPassword;
+        $this->queryParameters['AccountPassword'] = $accountPassword;
 
         return $this;
     }

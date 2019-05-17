@@ -7,12 +7,12 @@ namespace Rds\Request\V20140815;
  *
  * Request of DescribeDBInstanceAttribute
  *
- * @method string getResourceGroupId()
  * @method string getResourceOwnerId()
+ * @method string getResourceGroupId()
  * @method string getExpired()
+ * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
  */
 class DescribeDBInstanceAttributeRequest extends \RpcAcsRequest
@@ -31,22 +31,8 @@ class DescribeDBInstanceAttributeRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeDBInstanceAttribute',
-            'rds'
+            'DescribeDBInstanceAttribute'
         );
-    }
-
-    /**
-     * @param string $resourceGroupId
-     *
-     * @return $this
-     */
-    public function setResourceGroupId($resourceGroupId)
-    {
-        $this->requestParameters['ResourceGroupId'] = $resourceGroupId;
-        $this->queryParameters['ResourceGroupId'] = $resourceGroupId;
-
-        return $this;
     }
 
     /**
@@ -63,6 +49,19 @@ class DescribeDBInstanceAttributeRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $resourceGroupId
+     *
+     * @return $this
+     */
+    public function setResourceGroupId($resourceGroupId)
+    {
+        $this->requestParameters['ResourceGroupId'] = $resourceGroupId;
+        $this->queryParameters['ResourceGroupId'] = $resourceGroupId;
+
+        return $this;
+    }
+
+    /**
      * @param string $expired
      *
      * @return $this
@@ -71,6 +70,19 @@ class DescribeDBInstanceAttributeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Expired'] = $expired;
         $this->queryParameters['Expired'] = $expired;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -97,19 +109,6 @@ class DescribeDBInstanceAttributeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

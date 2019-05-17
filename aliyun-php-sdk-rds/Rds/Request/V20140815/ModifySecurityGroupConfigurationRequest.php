@@ -10,8 +10,8 @@ namespace Rds\Request\V20140815;
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
  * @method string getSecurityGroupId()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getDBInstanceId()
  */
 class ModifySecurityGroupConfigurationRequest extends \RpcAcsRequest
 {
@@ -29,8 +29,7 @@ class ModifySecurityGroupConfigurationRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifySecurityGroupConfiguration',
-            'rds'
+            'ModifySecurityGroupConfiguration'
         );
     }
 
@@ -74,19 +73,6 @@ class ModifySecurityGroupConfigurationRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -95,6 +81,19 @@ class ModifySecurityGroupConfigurationRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }

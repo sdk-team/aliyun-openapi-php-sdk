@@ -9,11 +9,11 @@ namespace Rds\Request\V20140815;
  *
  * @method string getPrivileges()
  * @method string getResourceOwnerId()
+ * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getExpiredTime()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method string getExpiredTime()
  */
 class GrantOperatorPermissionRequest extends \RpcAcsRequest
 {
@@ -31,8 +31,7 @@ class GrantOperatorPermissionRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'GrantOperatorPermission',
-            'rds'
+            'GrantOperatorPermission'
         );
     }
 
@@ -58,6 +57,19 @@ class GrantOperatorPermissionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -89,32 +101,6 @@ class GrantOperatorPermissionRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $expiredTime
-     *
-     * @return $this
-     */
-    public function setExpiredTime($expiredTime)
-    {
-        $this->requestParameters['ExpiredTime'] = $expiredTime;
-        $this->queryParameters['ExpiredTime'] = $expiredTime;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -123,6 +109,19 @@ class GrantOperatorPermissionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $expiredTime
+     *
+     * @return $this
+     */
+    public function setExpiredTime($expiredTime)
+    {
+        $this->requestParameters['ExpiredTime'] = $expiredTime;
+        $this->queryParameters['ExpiredTime'] = $expiredTime;
 
         return $this;
     }

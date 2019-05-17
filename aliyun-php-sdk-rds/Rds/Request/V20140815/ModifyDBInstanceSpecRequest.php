@@ -9,14 +9,14 @@ namespace Rds\Request\V20140815;
  *
  * @method string getResourceOwnerId()
  * @method string getDBInstanceStorage()
- * @method string getResourceOwnerAccount()
  * @method string getClientToken()
- * @method string getOwnerAccount()
  * @method string getEngineVersion()
- * @method string getOwnerId()
- * @method string getDBInstanceClass()
  * @method string getEffectiveTime()
  * @method string getDBInstanceId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
+ * @method string getDBInstanceClass()
  * @method string getPayType()
  */
 class ModifyDBInstanceSpecRequest extends \RpcAcsRequest
@@ -35,8 +35,7 @@ class ModifyDBInstanceSpecRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyDBInstanceSpec',
-            'rds'
+            'ModifyDBInstanceSpec'
         );
     }
 
@@ -67,19 +66,6 @@ class ModifyDBInstanceSpecRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $clientToken
      *
      * @return $this
@@ -93,19 +79,6 @@ class ModifyDBInstanceSpecRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $engineVersion
      *
      * @return $this
@@ -114,32 +87,6 @@ class ModifyDBInstanceSpecRequest extends \RpcAcsRequest
     {
         $this->requestParameters['EngineVersion'] = $engineVersion;
         $this->queryParameters['EngineVersion'] = $engineVersion;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceClass
-     *
-     * @return $this
-     */
-    public function setDBInstanceClass($dBInstanceClass)
-    {
-        $this->requestParameters['DBInstanceClass'] = $dBInstanceClass;
-        $this->queryParameters['DBInstanceClass'] = $dBInstanceClass;
 
         return $this;
     }
@@ -166,6 +113,58 @@ class ModifyDBInstanceSpecRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DBInstanceId'] = $dBInstanceId;
         $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceClass
+     *
+     * @return $this
+     */
+    public function setDBInstanceClass($dBInstanceClass)
+    {
+        $this->requestParameters['DBInstanceClass'] = $dBInstanceClass;
+        $this->queryParameters['DBInstanceClass'] = $dBInstanceClass;
 
         return $this;
     }

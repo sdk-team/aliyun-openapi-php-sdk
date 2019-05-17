@@ -7,15 +7,15 @@ namespace Rds\Request\V20140815;
  *
  * Request of AllocateInstanceVpcNetworkType
  *
- * @method string getTargetVpcId()
  * @method string getResourceOwnerId()
+ * @method string getTargetVpcId()
  * @method string getTargetZoneId()
+ * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
- * @method string getTargetRegionId()
  * @method string getTargetVSwitchId()
  * @method string getOwnerId()
+ * @method string getTargetRegionId()
  */
 class AllocateInstanceVpcNetworkTypeRequest extends \RpcAcsRequest
 {
@@ -33,22 +33,8 @@ class AllocateInstanceVpcNetworkTypeRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'AllocateInstanceVpcNetworkType',
-            'rds'
+            'AllocateInstanceVpcNetworkType'
         );
-    }
-
-    /**
-     * @param string $targetVpcId
-     *
-     * @return $this
-     */
-    public function setTargetVpcId($targetVpcId)
-    {
-        $this->requestParameters['TargetVpcId'] = $targetVpcId;
-        $this->queryParameters['TargetVpcId'] = $targetVpcId;
-
-        return $this;
     }
 
     /**
@@ -65,6 +51,19 @@ class AllocateInstanceVpcNetworkTypeRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $targetVpcId
+     *
+     * @return $this
+     */
+    public function setTargetVpcId($targetVpcId)
+    {
+        $this->requestParameters['TargetVpcId'] = $targetVpcId;
+        $this->queryParameters['TargetVpcId'] = $targetVpcId;
+
+        return $this;
+    }
+
+    /**
      * @param string $targetZoneId
      *
      * @return $this
@@ -73,6 +72,19 @@ class AllocateInstanceVpcNetworkTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['TargetZoneId'] = $targetZoneId;
         $this->queryParameters['TargetZoneId'] = $targetZoneId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -104,32 +116,6 @@ class AllocateInstanceVpcNetworkTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $targetRegionId
-     *
-     * @return $this
-     */
-    public function setTargetRegionId($targetRegionId)
-    {
-        $this->requestParameters['TargetRegionId'] = $targetRegionId;
-        $this->queryParameters['TargetRegionId'] = $targetRegionId;
-
-        return $this;
-    }
-
-    /**
      * @param string $targetVSwitchId
      *
      * @return $this
@@ -151,6 +137,19 @@ class AllocateInstanceVpcNetworkTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $targetRegionId
+     *
+     * @return $this
+     */
+    public function setTargetRegionId($targetRegionId)
+    {
+        $this->requestParameters['TargetRegionId'] = $targetRegionId;
+        $this->queryParameters['TargetRegionId'] = $targetRegionId;
 
         return $this;
     }

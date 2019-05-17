@@ -8,13 +8,13 @@ namespace Rds\Request\V20140815;
  * Request of DescribeDBInstancePerformance
  *
  * @method string getResourceOwnerId()
+ * @method string getStartTime()
+ * @method string getDBInstanceId()
+ * @method string getKey()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getEndTime()
- * @method string getDBInstanceId()
- * @method string getStartTime()
  * @method string getOwnerId()
- * @method string getKey()
  */
 class DescribeDBInstancePerformanceRequest extends \RpcAcsRequest
 {
@@ -32,8 +32,7 @@ class DescribeDBInstancePerformanceRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeDBInstancePerformance',
-            'rds'
+            'DescribeDBInstancePerformance'
         );
     }
 
@@ -46,6 +45,45 @@ class DescribeDBInstancePerformanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $startTime
+     *
+     * @return $this
+     */
+    public function setStartTime($startTime)
+    {
+        $this->requestParameters['StartTime'] = $startTime;
+        $this->queryParameters['StartTime'] = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return $this
+     */
+    public function setKey($key)
+    {
+        $this->requestParameters['Key'] = $key;
+        $this->queryParameters['Key'] = $key;
 
         return $this;
     }
@@ -90,32 +128,6 @@ class DescribeDBInstancePerformanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $startTime
-     *
-     * @return $this
-     */
-    public function setStartTime($startTime)
-    {
-        $this->requestParameters['StartTime'] = $startTime;
-        $this->queryParameters['StartTime'] = $startTime;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -124,19 +136,6 @@ class DescribeDBInstancePerformanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $key
-     *
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->requestParameters['Key'] = $key;
-        $this->queryParameters['Key'] = $key;
 
         return $this;
     }

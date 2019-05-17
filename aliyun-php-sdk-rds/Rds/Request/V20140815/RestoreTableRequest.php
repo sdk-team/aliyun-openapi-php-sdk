@@ -8,13 +8,13 @@ namespace Rds\Request\V20140815;
  * Request of RestoreTable
  *
  * @method string getResourceOwnerId()
- * @method string getRestoreTime()
- * @method string getResourceOwnerAccount()
  * @method string getClientToken()
- * @method string getBackupId()
- * @method string getOwnerAccount()
  * @method string getTableMeta()
  * @method string getDBInstanceId()
+ * @method string getRestoreTime()
+ * @method string getResourceOwnerAccount()
+ * @method string getBackupId()
+ * @method string getOwnerAccount()
  * @method string getOwnerId()
  */
 class RestoreTableRequest extends \RpcAcsRequest
@@ -33,8 +33,7 @@ class RestoreTableRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'RestoreTable',
-            'rds'
+            'RestoreTable'
         );
     }
 
@@ -47,6 +46,45 @@ class RestoreTableRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $clientToken
+     *
+     * @return $this
+     */
+    public function setClientToken($clientToken)
+    {
+        $this->requestParameters['ClientToken'] = $clientToken;
+        $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $tableMeta
+     *
+     * @return $this
+     */
+    public function setTableMeta($tableMeta)
+    {
+        $this->requestParameters['TableMeta'] = $tableMeta;
+        $this->queryParameters['TableMeta'] = $tableMeta;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -78,19 +116,6 @@ class RestoreTableRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $clientToken
-     *
-     * @return $this
-     */
-    public function setClientToken($clientToken)
-    {
-        $this->requestParameters['ClientToken'] = $clientToken;
-        $this->queryParameters['ClientToken'] = $clientToken;
-
-        return $this;
-    }
-
-    /**
      * @param string $backupId
      *
      * @return $this
@@ -112,32 +137,6 @@ class RestoreTableRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $tableMeta
-     *
-     * @return $this
-     */
-    public function setTableMeta($tableMeta)
-    {
-        $this->requestParameters['TableMeta'] = $tableMeta;
-        $this->queryParameters['TableMeta'] = $tableMeta;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function setDBInstanceId($dBInstanceId)
-    {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
