@@ -25,8 +25,7 @@ class QueryForCssOrderRequest extends \RpcAcsRequest
         parent::__construct(
             'Bss',
             '2014-07-14',
-            'QueryForCssOrder',
-            'bss'
+            'QueryForCssOrder'
         );
     }
 

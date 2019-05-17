@@ -25,8 +25,7 @@ class VnoPayCallBackNotifyRequest extends \RpcAcsRequest
         parent::__construct(
             'Bss',
             '2014-07-14',
-            'VnoPayCallBackNotify',
-            'bss'
+            'VnoPayCallBackNotify'
         );
     }
 
