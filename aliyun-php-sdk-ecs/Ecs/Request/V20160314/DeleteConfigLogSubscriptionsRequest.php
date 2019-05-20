@@ -29,7 +29,8 @@ class DeleteConfigLogSubscriptionsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'DeleteConfigLogSubscriptions'
+            'DeleteConfigLogSubscriptions',
+            'ecs'
         );
     }
 

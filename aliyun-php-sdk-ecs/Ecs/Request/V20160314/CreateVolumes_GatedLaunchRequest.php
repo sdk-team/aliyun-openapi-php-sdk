@@ -37,7 +37,8 @@ class CreateVolumes_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'CreateVolumes_GatedLaunch'
+            'CreateVolumes_GatedLaunch',
+            'ecs'
         );
     }
 

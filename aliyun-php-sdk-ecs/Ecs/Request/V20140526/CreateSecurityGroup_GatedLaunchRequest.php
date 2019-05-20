@@ -33,7 +33,8 @@ class CreateSecurityGroup_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateSecurityGroup_GatedLaunch'
+            'CreateSecurityGroup_GatedLaunch',
+            'ecs'
         );
     }
 

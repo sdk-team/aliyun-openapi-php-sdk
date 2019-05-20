@@ -29,7 +29,8 @@ class DescribeDedicatedHostAutoRenewRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeDedicatedHostAutoRenew'
+            'DescribeDedicatedHostAutoRenew',
+            'ecs'
         );
     }
 

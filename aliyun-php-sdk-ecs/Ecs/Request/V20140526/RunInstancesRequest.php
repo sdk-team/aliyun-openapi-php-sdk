@@ -85,7 +85,8 @@ class RunInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'RunInstances'
+            'RunInstances',
+            'ecs'
         );
     }
 

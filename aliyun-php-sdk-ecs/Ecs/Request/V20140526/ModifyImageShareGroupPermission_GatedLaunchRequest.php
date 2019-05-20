@@ -31,7 +31,8 @@ class ModifyImageShareGroupPermission_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyImageShareGroupPermission_GatedLaunch'
+            'ModifyImageShareGroupPermission_GatedLaunch',
+            'ecs'
         );
     }
 

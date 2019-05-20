@@ -29,7 +29,8 @@ class DeleteSnapshot_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteSnapshot_GatedLaunch'
+            'DeleteSnapshot_GatedLaunch',
+            'ecs'
         );
     }
 

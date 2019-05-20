@@ -31,7 +31,8 @@ class ResizeDisk_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ResizeDisk_GatedLaunch'
+            'ResizeDisk_GatedLaunch',
+            'ecs'
         );
     }
 

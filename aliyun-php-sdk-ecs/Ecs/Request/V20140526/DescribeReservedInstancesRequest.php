@@ -39,7 +39,8 @@ class DescribeReservedInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeReservedInstances'
+            'DescribeReservedInstances',
+            'ecs'
         );
     }
 

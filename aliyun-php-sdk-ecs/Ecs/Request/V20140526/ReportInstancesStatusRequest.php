@@ -5,17 +5,21 @@ namespace Ecs\Request\V20140526;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of ModifyVSwitchAttribute
+ * Request of ReportInstancesStatus
  *
+ * @method string getReason()
  * @method string getResourceOwnerId()
  * @method string getDescription()
+ * @method string getStartTime()
+ * @method array getDiskIds()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
+ * @method string getEndTime()
  * @method string getOwnerId()
- * @method string getVSwitchId()
- * @method string getVSwitchName()
+ * @method array getInstanceIds()
+ * @method array getDevices()
  */
-class ModifyVSwitchAttributeRequest extends \RpcAcsRequest
+class ReportInstancesStatusRequest extends \RpcAcsRequest
 {
 
     /**
@@ -31,9 +35,22 @@ class ModifyVSwitchAttributeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyVSwitchAttribute',
+            'ReportInstancesStatus',
             'ecs'
         );
+    }
+
+    /**
+     * @param string $reason
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->requestParameters['Reason'] = $reason;
+        $this->queryParameters['Reason'] = $reason;
+
+        return $this;
     }
 
     /**
@@ -58,6 +75,34 @@ class ModifyVSwitchAttributeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Description'] = $description;
         $this->queryParameters['Description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * @param string $startTime
+     *
+     * @return $this
+     */
+    public function setStartTime($startTime)
+    {
+        $this->requestParameters['StartTime'] = $startTime;
+        $this->queryParameters['StartTime'] = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * @param array $diskId
+     *
+     * @return $this
+     */
+    public function setDiskIds(array $diskId)
+    {
+        $this->requestParameters['DiskIds'] = $diskId;
+        foreach ($diskId as $i => $iValue) {
+            $this->queryParameters['DiskId.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
@@ -89,6 +134,19 @@ class ModifyVSwitchAttributeRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $endTime
+     *
+     * @return $this
+     */
+    public function setEndTime($endTime)
+    {
+        $this->requestParameters['EndTime'] = $endTime;
+        $this->queryParameters['EndTime'] = $endTime;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -102,27 +160,31 @@ class ModifyVSwitchAttributeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $vSwitchId
+     * @param array $instanceId
      *
      * @return $this
      */
-    public function setVSwitchId($vSwitchId)
+    public function setInstanceIds(array $instanceId)
     {
-        $this->requestParameters['VSwitchId'] = $vSwitchId;
-        $this->queryParameters['VSwitchId'] = $vSwitchId;
+        $this->requestParameters['InstanceIds'] = $instanceId;
+        foreach ($instanceId as $i => $iValue) {
+            $this->queryParameters['InstanceId.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
 
     /**
-     * @param string $vSwitchName
+     * @param array $device
      *
      * @return $this
      */
-    public function setVSwitchName($vSwitchName)
+    public function setDevices(array $device)
     {
-        $this->requestParameters['VSwitchName'] = $vSwitchName;
-        $this->queryParameters['VSwitchName'] = $vSwitchName;
+        $this->requestParameters['Devices'] = $device;
+        foreach ($device as $i => $iValue) {
+            $this->queryParameters['Device.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }

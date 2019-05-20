@@ -31,7 +31,8 @@ class AllocatePublicIpAddress_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AllocatePublicIpAddress_GatedLaunch'
+            'AllocatePublicIpAddress_GatedLaunch',
+            'ecs'
         );
     }
 

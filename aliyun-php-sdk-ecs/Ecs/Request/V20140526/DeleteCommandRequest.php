@@ -29,7 +29,8 @@ class DeleteCommandRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteCommand'
+            'DeleteCommand',
+            'ecs'
         );
     }
 

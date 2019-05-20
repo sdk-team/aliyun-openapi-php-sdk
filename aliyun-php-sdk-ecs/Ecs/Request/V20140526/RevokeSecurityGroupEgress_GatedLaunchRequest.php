@@ -37,7 +37,8 @@ class RevokeSecurityGroupEgress_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'RevokeSecurityGroupEgress_GatedLaunch'
+            'RevokeSecurityGroupEgress_GatedLaunch',
+            'ecs'
         );
     }
 

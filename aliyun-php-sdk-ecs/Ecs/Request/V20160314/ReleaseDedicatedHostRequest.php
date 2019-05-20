@@ -31,7 +31,8 @@ class ReleaseDedicatedHostRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'ReleaseDedicatedHost'
+            'ReleaseDedicatedHost',
+            'ecs'
         );
     }
 

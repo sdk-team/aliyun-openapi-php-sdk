@@ -31,7 +31,8 @@ class DescribeSnapshotMonitorDataRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeSnapshotMonitorData'
+            'DescribeSnapshotMonitorData',
+            'ecs'
         );
     }
 

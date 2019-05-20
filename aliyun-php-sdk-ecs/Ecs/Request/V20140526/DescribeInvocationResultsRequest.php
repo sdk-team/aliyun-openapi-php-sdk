@@ -34,7 +34,8 @@ class DescribeInvocationResultsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInvocationResults'
+            'DescribeInvocationResults',
+            'ecs'
         );
     }
 

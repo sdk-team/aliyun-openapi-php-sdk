@@ -42,7 +42,8 @@ class CreateDiskRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateDisk'
+            'CreateDisk',
+            'ecs'
         );
     }
 

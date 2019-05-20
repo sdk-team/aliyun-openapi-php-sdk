@@ -29,7 +29,8 @@ class DescribeInstanceTypeFamiliesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInstanceTypeFamilies'
+            'DescribeInstanceTypeFamilies',
+            'ecs'
         );
     }
 

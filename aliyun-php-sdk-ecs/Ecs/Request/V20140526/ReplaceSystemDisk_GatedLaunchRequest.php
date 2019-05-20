@@ -34,7 +34,8 @@ class ReplaceSystemDisk_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ReplaceSystemDisk_GatedLaunch'
+            'ReplaceSystemDisk_GatedLaunch',
+            'ecs'
         );
     }
 

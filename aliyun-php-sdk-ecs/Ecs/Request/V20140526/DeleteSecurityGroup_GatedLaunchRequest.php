@@ -29,7 +29,8 @@ class DeleteSecurityGroup_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteSecurityGroup_GatedLaunch'
+            'DeleteSecurityGroup_GatedLaunch',
+            'ecs'
         );
     }
 

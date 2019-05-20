@@ -28,7 +28,8 @@ class CancelTask_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CancelTask_GatedLaunch'
+            'CancelTask_GatedLaunch',
+            'ecs'
         );
     }
 

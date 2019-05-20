@@ -29,7 +29,8 @@ class DescribeAccountAttributesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'DescribeAccountAttributes'
+            'DescribeAccountAttributes',
+            'ecs'
         );
     }
 

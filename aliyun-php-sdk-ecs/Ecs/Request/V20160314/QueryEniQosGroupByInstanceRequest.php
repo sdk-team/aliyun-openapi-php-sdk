@@ -28,7 +28,8 @@ class QueryEniQosGroupByInstanceRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'QueryEniQosGroupByInstance'
+            'QueryEniQosGroupByInstance',
+            'ecs'
         );
     }
 

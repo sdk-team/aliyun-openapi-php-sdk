@@ -32,7 +32,8 @@ class ExportImage_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ExportImage_GatedLaunch'
+            'ExportImage_GatedLaunch',
+            'ecs'
         );
     }
 

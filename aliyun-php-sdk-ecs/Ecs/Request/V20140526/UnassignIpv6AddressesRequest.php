@@ -30,7 +30,8 @@ class UnassignIpv6AddressesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'UnassignIpv6Addresses'
+            'UnassignIpv6Addresses',
+            'ecs'
         );
     }
 

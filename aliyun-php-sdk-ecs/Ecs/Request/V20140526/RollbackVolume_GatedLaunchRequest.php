@@ -30,7 +30,8 @@ class RollbackVolume_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'RollbackVolume_GatedLaunch'
+            'RollbackVolume_GatedLaunch',
+            'ecs'
         );
     }
 

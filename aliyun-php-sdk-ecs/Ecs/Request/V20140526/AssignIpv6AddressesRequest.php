@@ -31,7 +31,8 @@ class AssignIpv6AddressesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AssignIpv6Addresses'
+            'AssignIpv6Addresses',
+            'ecs'
         );
     }
 

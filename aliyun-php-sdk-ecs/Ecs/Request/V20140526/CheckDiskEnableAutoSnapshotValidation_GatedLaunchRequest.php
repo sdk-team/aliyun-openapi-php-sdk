@@ -29,7 +29,8 @@ class CheckDiskEnableAutoSnapshotValidation_GatedLaunchRequest extends \RpcAcsRe
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CheckDiskEnableAutoSnapshotValidation_GatedLaunch'
+            'CheckDiskEnableAutoSnapshotValidation_GatedLaunch',
+            'ecs'
         );
     }
 

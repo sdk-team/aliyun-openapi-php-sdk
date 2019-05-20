@@ -33,7 +33,8 @@ class CreateSnapshot_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateSnapshot_GatedLaunch'
+            'CreateSnapshot_GatedLaunch',
+            'ecs'
         );
     }
 

@@ -32,7 +32,8 @@ class AttachDisk_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AttachDisk_GatedLaunch'
+            'AttachDisk_GatedLaunch',
+            'ecs'
         );
     }
 

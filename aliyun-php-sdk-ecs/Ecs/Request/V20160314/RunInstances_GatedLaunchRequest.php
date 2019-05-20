@@ -60,7 +60,8 @@ class RunInstances_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'RunInstances_GatedLaunch'
+            'RunInstances_GatedLaunch',
+            'ecs'
         );
     }
 

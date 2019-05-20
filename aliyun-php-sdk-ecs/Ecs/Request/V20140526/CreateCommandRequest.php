@@ -35,7 +35,8 @@ class CreateCommandRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateCommand'
+            'CreateCommand',
+            'ecs'
         );
     }
 

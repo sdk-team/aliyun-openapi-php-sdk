@@ -37,7 +37,8 @@ class CreateDisks_GatedLaunchRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'CreateDisks_GatedLaunch'
+            'CreateDisks_GatedLaunch',
+            'ecs'
         );
     }
 
