@@ -31,8 +31,7 @@ class RecoverVirtualBorderRouterRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'RecoverVirtualBorderRouter',
-            'ecs'
+            'RecoverVirtualBorderRouter'
         );
     }
 

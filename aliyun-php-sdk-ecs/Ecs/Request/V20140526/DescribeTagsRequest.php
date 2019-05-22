@@ -15,6 +15,7 @@ namespace Ecs\Request\V20140526;
  * @method string getResourceOwnerAccount()
  * @method string getOwnerId()
  * @method string getResourceType()
+ * @method string getCategory()
  */
 class DescribeTagsRequest extends \RpcAcsRequest
 {
@@ -32,8 +33,7 @@ class DescribeTagsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeTags',
-            'ecs'
+            'DescribeTags'
         );
     }
 
@@ -140,6 +140,19 @@ class DescribeTagsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceType'] = $resourceType;
         $this->queryParameters['ResourceType'] = $resourceType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->requestParameters['Category'] = $category;
+        $this->queryParameters['Category'] = $category;
 
         return $this;
     }

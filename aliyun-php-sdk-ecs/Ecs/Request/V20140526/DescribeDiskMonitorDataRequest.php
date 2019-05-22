@@ -32,8 +32,7 @@ class DescribeDiskMonitorDataRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeDiskMonitorData',
-            'ecs'
+            'DescribeDiskMonitorData'
         );
     }
 

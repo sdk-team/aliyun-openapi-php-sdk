@@ -30,8 +30,7 @@ class DescribeImageSupportInstanceTypesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeImageSupportInstanceTypes',
-            'ecs'
+            'DescribeImageSupportInstanceTypes'
         );
     }
 

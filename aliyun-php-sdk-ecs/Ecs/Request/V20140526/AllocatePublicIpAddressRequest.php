@@ -31,8 +31,7 @@ class AllocatePublicIpAddressRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AllocatePublicIpAddress',
-            'ecs'
+            'AllocatePublicIpAddress'
         );
     }
 

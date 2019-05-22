@@ -31,8 +31,7 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends \RpcAcsRe
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeVirtualBorderRoutersForPhysicalConnection',
-            'ecs'
+            'DescribeVirtualBorderRoutersForPhysicalConnection'
         );
     }
 

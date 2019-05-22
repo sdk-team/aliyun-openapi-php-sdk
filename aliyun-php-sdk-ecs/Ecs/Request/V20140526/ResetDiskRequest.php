@@ -30,8 +30,7 @@ class ResetDiskRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ResetDisk',
-            'ecs'
+            'ResetDisk'
         );
     }
 

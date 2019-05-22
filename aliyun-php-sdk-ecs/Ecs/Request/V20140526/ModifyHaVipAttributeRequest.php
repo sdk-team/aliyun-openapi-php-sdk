@@ -31,8 +31,7 @@ class ModifyHaVipAttributeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyHaVipAttribute',
-            'ecs'
+            'ModifyHaVipAttribute'
         );
     }
 

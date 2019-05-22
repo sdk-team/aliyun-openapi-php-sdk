@@ -36,8 +36,7 @@ class DescribePriceRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'DescribePrice',
-            'ecs'
+            'DescribePrice'
         );
     }
 

@@ -29,8 +29,7 @@ class DescribeInstanceVncUrlRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInstanceVncUrl',
-            'ecs'
+            'DescribeInstanceVncUrl'
         );
     }
 

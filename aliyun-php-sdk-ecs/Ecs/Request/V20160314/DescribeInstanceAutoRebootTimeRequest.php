@@ -30,8 +30,7 @@ class DescribeInstanceAutoRebootTimeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'DescribeInstanceAutoRebootTime',
-            'ecs'
+            'DescribeInstanceAutoRebootTime'
         );
     }
 

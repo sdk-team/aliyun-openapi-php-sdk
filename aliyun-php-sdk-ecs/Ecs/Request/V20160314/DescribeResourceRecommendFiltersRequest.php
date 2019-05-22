@@ -36,8 +36,7 @@ class DescribeResourceRecommendFiltersRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'DescribeResourceRecommendFilters',
-            'ecs'
+            'DescribeResourceRecommendFilters'
         );
     }
 

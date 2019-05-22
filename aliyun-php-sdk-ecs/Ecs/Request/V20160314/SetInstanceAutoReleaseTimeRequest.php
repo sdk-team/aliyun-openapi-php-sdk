@@ -30,8 +30,7 @@ class SetInstanceAutoReleaseTimeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'SetInstanceAutoReleaseTime',
-            'ecs'
+            'SetInstanceAutoReleaseTime'
         );
     }
 

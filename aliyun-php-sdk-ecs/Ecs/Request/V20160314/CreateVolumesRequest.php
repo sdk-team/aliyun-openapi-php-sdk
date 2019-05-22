@@ -39,8 +39,7 @@ class CreateVolumesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2016-03-14',
-            'CreateVolumes',
-            'ecs'
+            'CreateVolumes'
         );
     }
 

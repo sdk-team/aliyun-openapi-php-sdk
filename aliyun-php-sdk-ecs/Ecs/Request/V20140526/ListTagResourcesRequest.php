@@ -32,8 +32,7 @@ class ListTagResourcesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ListTagResources',
-            'ecs'
+            'ListTagResources'
         );
     }
 
