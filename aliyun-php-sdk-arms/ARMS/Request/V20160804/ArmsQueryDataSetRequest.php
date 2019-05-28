@@ -31,7 +31,8 @@ class ArmsQueryDataSetRequest extends \RpcAcsRequest
         parent::__construct(
             'ARMS',
             '2016-08-04',
-            'ArmsQueryDataSet'
+            'ArmsQueryDataSet',
+            'arms'
         );
     }
 
