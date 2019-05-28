@@ -8,12 +8,12 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeMonthlyServiceStatusDetail
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
- * @method string getMonth()
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getInstanceId()
+ * @method string getMonth()
  */
 class DescribeMonthlyServiceStatusDetailRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class DescribeMonthlyServiceStatusDetailRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeMonthlyServiceStatusDetail',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -45,32 +45,6 @@ class DescribeMonthlyServiceStatusDetailRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $month
-     *
-     * @return $this
-     */
-    public function setMonth($month)
-    {
-        $this->requestParameters['Month'] = $month;
-        $this->queryParameters['Month'] = $month;
 
         return $this;
     }
@@ -123,6 +97,32 @@ class DescribeMonthlyServiceStatusDetailRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $month
+     *
+     * @return $this
+     */
+    public function setMonth($month)
+    {
+        $this->requestParameters['Month'] = $month;
+        $this->queryParameters['Month'] = $month;
 
         return $this;
     }

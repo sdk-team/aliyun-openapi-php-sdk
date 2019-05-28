@@ -8,12 +8,12 @@ namespace R_kvstore\Request\V20150101;
  * Request of UnlinkReplicaInstance
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
  * @method string getOwnerId()
+ * @method string getInstanceId()
  */
 class UnlinkReplicaInstanceRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class UnlinkReplicaInstanceRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'UnlinkReplicaInstance',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -50,19 +50,6 @@ class UnlinkReplicaInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $securityToken
      *
      * @return $this
@@ -71,6 +58,19 @@ class UnlinkReplicaInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
 
         return $this;
     }
@@ -102,19 +102,6 @@ class UnlinkReplicaInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $replicaId
-     *
-     * @return $this
-     */
-    public function setReplicaId($replicaId)
-    {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -123,6 +110,19 @@ class UnlinkReplicaInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

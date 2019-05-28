@@ -8,11 +8,11 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeParameterTemplates
  *
  * @method string getResourceOwnerId()
- * @method string getSecurityToken()
- * @method string getResourceOwnerAccount()
- * @method string getEngine()
- * @method string getOwnerAccount()
  * @method string getEngineVersion()
+ * @method string getSecurityToken()
+ * @method string getEngine()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
  * @method string getOwnerId()
  * @method string getCharacterType()
  */
@@ -33,7 +33,7 @@ class DescribeParameterTemplatesRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeParameterTemplates',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -46,6 +46,19 @@ class DescribeParameterTemplatesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $engineVersion
+     *
+     * @return $this
+     */
+    public function setEngineVersion($engineVersion)
+    {
+        $this->requestParameters['EngineVersion'] = $engineVersion;
+        $this->queryParameters['EngineVersion'] = $engineVersion;
 
         return $this;
     }
@@ -64,19 +77,6 @@ class DescribeParameterTemplatesRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $engine
      *
      * @return $this
@@ -90,6 +90,19 @@ class DescribeParameterTemplatesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -98,19 +111,6 @@ class DescribeParameterTemplatesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $engineVersion
-     *
-     * @return $this
-     */
-    public function setEngineVersion($engineVersion)
-    {
-        $this->requestParameters['EngineVersion'] = $engineVersion;
-        $this->queryParameters['EngineVersion'] = $engineVersion;
 
         return $this;
     }

@@ -9,11 +9,11 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getSecurityToken()
+ * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getDBInstanceId()
- * @method string getInterval()
  * @method string getOwnerId()
+ * @method string getInterval()
  */
 class ModifyDBInstanceMonitorRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class ModifyDBInstanceMonitorRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyDBInstanceMonitor',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -58,6 +58,19 @@ class ModifyDBInstanceMonitorRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceId
+     *
+     * @return $this
+     */
+    public function setDBInstanceId($dBInstanceId)
+    {
+        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
+        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
 
         return $this;
     }
@@ -89,14 +102,14 @@ class ModifyDBInstanceMonitorRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
+     * @param string $ownerId
      *
      * @return $this
      */
-    public function setDBInstanceId($dBInstanceId)
+    public function setOwnerId($ownerId)
     {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }
@@ -110,19 +123,6 @@ class ModifyDBInstanceMonitorRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Interval'] = $interval;
         $this->queryParameters['Interval'] = $interval;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }

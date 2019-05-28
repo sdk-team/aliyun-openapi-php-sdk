@@ -8,12 +8,12 @@ namespace R_kvstore\Request\V20150101;
  * Request of ModifyCertification
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
  * @method string getSecurityToken()
+ * @method string getNoCertification()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
- * @method string getNoCertification()
+ * @method string getInstanceId()
  */
 class ModifyCertificationRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class ModifyCertificationRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyCertification',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -50,19 +50,6 @@ class ModifyCertificationRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $securityToken
      *
      * @return $this
@@ -71,6 +58,19 @@ class ModifyCertificationRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $noCertification
+     *
+     * @return $this
+     */
+    public function setNoCertification($noCertification)
+    {
+        $this->requestParameters['NoCertification'] = $noCertification;
+        $this->queryParameters['NoCertification'] = $noCertification;
 
         return $this;
     }
@@ -115,14 +115,14 @@ class ModifyCertificationRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $noCertification
+     * @param string $instanceId
      *
      * @return $this
      */
-    public function setNoCertification($noCertification)
+    public function setInstanceId($instanceId)
     {
-        $this->requestParameters['NoCertification'] = $noCertification;
-        $this->queryParameters['NoCertification'] = $noCertification;
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

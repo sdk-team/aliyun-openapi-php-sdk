@@ -9,13 +9,13 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getDomainMode()
  * @method string getResourceOwnerId()
- * @method string getPrimaryInstanceId()
- * @method string getReplicaMode()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
+ * @method string getPrimaryInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
  * @method string getOwnerId()
+ * @method string getReplicaMode()
  */
 class ModifyReplicaModeRequest extends \RpcAcsRequest
 {
@@ -34,7 +34,7 @@ class ModifyReplicaModeRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyReplicaMode',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -65,32 +65,6 @@ class ModifyReplicaModeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $primaryInstanceId
-     *
-     * @return $this
-     */
-    public function setPrimaryInstanceId($primaryInstanceId)
-    {
-        $this->requestParameters['PrimaryInstanceId'] = $primaryInstanceId;
-        $this->queryParameters['PrimaryInstanceId'] = $primaryInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $replicaMode
-     *
-     * @return $this
-     */
-    public function setReplicaMode($replicaMode)
-    {
-        $this->requestParameters['ReplicaMode'] = $replicaMode;
-        $this->queryParameters['ReplicaMode'] = $replicaMode;
-
-        return $this;
-    }
-
-    /**
      * @param string $securityToken
      *
      * @return $this
@@ -99,6 +73,32 @@ class ModifyReplicaModeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $primaryInstanceId
+     *
+     * @return $this
+     */
+    public function setPrimaryInstanceId($primaryInstanceId)
+    {
+        $this->requestParameters['PrimaryInstanceId'] = $primaryInstanceId;
+        $this->queryParameters['PrimaryInstanceId'] = $primaryInstanceId;
 
         return $this;
     }
@@ -130,19 +130,6 @@ class ModifyReplicaModeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $replicaId
-     *
-     * @return $this
-     */
-    public function setReplicaId($replicaId)
-    {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -151,6 +138,19 @@ class ModifyReplicaModeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaMode
+     *
+     * @return $this
+     */
+    public function setReplicaMode($replicaMode)
+    {
+        $this->requestParameters['ReplicaMode'] = $replicaMode;
+        $this->queryParameters['ReplicaMode'] = $replicaMode;
 
         return $this;
     }

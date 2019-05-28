@@ -7,19 +7,19 @@ namespace R_kvstore\Request\V20150101;
  *
  * Request of DescribeSlowLogRecords
  *
- * @method string getSQLId()
  * @method string getResourceOwnerId()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
- * @method string getEndTime()
  * @method string getStartTime()
- * @method string getOwnerId()
  * @method string getPageNumber()
- * @method string getInstanceId()
- * @method string getDBName()
  * @method string getSecurityToken()
  * @method string getPageSize()
  * @method string getNodeId()
+ * @method string getSQLId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getEndTime()
+ * @method string getOwnerId()
+ * @method string getInstanceId()
+ * @method string getDBName()
  */
 class DescribeSlowLogRecordsRequest extends \RpcAcsRequest
 {
@@ -38,21 +38,8 @@ class DescribeSlowLogRecordsRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeSlowLogRecords',
-            'redisa'
+            'kvstore'
         );
-    }
-
-    /**
-     * @param string $sQLId
-     *
-     * @return $this
-     */
-    public function setSQLId($sQLId)
-    {
-        $this->requestParameters['SQLId'] = $sQLId;
-        $this->queryParameters['SQLId'] = $sQLId;
-
-        return $this;
     }
 
     /**
@@ -64,6 +51,84 @@ class DescribeSlowLogRecordsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $startTime
+     *
+     * @return $this
+     */
+    public function setStartTime($startTime)
+    {
+        $this->requestParameters['StartTime'] = $startTime;
+        $this->queryParameters['StartTime'] = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageNumber
+     *
+     * @return $this
+     */
+    public function setPageNumber($pageNumber)
+    {
+        $this->requestParameters['PageNumber'] = $pageNumber;
+        $this->queryParameters['PageNumber'] = $pageNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param string $securityToken
+     *
+     * @return $this
+     */
+    public function setSecurityToken($securityToken)
+    {
+        $this->requestParameters['SecurityToken'] = $securityToken;
+        $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageSize
+     *
+     * @return $this
+     */
+    public function setPageSize($pageSize)
+    {
+        $this->requestParameters['PageSize'] = $pageSize;
+        $this->queryParameters['PageSize'] = $pageSize;
+
+        return $this;
+    }
+
+    /**
+     * @param string $nodeId
+     *
+     * @return $this
+     */
+    public function setNodeId($nodeId)
+    {
+        $this->requestParameters['NodeId'] = $nodeId;
+        $this->queryParameters['NodeId'] = $nodeId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $sQLId
+     *
+     * @return $this
+     */
+    public function setSQLId($sQLId)
+    {
+        $this->requestParameters['SQLId'] = $sQLId;
+        $this->queryParameters['SQLId'] = $sQLId;
 
         return $this;
     }
@@ -108,19 +173,6 @@ class DescribeSlowLogRecordsRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $startTime
-     *
-     * @return $this
-     */
-    public function setStartTime($startTime)
-    {
-        $this->requestParameters['StartTime'] = $startTime;
-        $this->queryParameters['StartTime'] = $startTime;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -129,19 +181,6 @@ class DescribeSlowLogRecordsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pageNumber
-     *
-     * @return $this
-     */
-    public function setPageNumber($pageNumber)
-    {
-        $this->requestParameters['PageNumber'] = $pageNumber;
-        $this->queryParameters['PageNumber'] = $pageNumber;
 
         return $this;
     }
@@ -168,45 +207,6 @@ class DescribeSlowLogRecordsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DBName'] = $dBName;
         $this->queryParameters['DBName'] = $dBName;
-
-        return $this;
-    }
-
-    /**
-     * @param string $securityToken
-     *
-     * @return $this
-     */
-    public function setSecurityToken($securityToken)
-    {
-        $this->requestParameters['SecurityToken'] = $securityToken;
-        $this->queryParameters['SecurityToken'] = $securityToken;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pageSize
-     *
-     * @return $this
-     */
-    public function setPageSize($pageSize)
-    {
-        $this->requestParameters['PageSize'] = $pageSize;
-        $this->queryParameters['PageSize'] = $pageSize;
-
-        return $this;
-    }
-
-    /**
-     * @param string $nodeId
-     *
-     * @return $this
-     */
-    public function setNodeId($nodeId)
-    {
-        $this->requestParameters['NodeId'] = $nodeId;
-        $this->queryParameters['NodeId'] = $nodeId;
 
         return $this;
     }

@@ -8,14 +8,14 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeActiveOperationTask
  *
  * @method string getResourceOwnerId()
- * @method string getTaskType()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
- * @method string getOwnerId()
  * @method string getPageNumber()
  * @method string getIsHistory()
  * @method string getSecurityToken()
  * @method string getPageSize()
+ * @method string getTaskType()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
  * @method string getRegion()
  */
 class DescribeActiveOperationTaskRequest extends \RpcAcsRequest
@@ -35,7 +35,7 @@ class DescribeActiveOperationTaskRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeActiveOperationTask',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -48,58 +48,6 @@ class DescribeActiveOperationTaskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $taskType
-     *
-     * @return $this
-     */
-    public function setTaskType($taskType)
-    {
-        $this->requestParameters['TaskType'] = $taskType;
-        $this->queryParameters['TaskType'] = $taskType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }
@@ -152,6 +100,58 @@ class DescribeActiveOperationTaskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['PageSize'] = $pageSize;
         $this->queryParameters['PageSize'] = $pageSize;
+
+        return $this;
+    }
+
+    /**
+     * @param string $taskType
+     *
+     * @return $this
+     */
+    public function setTaskType($taskType)
+    {
+        $this->requestParameters['TaskType'] = $taskType;
+        $this->queryParameters['TaskType'] = $taskType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }

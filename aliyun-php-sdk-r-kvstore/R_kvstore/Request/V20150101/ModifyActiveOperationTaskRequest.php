@@ -9,11 +9,11 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getSecurityToken()
+ * @method string getSwitchTime()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getIds()
- * @method string getSwitchTime()
  * @method string getOwnerId()
+ * @method string getIds()
  */
 class ModifyActiveOperationTaskRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class ModifyActiveOperationTaskRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyActiveOperationTask',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -58,6 +58,19 @@ class ModifyActiveOperationTaskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $switchTime
+     *
+     * @return $this
+     */
+    public function setSwitchTime($switchTime)
+    {
+        $this->requestParameters['SwitchTime'] = $switchTime;
+        $this->queryParameters['SwitchTime'] = $switchTime;
 
         return $this;
     }
@@ -89,32 +102,6 @@ class ModifyActiveOperationTaskRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ids
-     *
-     * @return $this
-     */
-    public function setIds($ids)
-    {
-        $this->requestParameters['Ids'] = $ids;
-        $this->queryParameters['Ids'] = $ids;
-
-        return $this;
-    }
-
-    /**
-     * @param string $switchTime
-     *
-     * @return $this
-     */
-    public function setSwitchTime($switchTime)
-    {
-        $this->requestParameters['SwitchTime'] = $switchTime;
-        $this->queryParameters['SwitchTime'] = $switchTime;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -123,6 +110,19 @@ class ModifyActiveOperationTaskRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ids
+     *
+     * @return $this
+     */
+    public function setIds($ids)
+    {
+        $this->requestParameters['Ids'] = $ids;
+        $this->queryParameters['Ids'] = $ids;
 
         return $this;
     }

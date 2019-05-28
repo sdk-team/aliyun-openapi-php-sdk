@@ -8,12 +8,12 @@ namespace R_kvstore\Request\V20150101;
  * Request of ReleaseInstancePublicConnection
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
  * @method string getCurrentConnectionString()
+ * @method string getInstanceId()
  */
 class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ReleaseInstancePublicConnection',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -45,19 +45,6 @@ class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }
@@ -123,6 +110,19 @@ class ReleaseInstancePublicConnectionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['CurrentConnectionString'] = $currentConnectionString;
         $this->queryParameters['CurrentConnectionString'] = $currentConnectionString;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

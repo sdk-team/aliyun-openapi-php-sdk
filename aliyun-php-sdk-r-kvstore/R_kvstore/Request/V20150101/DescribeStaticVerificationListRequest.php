@@ -9,12 +9,12 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
+ * @method string getSourceInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
- * @method string getDestinationInstanceId()
- * @method string getSourceInstanceId()
  * @method string getOwnerId()
+ * @method string getDestinationInstanceId()
  */
 class DescribeStaticVerificationListRequest extends \RpcAcsRequest
 {
@@ -33,7 +33,7 @@ class DescribeStaticVerificationListRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeStaticVerificationList',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -59,6 +59,32 @@ class DescribeStaticVerificationListRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $sourceInstanceId
+     *
+     * @return $this
+     */
+    public function setSourceInstanceId($sourceInstanceId)
+    {
+        $this->requestParameters['SourceInstanceId'] = $sourceInstanceId;
+        $this->queryParameters['SourceInstanceId'] = $sourceInstanceId;
 
         return $this;
     }
@@ -90,14 +116,14 @@ class DescribeStaticVerificationListRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $replicaId
+     * @param string $ownerId
      *
      * @return $this
      */
-    public function setReplicaId($replicaId)
+    public function setOwnerId($ownerId)
     {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }
@@ -111,32 +137,6 @@ class DescribeStaticVerificationListRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DestinationInstanceId'] = $destinationInstanceId;
         $this->queryParameters['DestinationInstanceId'] = $destinationInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $sourceInstanceId
-     *
-     * @return $this
-     */
-    public function setSourceInstanceId($sourceInstanceId)
-    {
-        $this->requestParameters['SourceInstanceId'] = $sourceInstanceId;
-        $this->queryParameters['SourceInstanceId'] = $sourceInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }

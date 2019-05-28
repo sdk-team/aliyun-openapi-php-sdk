@@ -9,10 +9,10 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getSecurityToken()
- * @method string getResourceOwnerAccount()
  * @method string getRecoveryMode()
- * @method string getOwnerAccount()
  * @method string getReplicaId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
  * @method string getOwnerId()
  */
 class ModifyReplicaRecoveryModeRequest extends \RpcAcsRequest
@@ -32,7 +32,7 @@ class ModifyReplicaRecoveryModeRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyReplicaRecoveryMode',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -63,19 +63,6 @@ class ModifyReplicaRecoveryModeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $recoveryMode
      *
      * @return $this
@@ -89,19 +76,6 @@ class ModifyReplicaRecoveryModeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $replicaId
      *
      * @return $this
@@ -110,6 +84,32 @@ class ModifyReplicaRecoveryModeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ReplicaId'] = $replicaId;
         $this->queryParameters['ReplicaId'] = $replicaId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
 
         return $this;
     }

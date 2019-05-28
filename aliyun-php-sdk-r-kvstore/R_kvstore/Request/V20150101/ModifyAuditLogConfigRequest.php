@@ -8,13 +8,13 @@ namespace R_kvstore\Request\V20150101;
  * Request of ModifyAuditLogConfig
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
  * @method string getSecurityToken()
- * @method string getResourceOwnerAccount()
  * @method string getAuditCommand()
+ * @method string getRetention()
+ * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
- * @method string getRetention()
+ * @method string getInstanceId()
  */
 class ModifyAuditLogConfigRequest extends \RpcAcsRequest
 {
@@ -33,7 +33,7 @@ class ModifyAuditLogConfigRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyAuditLogConfig',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -46,19 +46,6 @@ class ModifyAuditLogConfigRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }
@@ -77,19 +64,6 @@ class ModifyAuditLogConfigRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
      * @param string $auditCommand
      *
      * @return $this
@@ -98,6 +72,32 @@ class ModifyAuditLogConfigRequest extends \RpcAcsRequest
     {
         $this->requestParameters['AuditCommand'] = $auditCommand;
         $this->queryParameters['AuditCommand'] = $auditCommand;
+
+        return $this;
+    }
+
+    /**
+     * @param string $retention
+     *
+     * @return $this
+     */
+    public function setRetention($retention)
+    {
+        $this->requestParameters['Retention'] = $retention;
+        $this->queryParameters['Retention'] = $retention;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
 
         return $this;
     }
@@ -129,14 +129,14 @@ class ModifyAuditLogConfigRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $retention
+     * @param string $instanceId
      *
      * @return $this
      */
-    public function setRetention($retention)
+    public function setInstanceId($instanceId)
     {
-        $this->requestParameters['Retention'] = $retention;
-        $this->queryParameters['Retention'] = $retention;
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

@@ -8,10 +8,10 @@ namespace R_kvstore\Request\V20150101;
  * Request of GetSnapshotSettings
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getInstanceId()
  */
 class GetSnapshotSettingsRequest extends \RpcAcsRequest
 {
@@ -30,7 +30,7 @@ class GetSnapshotSettingsRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'GetSnapshotSettings',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -43,19 +43,6 @@ class GetSnapshotSettingsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }
@@ -95,6 +82,19 @@ class GetSnapshotSettingsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

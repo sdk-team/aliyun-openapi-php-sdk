@@ -8,15 +8,15 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeHistoryMonitorValues
  *
  * @method string getResourceOwnerId()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
- * @method string getEndTime()
  * @method string getStartTime()
- * @method string getOwnerId()
- * @method string getInstanceId()
  * @method string getSecurityToken()
  * @method string getIntervalForHistory()
  * @method string getNodeId()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getEndTime()
+ * @method string getOwnerId()
+ * @method string getInstanceId()
  * @method string getMonitorKeys()
  */
 class DescribeHistoryMonitorValuesRequest extends \RpcAcsRequest
@@ -36,7 +36,7 @@ class DescribeHistoryMonitorValuesRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeHistoryMonitorValues',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -49,6 +49,58 @@ class DescribeHistoryMonitorValuesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $startTime
+     *
+     * @return $this
+     */
+    public function setStartTime($startTime)
+    {
+        $this->requestParameters['StartTime'] = $startTime;
+        $this->queryParameters['StartTime'] = $startTime;
+
+        return $this;
+    }
+
+    /**
+     * @param string $securityToken
+     *
+     * @return $this
+     */
+    public function setSecurityToken($securityToken)
+    {
+        $this->requestParameters['SecurityToken'] = $securityToken;
+        $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $intervalForHistory
+     *
+     * @return $this
+     */
+    public function setIntervalForHistory($intervalForHistory)
+    {
+        $this->requestParameters['IntervalForHistory'] = $intervalForHistory;
+        $this->queryParameters['IntervalForHistory'] = $intervalForHistory;
+
+        return $this;
+    }
+
+    /**
+     * @param string $nodeId
+     *
+     * @return $this
+     */
+    public function setNodeId($nodeId)
+    {
+        $this->requestParameters['NodeId'] = $nodeId;
+        $this->queryParameters['NodeId'] = $nodeId;
 
         return $this;
     }
@@ -93,19 +145,6 @@ class DescribeHistoryMonitorValuesRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $startTime
-     *
-     * @return $this
-     */
-    public function setStartTime($startTime)
-    {
-        $this->requestParameters['StartTime'] = $startTime;
-        $this->queryParameters['StartTime'] = $startTime;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -127,45 +166,6 @@ class DescribeHistoryMonitorValuesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['InstanceId'] = $instanceId;
         $this->queryParameters['InstanceId'] = $instanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $securityToken
-     *
-     * @return $this
-     */
-    public function setSecurityToken($securityToken)
-    {
-        $this->requestParameters['SecurityToken'] = $securityToken;
-        $this->queryParameters['SecurityToken'] = $securityToken;
-
-        return $this;
-    }
-
-    /**
-     * @param string $intervalForHistory
-     *
-     * @return $this
-     */
-    public function setIntervalForHistory($intervalForHistory)
-    {
-        $this->requestParameters['IntervalForHistory'] = $intervalForHistory;
-        $this->queryParameters['IntervalForHistory'] = $intervalForHistory;
-
-        return $this;
-    }
-
-    /**
-     * @param string $nodeId
-     *
-     * @return $this
-     */
-    public function setNodeId($nodeId)
-    {
-        $this->requestParameters['NodeId'] = $nodeId;
-        $this->queryParameters['NodeId'] = $nodeId;
 
         return $this;
     }

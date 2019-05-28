@@ -8,12 +8,12 @@ namespace R_kvstore\Request\V20150101;
  * Request of RestoreInstance
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceId()
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getBackupId()
  * @method string getOwnerId()
+ * @method string getInstanceId()
  */
 class RestoreInstanceRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class RestoreInstanceRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'RestoreInstance',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -45,19 +45,6 @@ class RestoreInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }
@@ -123,6 +110,19 @@ class RestoreInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

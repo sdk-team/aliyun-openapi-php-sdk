@@ -8,11 +8,11 @@ namespace R_kvstore\Request\V20150101;
  * Request of ModifyReplicaVerificationMode
  *
  * @method string getResourceOwnerId()
- * @method string getVerificationMode()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
+ * @method string getVerificationMode()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
  * @method string getOwnerId()
  */
 class ModifyReplicaVerificationModeRequest extends \RpcAcsRequest
@@ -32,7 +32,7 @@ class ModifyReplicaVerificationModeRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'ModifyReplicaVerificationMode',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -50,19 +50,6 @@ class ModifyReplicaVerificationModeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $verificationMode
-     *
-     * @return $this
-     */
-    public function setVerificationMode($verificationMode)
-    {
-        $this->requestParameters['VerificationMode'] = $verificationMode;
-        $this->queryParameters['VerificationMode'] = $verificationMode;
-
-        return $this;
-    }
-
-    /**
      * @param string $securityToken
      *
      * @return $this
@@ -71,6 +58,32 @@ class ModifyReplicaVerificationModeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $verificationMode
+     *
+     * @return $this
+     */
+    public function setVerificationMode($verificationMode)
+    {
+        $this->requestParameters['VerificationMode'] = $verificationMode;
+        $this->queryParameters['VerificationMode'] = $verificationMode;
 
         return $this;
     }
@@ -97,19 +110,6 @@ class ModifyReplicaVerificationModeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $replicaId
-     *
-     * @return $this
-     */
-    public function setReplicaId($replicaId)
-    {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
 
         return $this;
     }

@@ -8,15 +8,15 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeInstancesByExpireTime
  *
  * @method string getResourceOwnerId()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
- * @method string getOwnerId()
  * @method string getPageNumber()
  * @method string getSecurityToken()
- * @method string getHasExpiredRes()
  * @method string getPageSize()
  * @method string getInstanceType()
  * @method string getExpirePeriod()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
+ * @method string getHasExpiredRes()
  */
 class DescribeInstancesByExpireTimeRequest extends \RpcAcsRequest
 {
@@ -35,7 +35,7 @@ class DescribeInstancesByExpireTimeRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeInstancesByExpireTime',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -48,6 +48,71 @@ class DescribeInstancesByExpireTimeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageNumber
+     *
+     * @return $this
+     */
+    public function setPageNumber($pageNumber)
+    {
+        $this->requestParameters['PageNumber'] = $pageNumber;
+        $this->queryParameters['PageNumber'] = $pageNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param string $securityToken
+     *
+     * @return $this
+     */
+    public function setSecurityToken($securityToken)
+    {
+        $this->requestParameters['SecurityToken'] = $securityToken;
+        $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageSize
+     *
+     * @return $this
+     */
+    public function setPageSize($pageSize)
+    {
+        $this->requestParameters['PageSize'] = $pageSize;
+        $this->queryParameters['PageSize'] = $pageSize;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceType
+     *
+     * @return $this
+     */
+    public function setInstanceType($instanceType)
+    {
+        $this->requestParameters['InstanceType'] = $instanceType;
+        $this->queryParameters['InstanceType'] = $instanceType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $expirePeriod
+     *
+     * @return $this
+     */
+    public function setExpirePeriod($expirePeriod)
+    {
+        $this->requestParameters['ExpirePeriod'] = $expirePeriod;
+        $this->queryParameters['ExpirePeriod'] = $expirePeriod;
 
         return $this;
     }
@@ -92,32 +157,6 @@ class DescribeInstancesByExpireTimeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $pageNumber
-     *
-     * @return $this
-     */
-    public function setPageNumber($pageNumber)
-    {
-        $this->requestParameters['PageNumber'] = $pageNumber;
-        $this->queryParameters['PageNumber'] = $pageNumber;
-
-        return $this;
-    }
-
-    /**
-     * @param string $securityToken
-     *
-     * @return $this
-     */
-    public function setSecurityToken($securityToken)
-    {
-        $this->requestParameters['SecurityToken'] = $securityToken;
-        $this->queryParameters['SecurityToken'] = $securityToken;
-
-        return $this;
-    }
-
-    /**
      * @param string $hasExpiredRes
      *
      * @return $this
@@ -126,45 +165,6 @@ class DescribeInstancesByExpireTimeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['HasExpiredRes'] = $hasExpiredRes;
         $this->queryParameters['HasExpiredRes'] = $hasExpiredRes;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pageSize
-     *
-     * @return $this
-     */
-    public function setPageSize($pageSize)
-    {
-        $this->requestParameters['PageSize'] = $pageSize;
-        $this->queryParameters['PageSize'] = $pageSize;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceType
-     *
-     * @return $this
-     */
-    public function setInstanceType($instanceType)
-    {
-        $this->requestParameters['InstanceType'] = $instanceType;
-        $this->queryParameters['InstanceType'] = $instanceType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $expirePeriod
-     *
-     * @return $this
-     */
-    public function setExpirePeriod($expirePeriod)
-    {
-        $this->requestParameters['ExpirePeriod'] = $expirePeriod;
-        $this->queryParameters['ExpirePeriod'] = $expirePeriod;
 
         return $this;
     }

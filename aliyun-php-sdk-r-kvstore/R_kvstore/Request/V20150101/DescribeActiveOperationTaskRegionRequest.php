@@ -9,8 +9,8 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getIsHistory()
- * @method string getTaskType()
  * @method string getSecurityToken()
+ * @method string getTaskType()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
@@ -32,7 +32,7 @@ class DescribeActiveOperationTaskRegionRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeActiveOperationTaskRegion',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -63,19 +63,6 @@ class DescribeActiveOperationTaskRegionRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $taskType
-     *
-     * @return $this
-     */
-    public function setTaskType($taskType)
-    {
-        $this->requestParameters['TaskType'] = $taskType;
-        $this->queryParameters['TaskType'] = $taskType;
-
-        return $this;
-    }
-
-    /**
      * @param string $securityToken
      *
      * @return $this
@@ -84,6 +71,19 @@ class DescribeActiveOperationTaskRegionRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $taskType
+     *
+     * @return $this
+     */
+    public function setTaskType($taskType)
+    {
+        $this->requestParameters['TaskType'] = $taskType;
+        $this->queryParameters['TaskType'] = $taskType;
 
         return $this;
     }

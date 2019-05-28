@@ -8,19 +8,19 @@ namespace R_kvstore\Request\V20150101;
  * Request of RenewInstance
  *
  * @method string getResourceOwnerId()
+ * @method string getCouponNo()
+ * @method string getInstanceClass()
+ * @method string getCapacity()
+ * @method string getSecurityToken()
+ * @method string getBusinessInfo()
  * @method string getPeriod()
  * @method string getAutoPay()
  * @method string getFromApp()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getCouponNo()
  * @method string getOwnerId()
- * @method string getInstanceClass()
- * @method string getCapacity()
  * @method string getInstanceId()
- * @method string getSecurityToken()
  * @method string getForceUpgrade()
- * @method string getBusinessInfo()
  */
 class RenewInstanceRequest extends \RpcAcsRequest
 {
@@ -39,7 +39,7 @@ class RenewInstanceRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'RenewInstance',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -52,6 +52,71 @@ class RenewInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $couponNo
+     *
+     * @return $this
+     */
+    public function setCouponNo($couponNo)
+    {
+        $this->requestParameters['CouponNo'] = $couponNo;
+        $this->queryParameters['CouponNo'] = $couponNo;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceClass
+     *
+     * @return $this
+     */
+    public function setInstanceClass($instanceClass)
+    {
+        $this->requestParameters['InstanceClass'] = $instanceClass;
+        $this->queryParameters['InstanceClass'] = $instanceClass;
+
+        return $this;
+    }
+
+    /**
+     * @param string $capacity
+     *
+     * @return $this
+     */
+    public function setCapacity($capacity)
+    {
+        $this->requestParameters['Capacity'] = $capacity;
+        $this->queryParameters['Capacity'] = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * @param string $securityToken
+     *
+     * @return $this
+     */
+    public function setSecurityToken($securityToken)
+    {
+        $this->requestParameters['SecurityToken'] = $securityToken;
+        $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $businessInfo
+     *
+     * @return $this
+     */
+    public function setBusinessInfo($businessInfo)
+    {
+        $this->requestParameters['BusinessInfo'] = $businessInfo;
+        $this->queryParameters['BusinessInfo'] = $businessInfo;
 
         return $this;
     }
@@ -122,19 +187,6 @@ class RenewInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $couponNo
-     *
-     * @return $this
-     */
-    public function setCouponNo($couponNo)
-    {
-        $this->requestParameters['CouponNo'] = $couponNo;
-        $this->queryParameters['CouponNo'] = $couponNo;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -143,32 +195,6 @@ class RenewInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceClass
-     *
-     * @return $this
-     */
-    public function setInstanceClass($instanceClass)
-    {
-        $this->requestParameters['InstanceClass'] = $instanceClass;
-        $this->queryParameters['InstanceClass'] = $instanceClass;
-
-        return $this;
-    }
-
-    /**
-     * @param string $capacity
-     *
-     * @return $this
-     */
-    public function setCapacity($capacity)
-    {
-        $this->requestParameters['Capacity'] = $capacity;
-        $this->queryParameters['Capacity'] = $capacity;
 
         return $this;
     }
@@ -187,19 +213,6 @@ class RenewInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $securityToken
-     *
-     * @return $this
-     */
-    public function setSecurityToken($securityToken)
-    {
-        $this->requestParameters['SecurityToken'] = $securityToken;
-        $this->queryParameters['SecurityToken'] = $securityToken;
-
-        return $this;
-    }
-
-    /**
      * @param string $forceUpgrade
      *
      * @return $this
@@ -208,19 +221,6 @@ class RenewInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ForceUpgrade'] = $forceUpgrade;
         $this->queryParameters['ForceUpgrade'] = $forceUpgrade;
-
-        return $this;
-    }
-
-    /**
-     * @param string $businessInfo
-     *
-     * @return $this
-     */
-    public function setBusinessInfo($businessInfo)
-    {
-        $this->requestParameters['BusinessInfo'] = $businessInfo;
-        $this->queryParameters['BusinessInfo'] = $businessInfo;
 
         return $this;
     }

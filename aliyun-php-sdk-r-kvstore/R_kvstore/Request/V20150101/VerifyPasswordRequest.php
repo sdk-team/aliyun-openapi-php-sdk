@@ -9,11 +9,11 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getPassword()
- * @method string getInstanceId()
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getInstanceId()
  */
 class VerifyPasswordRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class VerifyPasswordRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'VerifyPassword',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -58,19 +58,6 @@ class VerifyPasswordRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Password'] = $password;
         $this->queryParameters['Password'] = $password;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceId
-     *
-     * @return $this
-     */
-    public function setInstanceId($instanceId)
-    {
-        $this->requestParameters['InstanceId'] = $instanceId;
-        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }
@@ -123,6 +110,19 @@ class VerifyPasswordRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceId
+     *
+     * @return $this
+     */
+    public function setInstanceId($instanceId)
+    {
+        $this->requestParameters['InstanceId'] = $instanceId;
+        $this->queryParameters['InstanceId'] = $instanceId;
 
         return $this;
     }

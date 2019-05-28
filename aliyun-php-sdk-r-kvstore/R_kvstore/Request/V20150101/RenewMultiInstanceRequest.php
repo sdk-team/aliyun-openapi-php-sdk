@@ -8,16 +8,16 @@ namespace R_kvstore\Request\V20150101;
  * Request of RenewMultiInstance
  *
  * @method string getResourceOwnerId()
+ * @method string getCouponNo()
+ * @method string getSecurityToken()
+ * @method string getBusinessInfo()
  * @method string getPeriod()
  * @method string getAutoPay()
  * @method string getFromApp()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getCouponNo()
  * @method string getOwnerId()
- * @method string getSecurityToken()
  * @method string getInstanceIds()
- * @method string getBusinessInfo()
  */
 class RenewMultiInstanceRequest extends \RpcAcsRequest
 {
@@ -36,7 +36,7 @@ class RenewMultiInstanceRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'RenewMultiInstance',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -49,6 +49,45 @@ class RenewMultiInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $couponNo
+     *
+     * @return $this
+     */
+    public function setCouponNo($couponNo)
+    {
+        $this->requestParameters['CouponNo'] = $couponNo;
+        $this->queryParameters['CouponNo'] = $couponNo;
+
+        return $this;
+    }
+
+    /**
+     * @param string $securityToken
+     *
+     * @return $this
+     */
+    public function setSecurityToken($securityToken)
+    {
+        $this->requestParameters['SecurityToken'] = $securityToken;
+        $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $businessInfo
+     *
+     * @return $this
+     */
+    public function setBusinessInfo($businessInfo)
+    {
+        $this->requestParameters['BusinessInfo'] = $businessInfo;
+        $this->queryParameters['BusinessInfo'] = $businessInfo;
 
         return $this;
     }
@@ -119,19 +158,6 @@ class RenewMultiInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $couponNo
-     *
-     * @return $this
-     */
-    public function setCouponNo($couponNo)
-    {
-        $this->requestParameters['CouponNo'] = $couponNo;
-        $this->queryParameters['CouponNo'] = $couponNo;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -145,19 +171,6 @@ class RenewMultiInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $securityToken
-     *
-     * @return $this
-     */
-    public function setSecurityToken($securityToken)
-    {
-        $this->requestParameters['SecurityToken'] = $securityToken;
-        $this->queryParameters['SecurityToken'] = $securityToken;
-
-        return $this;
-    }
-
-    /**
      * @param string $instanceIds
      *
      * @return $this
@@ -166,19 +179,6 @@ class RenewMultiInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['InstanceIds'] = $instanceIds;
         $this->queryParameters['InstanceIds'] = $instanceIds;
-
-        return $this;
-    }
-
-    /**
-     * @param string $businessInfo
-     *
-     * @return $this
-     */
-    public function setBusinessInfo($businessInfo)
-    {
-        $this->requestParameters['BusinessInfo'] = $businessInfo;
-        $this->queryParameters['BusinessInfo'] = $businessInfo;
 
         return $this;
     }

@@ -8,13 +8,13 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeReplicaUsage
  *
  * @method string getResourceOwnerId()
- * @method string getSourceDBInstanceId()
- * @method string getDestinationDBInstanceId()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
+ * @method string getDestinationDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
  * @method string getOwnerId()
+ * @method string getSourceDBInstanceId()
  */
 class DescribeReplicaUsageRequest extends \RpcAcsRequest
 {
@@ -33,7 +33,7 @@ class DescribeReplicaUsageRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeReplicaUsage',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -51,14 +51,27 @@ class DescribeReplicaUsageRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $sourceDBInstanceId
+     * @param string $securityToken
      *
      * @return $this
      */
-    public function setSourceDBInstanceId($sourceDBInstanceId)
+    public function setSecurityToken($securityToken)
     {
-        $this->requestParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
-        $this->queryParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
+        $this->requestParameters['SecurityToken'] = $securityToken;
+        $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
 
         return $this;
     }
@@ -72,19 +85,6 @@ class DescribeReplicaUsageRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DestinationDBInstanceId'] = $destinationDBInstanceId;
         $this->queryParameters['DestinationDBInstanceId'] = $destinationDBInstanceId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $securityToken
-     *
-     * @return $this
-     */
-    public function setSecurityToken($securityToken)
-    {
-        $this->requestParameters['SecurityToken'] = $securityToken;
-        $this->queryParameters['SecurityToken'] = $securityToken;
 
         return $this;
     }
@@ -116,19 +116,6 @@ class DescribeReplicaUsageRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $replicaId
-     *
-     * @return $this
-     */
-    public function setReplicaId($replicaId)
-    {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -137,6 +124,19 @@ class DescribeReplicaUsageRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $sourceDBInstanceId
+     *
+     * @return $this
+     */
+    public function setSourceDBInstanceId($sourceDBInstanceId)
+    {
+        $this->requestParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
+        $this->queryParameters['SourceDBInstanceId'] = $sourceDBInstanceId;
 
         return $this;
     }

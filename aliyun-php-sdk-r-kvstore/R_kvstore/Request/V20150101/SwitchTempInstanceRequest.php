@@ -29,7 +29,7 @@ class SwitchTempInstanceRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'SwitchTempInstance',
-            'redisa'
+            'kvstore'
         );
     }
 

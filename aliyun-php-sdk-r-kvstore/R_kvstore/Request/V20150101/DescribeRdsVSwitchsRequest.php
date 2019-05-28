@@ -11,9 +11,9 @@ namespace R_kvstore\Request\V20150101;
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
+ * @method string getOwnerId()
  * @method string getVpcId()
  * @method string getZoneId()
- * @method string getOwnerId()
  */
 class DescribeRdsVSwitchsRequest extends \RpcAcsRequest
 {
@@ -32,7 +32,7 @@ class DescribeRdsVSwitchsRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeRdsVSwitchs',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -89,6 +89,19 @@ class DescribeRdsVSwitchsRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
      * @param string $vpcId
      *
      * @return $this
@@ -110,19 +123,6 @@ class DescribeRdsVSwitchsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ZoneId'] = $zoneId;
         $this->queryParameters['ZoneId'] = $zoneId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
 
         return $this;
     }

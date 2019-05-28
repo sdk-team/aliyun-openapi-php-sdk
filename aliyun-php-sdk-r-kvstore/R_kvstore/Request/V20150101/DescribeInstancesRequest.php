@@ -8,26 +8,26 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeInstances
  *
  * @method string getResourceOwnerId()
- * @method string getInstanceStatus()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
  * @method string getSearchKey()
  * @method string getNetworkType()
  * @method string getEngineVersion()
- * @method string getOwnerId()
  * @method string getInstanceClass()
  * @method string getPageNumber()
- * @method string getVSwitchId()
  * @method string getExpired()
  * @method string getSecurityToken()
+ * @method string getPageSize()
+ * @method string getInstanceType()
+ * @method array getTags()
+ * @method string getInstanceStatus()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getOwnerId()
+ * @method string getVSwitchId()
  * @method string getInstanceIds()
  * @method string getArchitectureType()
  * @method string getVpcId()
- * @method string getPageSize()
- * @method string getInstanceType()
  * @method string getZoneId()
  * @method string getChargeType()
- * @method array getTags()
  */
 class DescribeInstancesRequest extends \RpcAcsRequest
 {
@@ -46,7 +46,7 @@ class DescribeInstancesRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeInstances',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -59,45 +59,6 @@ class DescribeInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceStatus
-     *
-     * @return $this
-     */
-    public function setInstanceStatus($instanceStatus)
-    {
-        $this->requestParameters['InstanceStatus'] = $instanceStatus;
-        $this->queryParameters['InstanceStatus'] = $instanceStatus;
-
-        return $this;
-    }
-
-    /**
-     * @param string $resourceOwnerAccount
-     *
-     * @return $this
-     */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
-    {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
 
         return $this;
     }
@@ -142,19 +103,6 @@ class DescribeInstancesRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
      * @param string $instanceClass
      *
      * @return $this
@@ -181,19 +129,6 @@ class DescribeInstancesRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $vSwitchId
-     *
-     * @return $this
-     */
-    public function setVSwitchId($vSwitchId)
-    {
-        $this->requestParameters['VSwitchId'] = $vSwitchId;
-        $this->queryParameters['VSwitchId'] = $vSwitchId;
-
-        return $this;
-    }
-
-    /**
      * @param string $expired
      *
      * @return $this
@@ -215,6 +150,113 @@ class DescribeInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageSize
+     *
+     * @return $this
+     */
+    public function setPageSize($pageSize)
+    {
+        $this->requestParameters['PageSize'] = $pageSize;
+        $this->queryParameters['PageSize'] = $pageSize;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceType
+     *
+     * @return $this
+     */
+    public function setInstanceType($instanceType)
+    {
+        $this->requestParameters['InstanceType'] = $instanceType;
+        $this->queryParameters['InstanceType'] = $instanceType;
+
+        return $this;
+    }
+
+    /**
+     * @param array $tag
+     *
+     * @return $this
+     */
+    public function setTags(array $tag)
+    {
+        $this->requestParameters['Tags'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceStatus
+     *
+     * @return $this
+     */
+    public function setInstanceStatus($instanceStatus)
+    {
+        $this->requestParameters['InstanceStatus'] = $instanceStatus;
+        $this->queryParameters['InstanceStatus'] = $instanceStatus;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $vSwitchId
+     *
+     * @return $this
+     */
+    public function setVSwitchId($vSwitchId)
+    {
+        $this->requestParameters['VSwitchId'] = $vSwitchId;
+        $this->queryParameters['VSwitchId'] = $vSwitchId;
 
         return $this;
     }
@@ -259,32 +301,6 @@ class DescribeInstancesRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $pageSize
-     *
-     * @return $this
-     */
-    public function setPageSize($pageSize)
-    {
-        $this->requestParameters['PageSize'] = $pageSize;
-        $this->queryParameters['PageSize'] = $pageSize;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceType
-     *
-     * @return $this
-     */
-    public function setInstanceType($instanceType)
-    {
-        $this->requestParameters['InstanceType'] = $instanceType;
-        $this->queryParameters['InstanceType'] = $instanceType;
-
-        return $this;
-    }
-
-    /**
      * @param string $zoneId
      *
      * @return $this
@@ -306,22 +322,6 @@ class DescribeInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ChargeType'] = $chargeType;
         $this->queryParameters['ChargeType'] = $chargeType;
-
-        return $this;
-    }
-
-    /**
-     * @param array $tag
-     *
-     * @return $this
-     */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-        }
 
         return $this;
     }

@@ -9,9 +9,9 @@ namespace R_kvstore\Request\V20150101;
  *
  * @method string getResourceOwnerId()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
  * @method string getOwnerId()
  */
 class DescribeStrategyRequest extends \RpcAcsRequest
@@ -31,7 +31,7 @@ class DescribeStrategyRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeStrategy',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -62,6 +62,19 @@ class DescribeStrategyRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
+
+        return $this;
+    }
+
+    /**
      * @param string $resourceOwnerAccount
      *
      * @return $this
@@ -83,19 +96,6 @@ class DescribeStrategyRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $replicaId
-     *
-     * @return $this
-     */
-    public function setReplicaId($replicaId)
-    {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
 
         return $this;
     }

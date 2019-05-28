@@ -8,14 +8,14 @@ namespace R_kvstore\Request\V20150101;
  * Request of DescribeReplicas
  *
  * @method string getResourceOwnerId()
+ * @method string getPageNumber()
  * @method string getSecurityToken()
+ * @method string getReplicaId()
+ * @method string getPageSize()
  * @method string getResourceOwnerAccount()
  * @method string getAttachDbInstanceData()
  * @method string getOwnerAccount()
- * @method string getReplicaId()
- * @method string getPageSize()
  * @method string getOwnerId()
- * @method string getPageNumber()
  */
 class DescribeReplicasRequest extends \RpcAcsRequest
 {
@@ -34,7 +34,7 @@ class DescribeReplicasRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'DescribeReplicas',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -52,6 +52,19 @@ class DescribeReplicasRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $pageNumber
+     *
+     * @return $this
+     */
+    public function setPageNumber($pageNumber)
+    {
+        $this->requestParameters['PageNumber'] = $pageNumber;
+        $this->queryParameters['PageNumber'] = $pageNumber;
+
+        return $this;
+    }
+
+    /**
      * @param string $securityToken
      *
      * @return $this
@@ -60,6 +73,32 @@ class DescribeReplicasRequest extends \RpcAcsRequest
     {
         $this->requestParameters['SecurityToken'] = $securityToken;
         $this->queryParameters['SecurityToken'] = $securityToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $replicaId
+     *
+     * @return $this
+     */
+    public function setReplicaId($replicaId)
+    {
+        $this->requestParameters['ReplicaId'] = $replicaId;
+        $this->queryParameters['ReplicaId'] = $replicaId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageSize
+     *
+     * @return $this
+     */
+    public function setPageSize($pageSize)
+    {
+        $this->requestParameters['PageSize'] = $pageSize;
+        $this->queryParameters['PageSize'] = $pageSize;
 
         return $this;
     }
@@ -104,32 +143,6 @@ class DescribeReplicasRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $replicaId
-     *
-     * @return $this
-     */
-    public function setReplicaId($replicaId)
-    {
-        $this->requestParameters['ReplicaId'] = $replicaId;
-        $this->queryParameters['ReplicaId'] = $replicaId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pageSize
-     *
-     * @return $this
-     */
-    public function setPageSize($pageSize)
-    {
-        $this->requestParameters['PageSize'] = $pageSize;
-        $this->queryParameters['PageSize'] = $pageSize;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -138,19 +151,6 @@ class DescribeReplicasRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pageNumber
-     *
-     * @return $this
-     */
-    public function setPageNumber($pageNumber)
-    {
-        $this->requestParameters['PageNumber'] = $pageNumber;
-        $this->queryParameters['PageNumber'] = $pageNumber;
 
         return $this;
     }

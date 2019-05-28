@@ -8,10 +8,10 @@ namespace R_kvstore\Request\V20150101;
  * Request of TagResources
  *
  * @method string getResourceOwnerId()
+ * @method array getTags()
  * @method array getResourceIds()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method array getTags()
  * @method string getOwnerId()
  * @method string getResourceType()
  */
@@ -32,7 +32,7 @@ class TagResourcesRequest extends \RpcAcsRequest
             'R-kvstore',
             '2015-01-01',
             'TagResources',
-            'redisa'
+            'kvstore'
         );
     }
 
@@ -45,6 +45,22 @@ class TagResourcesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param array $tag
+     *
+     * @return $this
+     */
+    public function setTags(array $tag)
+    {
+        $this->requestParameters['Tags'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+        }
 
         return $this;
     }
@@ -86,22 +102,6 @@ class TagResourcesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerAccount'] = $ownerAccount;
         $this->queryParameters['OwnerAccount'] = $ownerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param array $tag
-     *
-     * @return $this
-     */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-        }
 
         return $this;
     }
