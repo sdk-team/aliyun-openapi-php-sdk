@@ -1,14 +1,14 @@
 <?php
 
-namespace Yundun\Request\V20150227;
+namespace Yundun\Request\V20150416;
 
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of TodayCrackIntercept
+ * Request of GetDdosConfigOptions
  *
  */
-class TodayCrackInterceptRequest extends \RpcAcsRequest
+class GetDdosConfigOptionsRequest extends \RpcAcsRequest
 {
 
     /**
@@ -23,8 +23,8 @@ class TodayCrackInterceptRequest extends \RpcAcsRequest
     {
         parent::__construct(
             'Yundun',
-            '2015-02-27',
-            'TodayCrackIntercept',
+            '2015-04-16',
+            'GetDdosConfigOptions',
             'yundun'
         );
     }
