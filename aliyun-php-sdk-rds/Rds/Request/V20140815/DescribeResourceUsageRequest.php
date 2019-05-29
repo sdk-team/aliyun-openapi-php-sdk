@@ -30,7 +30,8 @@ class DescribeResourceUsageRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeResourceUsage'
+            'DescribeResourceUsage',
+            'rds'
         );
     }
 

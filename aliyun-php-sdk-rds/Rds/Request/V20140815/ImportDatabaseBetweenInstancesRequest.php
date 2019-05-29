@@ -31,7 +31,8 @@ class ImportDatabaseBetweenInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ImportDatabaseBetweenInstances'
+            'ImportDatabaseBetweenInstances',
+            'rds'
         );
     }
 

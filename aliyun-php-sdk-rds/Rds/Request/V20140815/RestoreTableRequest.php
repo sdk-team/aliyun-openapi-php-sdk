@@ -33,7 +33,8 @@ class RestoreTableRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'RestoreTable'
+            'RestoreTable',
+            'rds'
         );
     }
 

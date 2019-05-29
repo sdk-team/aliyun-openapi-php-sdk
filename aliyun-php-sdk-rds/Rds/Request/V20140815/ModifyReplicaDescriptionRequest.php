@@ -31,7 +31,8 @@ class ModifyReplicaDescriptionRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyReplicaDescription'
+            'ModifyReplicaDescription',
+            'rds'
         );
     }
 

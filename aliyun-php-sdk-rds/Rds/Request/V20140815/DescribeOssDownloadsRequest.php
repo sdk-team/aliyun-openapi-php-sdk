@@ -29,7 +29,8 @@ class DescribeOssDownloadsRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeOssDownloads'
+            'DescribeOssDownloads',
+            'rds'
         );
     }
 

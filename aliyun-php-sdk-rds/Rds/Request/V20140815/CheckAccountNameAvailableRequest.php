@@ -31,7 +31,8 @@ class CheckAccountNameAvailableRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CheckAccountNameAvailable'
+            'CheckAccountNameAvailable',
+            'rds'
         );
     }
 

@@ -28,7 +28,8 @@ class DescribeCustinsKernelReleaseNotesRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeCustinsKernelReleaseNotes'
+            'DescribeCustinsKernelReleaseNotes',
+            'rds'
         );
     }
 

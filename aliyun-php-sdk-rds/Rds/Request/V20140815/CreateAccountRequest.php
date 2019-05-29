@@ -33,7 +33,8 @@ class CreateAccountRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CreateAccount'
+            'CreateAccount',
+            'rds'
         );
     }
 

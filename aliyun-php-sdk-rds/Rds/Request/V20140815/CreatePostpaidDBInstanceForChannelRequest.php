@@ -36,7 +36,8 @@ class CreatePostpaidDBInstanceForChannelRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CreatePostpaidDBInstanceForChannel'
+            'CreatePostpaidDBInstanceForChannel',
+            'rds'
         );
     }
 

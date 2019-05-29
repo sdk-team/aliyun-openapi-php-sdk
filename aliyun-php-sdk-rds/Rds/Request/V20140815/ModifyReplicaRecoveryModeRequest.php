@@ -31,7 +31,8 @@ class ModifyReplicaRecoveryModeRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyReplicaRecoveryMode'
+            'ModifyReplicaRecoveryMode',
+            'rds'
         );
     }
 

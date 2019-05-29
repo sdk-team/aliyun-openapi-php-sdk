@@ -32,7 +32,8 @@ class ModifyInstanceAutoRenewalAttributeRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyInstanceAutoRenewalAttribute'
+            'ModifyInstanceAutoRenewalAttribute',
+            'rds'
         );
     }
 

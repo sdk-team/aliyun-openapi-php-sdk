@@ -30,7 +30,8 @@ class ModifyDBInstanceConnectionModeRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyDBInstanceConnectionMode'
+            'ModifyDBInstanceConnectionMode',
+            'rds'
         );
     }
 

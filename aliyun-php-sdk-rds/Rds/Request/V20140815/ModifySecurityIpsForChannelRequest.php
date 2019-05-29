@@ -37,7 +37,8 @@ class ModifySecurityIpsForChannelRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifySecurityIpsForChannel'
+            'ModifySecurityIpsForChannel',
+            'rds'
         );
     }
 

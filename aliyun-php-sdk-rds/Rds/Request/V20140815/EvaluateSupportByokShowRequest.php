@@ -5,16 +5,20 @@ namespace Rds\Request\V20140815;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of DescribeSqlLogDetailArchiveStatus
+ * Request of EvaluateSupportByokShow
  *
  * @method string getResourceOwnerId()
+ * @method string getNodeType()
+ * @method string getEngineVersion()
  * @method string getSecurityToken()
- * @method string getDBInstanceId()
+ * @method string getEngine()
+ * @method string getDbInstanceStorageType()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getTargetRegionId()
  */
-class DescribeSqlLogDetailArchiveStatusRequest extends \RpcAcsRequest
+class EvaluateSupportByokShowRequest extends \RpcAcsRequest
 {
 
     /**
@@ -30,7 +34,7 @@ class DescribeSqlLogDetailArchiveStatusRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeSqlLogDetailArchiveStatus',
+            'EvaluateSupportByokShow',
             'rds'
         );
     }
@@ -49,6 +53,32 @@ class DescribeSqlLogDetailArchiveStatusRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $nodeType
+     *
+     * @return $this
+     */
+    public function setNodeType($nodeType)
+    {
+        $this->requestParameters['NodeType'] = $nodeType;
+        $this->queryParameters['NodeType'] = $nodeType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $engineVersion
+     *
+     * @return $this
+     */
+    public function setEngineVersion($engineVersion)
+    {
+        $this->requestParameters['EngineVersion'] = $engineVersion;
+        $this->queryParameters['EngineVersion'] = $engineVersion;
+
+        return $this;
+    }
+
+    /**
      * @param string $securityToken
      *
      * @return $this
@@ -62,14 +92,27 @@ class DescribeSqlLogDetailArchiveStatusRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceId
+     * @param string $engine
      *
      * @return $this
      */
-    public function setDBInstanceId($dBInstanceId)
+    public function setEngine($engine)
     {
-        $this->requestParameters['DBInstanceId'] = $dBInstanceId;
-        $this->queryParameters['DBInstanceId'] = $dBInstanceId;
+        $this->requestParameters['Engine'] = $engine;
+        $this->queryParameters['Engine'] = $engine;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dbInstanceStorageType
+     *
+     * @return $this
+     */
+    public function setDbInstanceStorageType($dbInstanceStorageType)
+    {
+        $this->requestParameters['DbInstanceStorageType'] = $dbInstanceStorageType;
+        $this->queryParameters['DbInstanceStorageType'] = $dbInstanceStorageType;
 
         return $this;
     }
@@ -109,6 +152,19 @@ class DescribeSqlLogDetailArchiveStatusRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $targetRegionId
+     *
+     * @return $this
+     */
+    public function setTargetRegionId($targetRegionId)
+    {
+        $this->requestParameters['TargetRegionId'] = $targetRegionId;
+        $this->queryParameters['TargetRegionId'] = $targetRegionId;
 
         return $this;
     }

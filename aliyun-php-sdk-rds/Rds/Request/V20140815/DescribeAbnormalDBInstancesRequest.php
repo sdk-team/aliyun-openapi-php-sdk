@@ -44,7 +44,8 @@ class DescribeAbnormalDBInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeAbnormalDBInstances'
+            'DescribeAbnormalDBInstances',
+            'rds'
         );
     }
 

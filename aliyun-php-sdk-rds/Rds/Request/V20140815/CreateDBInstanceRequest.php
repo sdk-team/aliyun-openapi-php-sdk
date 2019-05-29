@@ -7,32 +7,37 @@ namespace Rds\Request\V20140815;
  *
  * Request of CreateDBInstance
  *
- * @method string getConnectionMode()
  * @method string getResourceOwnerId()
  * @method string getDBInstanceStorage()
  * @method string getSystemDBCharset()
- * @method string getClientToken()
  * @method string getEngineVersion()
  * @method string getResourceGroupId()
- * @method string getEngine()
  * @method string getDBInstanceDescription()
- * @method string getDBInstanceStorageType()
  * @method string getBusinessInfo()
- * @method string getDBInstanceNetType()
  * @method string getPeriod()
- * @method string getResourceOwnerAccount()
- * @method string getOwnerAccount()
+ * @method string getEncryptionKey()
  * @method string getOwnerId()
- * @method string getUsedTime()
  * @method string getDBInstanceClass()
  * @method string getSecurityIPList()
  * @method string getVSwitchId()
  * @method string getPrivateIpAddress()
- * @method string getVPCId()
+ * @method string getAutoRenew()
+ * @method string getRoleARN()
  * @method string getTunnelId()
  * @method string getZoneId()
- * @method string getPayType()
  * @method string getInstanceNetworkType()
+ * @method string getConnectionMode()
+ * @method string getClientToken()
+ * @method string getZoneIdSlave1()
+ * @method string getZoneIdSlave2()
+ * @method string getEngine()
+ * @method string getDBInstanceStorageType()
+ * @method string getDBInstanceNetType()
+ * @method string getResourceOwnerAccount()
+ * @method string getOwnerAccount()
+ * @method string getUsedTime()
+ * @method string getVPCId()
+ * @method string getPayType()
  */
 class CreateDBInstanceRequest extends \RpcAcsRequest
 {
@@ -50,21 +55,9 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CreateDBInstance'
+            'CreateDBInstance',
+            'rds'
         );
-    }
-
-    /**
-     * @param string $connectionMode
-     *
-     * @return $this
-     */
-    public function setConnectionMode($connectionMode)
-    {
-        $this->requestParameters['ConnectionMode'] = $connectionMode;
-        $this->queryParameters['ConnectionMode'] = $connectionMode;
-
-        return $this;
     }
 
     /**
@@ -107,19 +100,6 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $clientToken
-     *
-     * @return $this
-     */
-    public function setClientToken($clientToken)
-    {
-        $this->requestParameters['ClientToken'] = $clientToken;
-        $this->queryParameters['ClientToken'] = $clientToken;
-
-        return $this;
-    }
-
-    /**
      * @param string $engineVersion
      *
      * @return $this
@@ -146,19 +126,6 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $engine
-     *
-     * @return $this
-     */
-    public function setEngine($engine)
-    {
-        $this->requestParameters['Engine'] = $engine;
-        $this->queryParameters['Engine'] = $engine;
-
-        return $this;
-    }
-
-    /**
      * @param string $dBInstanceDescription
      *
      * @return $this
@@ -167,19 +134,6 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DBInstanceDescription'] = $dBInstanceDescription;
         $this->queryParameters['DBInstanceDescription'] = $dBInstanceDescription;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceStorageType
-     *
-     * @return $this
-     */
-    public function setDBInstanceStorageType($dBInstanceStorageType)
-    {
-        $this->requestParameters['DBInstanceStorageType'] = $dBInstanceStorageType;
-        $this->queryParameters['DBInstanceStorageType'] = $dBInstanceStorageType;
 
         return $this;
     }
@@ -198,19 +152,6 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dBInstanceNetType
-     *
-     * @return $this
-     */
-    public function setDBInstanceNetType($dBInstanceNetType)
-    {
-        $this->requestParameters['DBInstanceNetType'] = $dBInstanceNetType;
-        $this->queryParameters['DBInstanceNetType'] = $dBInstanceNetType;
-
-        return $this;
-    }
-
-    /**
      * @param string $period
      *
      * @return $this
@@ -224,27 +165,14 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $resourceOwnerAccount
+     * @param string $encryptionKey
      *
      * @return $this
      */
-    public function setResourceOwnerAccount($resourceOwnerAccount)
+    public function setEncryptionKey($encryptionKey)
     {
-        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
-
-        return $this;
-    }
-
-    /**
-     * @param string $ownerAccount
-     *
-     * @return $this
-     */
-    public function setOwnerAccount($ownerAccount)
-    {
-        $this->requestParameters['OwnerAccount'] = $ownerAccount;
-        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+        $this->requestParameters['EncryptionKey'] = $encryptionKey;
+        $this->queryParameters['EncryptionKey'] = $encryptionKey;
 
         return $this;
     }
@@ -258,19 +186,6 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $usedTime
-     *
-     * @return $this
-     */
-    public function setUsedTime($usedTime)
-    {
-        $this->requestParameters['UsedTime'] = $usedTime;
-        $this->queryParameters['UsedTime'] = $usedTime;
 
         return $this;
     }
@@ -328,14 +243,27 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $vPCId
+     * @param string $autoRenew
      *
      * @return $this
      */
-    public function setVPCId($vPCId)
+    public function setAutoRenew($autoRenew)
     {
-        $this->requestParameters['VPCId'] = $vPCId;
-        $this->queryParameters['VPCId'] = $vPCId;
+        $this->requestParameters['AutoRenew'] = $autoRenew;
+        $this->queryParameters['AutoRenew'] = $autoRenew;
+
+        return $this;
+    }
+
+    /**
+     * @param string $roleARN
+     *
+     * @return $this
+     */
+    public function setRoleARN($roleARN)
+    {
+        $this->requestParameters['RoleARN'] = $roleARN;
+        $this->queryParameters['RoleARN'] = $roleARN;
 
         return $this;
     }
@@ -367,19 +295,6 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $payType
-     *
-     * @return $this
-     */
-    public function setPayType($payType)
-    {
-        $this->requestParameters['PayType'] = $payType;
-        $this->queryParameters['PayType'] = $payType;
-
-        return $this;
-    }
-
-    /**
      * @param string $instanceNetworkType
      *
      * @return $this
@@ -388,6 +303,162 @@ class CreateDBInstanceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['InstanceNetworkType'] = $instanceNetworkType;
         $this->queryParameters['InstanceNetworkType'] = $instanceNetworkType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $connectionMode
+     *
+     * @return $this
+     */
+    public function setConnectionMode($connectionMode)
+    {
+        $this->requestParameters['ConnectionMode'] = $connectionMode;
+        $this->queryParameters['ConnectionMode'] = $connectionMode;
+
+        return $this;
+    }
+
+    /**
+     * @param string $clientToken
+     *
+     * @return $this
+     */
+    public function setClientToken($clientToken)
+    {
+        $this->requestParameters['ClientToken'] = $clientToken;
+        $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $zoneIdSlave1
+     *
+     * @return $this
+     */
+    public function setZoneIdSlave1($zoneIdSlave1)
+    {
+        $this->requestParameters['ZoneIdSlave1'] = $zoneIdSlave1;
+        $this->queryParameters['ZoneIdSlave1'] = $zoneIdSlave1;
+
+        return $this;
+    }
+
+    /**
+     * @param string $zoneIdSlave2
+     *
+     * @return $this
+     */
+    public function setZoneIdSlave2($zoneIdSlave2)
+    {
+        $this->requestParameters['ZoneIdSlave2'] = $zoneIdSlave2;
+        $this->queryParameters['ZoneIdSlave2'] = $zoneIdSlave2;
+
+        return $this;
+    }
+
+    /**
+     * @param string $engine
+     *
+     * @return $this
+     */
+    public function setEngine($engine)
+    {
+        $this->requestParameters['Engine'] = $engine;
+        $this->queryParameters['Engine'] = $engine;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceStorageType
+     *
+     * @return $this
+     */
+    public function setDBInstanceStorageType($dBInstanceStorageType)
+    {
+        $this->requestParameters['DBInstanceStorageType'] = $dBInstanceStorageType;
+        $this->queryParameters['DBInstanceStorageType'] = $dBInstanceStorageType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dBInstanceNetType
+     *
+     * @return $this
+     */
+    public function setDBInstanceNetType($dBInstanceNetType)
+    {
+        $this->requestParameters['DBInstanceNetType'] = $dBInstanceNetType;
+        $this->queryParameters['DBInstanceNetType'] = $dBInstanceNetType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceOwnerAccount
+     *
+     * @return $this
+     */
+    public function setResourceOwnerAccount($resourceOwnerAccount)
+    {
+        $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+        $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerAccount
+     *
+     * @return $this
+     */
+    public function setOwnerAccount($ownerAccount)
+    {
+        $this->requestParameters['OwnerAccount'] = $ownerAccount;
+        $this->queryParameters['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $usedTime
+     *
+     * @return $this
+     */
+    public function setUsedTime($usedTime)
+    {
+        $this->requestParameters['UsedTime'] = $usedTime;
+        $this->queryParameters['UsedTime'] = $usedTime;
+
+        return $this;
+    }
+
+    /**
+     * @param string $vPCId
+     *
+     * @return $this
+     */
+    public function setVPCId($vPCId)
+    {
+        $this->requestParameters['VPCId'] = $vPCId;
+        $this->queryParameters['VPCId'] = $vPCId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $payType
+     *
+     * @return $this
+     */
+    public function setPayType($payType)
+    {
+        $this->requestParameters['PayType'] = $payType;
+        $this->queryParameters['PayType'] = $payType;
 
         return $this;
     }

@@ -35,7 +35,8 @@ class DescribeSlowLogsRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2013-05-28',
-            'DescribeSlowLogs'
+            'DescribeSlowLogs',
+            'rds'
         );
     }
 

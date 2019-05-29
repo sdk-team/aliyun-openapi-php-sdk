@@ -28,7 +28,8 @@ class DescribeDBInstancesAsCsvRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeDBInstancesAsCsv'
+            'DescribeDBInstancesAsCsv',
+            'rds'
         );
     }
 

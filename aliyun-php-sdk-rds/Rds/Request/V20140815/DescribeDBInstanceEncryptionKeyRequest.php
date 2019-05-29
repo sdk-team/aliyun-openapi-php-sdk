@@ -12,7 +12,9 @@ namespace Rds\Request\V20140815;
  * @method string getDBInstanceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
+ * @method string getEncryptionKey()
  * @method string getOwnerId()
+ * @method string getTargetRegionId()
  */
 class DescribeDBInstanceEncryptionKeyRequest extends \RpcAcsRequest
 {
@@ -30,7 +32,8 @@ class DescribeDBInstanceEncryptionKeyRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeDBInstanceEncryptionKey'
+            'DescribeDBInstanceEncryptionKey',
+            'rds'
         );
     }
 
@@ -100,6 +103,19 @@ class DescribeDBInstanceEncryptionKeyRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $encryptionKey
+     *
+     * @return $this
+     */
+    public function setEncryptionKey($encryptionKey)
+    {
+        $this->requestParameters['EncryptionKey'] = $encryptionKey;
+        $this->queryParameters['EncryptionKey'] = $encryptionKey;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -108,6 +124,19 @@ class DescribeDBInstanceEncryptionKeyRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $targetRegionId
+     *
+     * @return $this
+     */
+    public function setTargetRegionId($targetRegionId)
+    {
+        $this->requestParameters['TargetRegionId'] = $targetRegionId;
+        $this->queryParameters['TargetRegionId'] = $targetRegionId;
 
         return $this;
     }

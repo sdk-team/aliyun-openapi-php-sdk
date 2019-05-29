@@ -35,7 +35,8 @@ class ModifyDampPolicyRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'ModifyDampPolicy'
+            'ModifyDampPolicy',
+            'rds'
         );
     }
 

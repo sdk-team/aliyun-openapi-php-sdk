@@ -39,7 +39,8 @@ class DescribeRenewalPriceRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeRenewalPrice'
+            'DescribeRenewalPrice',
+            'rds'
         );
     }
 

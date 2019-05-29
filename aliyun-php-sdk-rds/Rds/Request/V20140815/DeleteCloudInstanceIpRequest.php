@@ -27,7 +27,8 @@ class DeleteCloudInstanceIpRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DeleteCloudInstanceIp'
+            'DeleteCloudInstanceIp',
+            'rds'
         );
     }
 

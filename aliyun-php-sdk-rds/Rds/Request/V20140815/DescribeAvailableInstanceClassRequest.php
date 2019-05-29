@@ -34,7 +34,8 @@ class DescribeAvailableInstanceClassRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeAvailableInstanceClass'
+            'DescribeAvailableInstanceClass',
+            'rds'
         );
     }
 

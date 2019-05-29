@@ -20,6 +20,7 @@ namespace Rds\Request\V20140815;
  * @method string getResource()
  * @method string getBackupId()
  * @method string getCommodityCode()
+ * @method string getEncryptionKey()
  * @method string getOwnerId()
  * @method string getDBInstanceClass()
  * @method string getSecurityIPList()
@@ -27,6 +28,7 @@ namespace Rds\Request\V20140815;
  * @method string getPrivateIpAddress()
  * @method string getAutoRenew()
  * @method string getPromotionCode()
+ * @method string getRoleARN()
  * @method string getZoneId()
  * @method string getTimeType()
  * @method string getInstanceNetworkType()
@@ -66,7 +68,8 @@ class CreateOrderRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CreateOrder'
+            'CreateOrder',
+            'rds'
         );
     }
 
@@ -240,6 +243,19 @@ class CreateOrderRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $encryptionKey
+     *
+     * @return $this
+     */
+    public function setEncryptionKey($encryptionKey)
+    {
+        $this->requestParameters['EncryptionKey'] = $encryptionKey;
+        $this->queryParameters['EncryptionKey'] = $encryptionKey;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -326,6 +342,19 @@ class CreateOrderRequest extends \RpcAcsRequest
     {
         $this->requestParameters['PromotionCode'] = $promotionCode;
         $this->queryParameters['PromotionCode'] = $promotionCode;
+
+        return $this;
+    }
+
+    /**
+     * @param string $roleARN
+     *
+     * @return $this
+     */
+    public function setRoleARN($roleARN)
+    {
+        $this->requestParameters['RoleARN'] = $roleARN;
+        $this->queryParameters['RoleARN'] = $roleARN;
 
         return $this;
     }

@@ -29,7 +29,8 @@ class SwitchDBInstanceChargeTypeRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'SwitchDBInstanceChargeType'
+            'SwitchDBInstanceChargeType',
+            'rds'
         );
     }
 

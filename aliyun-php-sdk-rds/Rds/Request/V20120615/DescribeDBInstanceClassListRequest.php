@@ -28,7 +28,8 @@ class DescribeDBInstanceClassListRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2012-06-15',
-            'DescribeDBInstanceClassList'
+            'DescribeDBInstanceClassList',
+            'rds'
         );
     }
 

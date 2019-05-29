@@ -33,7 +33,8 @@ class DescribeDatabasesRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeDatabases'
+            'DescribeDatabases',
+            'rds'
         );
     }
 

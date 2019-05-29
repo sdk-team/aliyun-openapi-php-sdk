@@ -31,7 +31,8 @@ class DescribeReadDBInstanceDelayRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeReadDBInstanceDelay'
+            'DescribeReadDBInstanceDelay',
+            'rds'
         );
     }
 

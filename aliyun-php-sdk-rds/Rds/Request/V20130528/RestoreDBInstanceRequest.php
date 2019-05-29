@@ -30,7 +30,8 @@ class RestoreDBInstanceRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2013-05-28',
-            'RestoreDBInstance'
+            'RestoreDBInstance',
+            'rds'
         );
     }
 

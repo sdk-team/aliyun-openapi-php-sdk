@@ -31,7 +31,8 @@ class DescribeOptimizeAdviceOnExcessIndexRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeOptimizeAdviceOnExcessIndex'
+            'DescribeOptimizeAdviceOnExcessIndex',
+            'rds'
         );
     }
 

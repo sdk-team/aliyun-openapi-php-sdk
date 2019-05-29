@@ -48,7 +48,8 @@ class CreateOrderForRebuildRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'CreateOrderForRebuild'
+            'CreateOrderForRebuild',
+            'rds'
         );
     }
 

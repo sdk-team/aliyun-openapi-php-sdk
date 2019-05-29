@@ -13,6 +13,7 @@ namespace Rds\Request\V20140815;
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getTargetRegionId()
  */
 class DescribeUserEncryptionKeyListRequest extends \RpcAcsRequest
 {
@@ -30,7 +31,8 @@ class DescribeUserEncryptionKeyListRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeUserEncryptionKeyList'
+            'DescribeUserEncryptionKeyList',
+            'rds'
         );
     }
 
@@ -108,6 +110,19 @@ class DescribeUserEncryptionKeyListRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $targetRegionId
+     *
+     * @return $this
+     */
+    public function setTargetRegionId($targetRegionId)
+    {
+        $this->requestParameters['TargetRegionId'] = $targetRegionId;
+        $this->queryParameters['TargetRegionId'] = $targetRegionId;
 
         return $this;
     }

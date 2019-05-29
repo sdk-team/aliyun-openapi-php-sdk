@@ -29,7 +29,8 @@ class DescribeParametersRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2013-05-28',
-            'DescribeParameters'
+            'DescribeParameters',
+            'rds'
         );
     }
 

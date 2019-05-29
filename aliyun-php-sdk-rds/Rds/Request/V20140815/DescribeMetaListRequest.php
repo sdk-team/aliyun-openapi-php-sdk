@@ -36,7 +36,8 @@ class DescribeMetaListRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2014-08-15',
-            'DescribeMetaList'
+            'DescribeMetaList',
+            'rds'
         );
     }
 

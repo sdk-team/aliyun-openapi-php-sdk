@@ -30,7 +30,8 @@ class CreateImportDataUploadRequest extends \RpcAcsRequest
         parent::__construct(
             'Rds',
             '2013-05-28',
-            'CreateImportDataUpload'
+            'CreateImportDataUpload',
+            'rds'
         );
     }
 
