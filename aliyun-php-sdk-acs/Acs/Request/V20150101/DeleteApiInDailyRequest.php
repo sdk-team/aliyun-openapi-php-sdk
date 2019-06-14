@@ -5,26 +5,25 @@ namespace Acs\Request\V20150101;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of PutFlowControl
+ * Request of DeleteApiInDaily
  *
- * @method string getBodyContent()
- * @method string getApiName()
+ * @method string getEnvironment()
+ * @method string getName()
  * @method string getProductName()
  * @method string getVersionName()
- * @method string getAccept()
  */
-class PutFlowControlRequest extends \RoaAcsRequest
+class DeleteApiInDailyRequest extends \RoaAcsRequest
 {
 
     /**
      * @var string
      */
-    protected $uriPattern = '/FlowControl/[ProductName]/[VersionName]/[ApiName]';
+    protected $uriPattern = '/deleteApiInDaily';
 
     /**
      * @var string
      */
-    protected $method = 'PUT';
+    protected $method = 'POST';
 
     /**
      * Class constructor.
@@ -34,33 +33,33 @@ class PutFlowControlRequest extends \RoaAcsRequest
         parent::__construct(
             'Acs',
             '2015-01-01',
-            'PutFlowControl',
+            'DeleteApiInDaily',
             'dsfasdf'
         );
     }
 
     /**
-     * @param string $bodyContent
+     * @param string $environment
      *
      * @return $this
      */
-    public function setBodyContent($bodyContent)
+    public function setEnvironment($environment)
     {
-        $this->requestParameters['BodyContent'] = $bodyContent;
-        $this->queryParameters['BodyContent'] = $bodyContent;
+        $this->requestParameters['Environment'] = $environment;
+        $this->queryParameters['Environment'] = $environment;
 
         return $this;
     }
 
     /**
-     * @param string $apiName
+     * @param string $name
      *
      * @return $this
      */
-    public function setApiName($apiName)
+    public function setName($name)
     {
-        $this->requestParameters['ApiName'] = $apiName;
-        $this->pathParameters['ApiName'] = $apiName;
+        $this->requestParameters['Name'] = $name;
+        $this->queryParameters['Name'] = $name;
 
         return $this;
     }
@@ -73,7 +72,7 @@ class PutFlowControlRequest extends \RoaAcsRequest
     public function setProductName($productName)
     {
         $this->requestParameters['ProductName'] = $productName;
-        $this->pathParameters['ProductName'] = $productName;
+        $this->queryParameters['ProductName'] = $productName;
 
         return $this;
     }
@@ -86,20 +85,7 @@ class PutFlowControlRequest extends \RoaAcsRequest
     public function setVersionName($versionName)
     {
         $this->requestParameters['VersionName'] = $versionName;
-        $this->pathParameters['VersionName'] = $versionName;
-
-        return $this;
-    }
-
-    /**
-     * @param string $accept
-     *
-     * @return $this
-     */
-    public function setAccept($accept)
-    {
-        $this->requestParameters['Accept'] = $accept;
-        $this->headers['Accept'] = $accept;
+        $this->queryParameters['VersionName'] = $versionName;
 
         return $this;
     }
