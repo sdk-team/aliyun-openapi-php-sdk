@@ -34,7 +34,7 @@ class DeleteApiOnlineRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'DeleteApiOnline',
-            'sfdsadfs'
+            'dsafsd'
         );
     }
 

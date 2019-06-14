@@ -38,7 +38,7 @@ class PurchaseApiRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'PurchaseApi',
-            'sfdsadfs'
+            'dsafsd'
         );
     }
 
