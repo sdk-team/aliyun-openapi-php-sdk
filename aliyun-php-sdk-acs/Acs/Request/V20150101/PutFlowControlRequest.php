@@ -35,7 +35,7 @@ class PutFlowControlRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'PutFlowControl',
-            'dsfasdf'
+            'dafdafsasf'
         );
     }
 

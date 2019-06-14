@@ -35,7 +35,7 @@ class ModifyApiNameRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'ModifyApiName',
-            'dsfasdf'
+            'dafdafsasf'
         );
     }
 
