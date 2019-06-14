@@ -34,7 +34,7 @@ class DeleteApiInDailyRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'DeleteApiInDaily',
-            'dafdafsasf'
+            'sfdsadfs'
         );
     }
 

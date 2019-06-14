@@ -34,7 +34,7 @@ class StopPurchasedApiRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'StopPurchasedApi',
-            'dafdafsasf'
+            'sfdsadfs'
         );
     }
 

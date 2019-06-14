@@ -35,7 +35,7 @@ class ModifyApiNameInDailyRequest extends \RoaAcsRequest
             'Acs',
             '2015-01-01',
             'ModifyApiNameInDaily',
-            'dafdafsasf'
+            'sfdsadfs'
         );
     }
 
