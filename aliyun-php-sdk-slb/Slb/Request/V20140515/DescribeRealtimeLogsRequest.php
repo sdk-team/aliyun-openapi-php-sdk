@@ -5,20 +5,22 @@ namespace Slb\Request\V20140515;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of ModifyLoadBalancerPayType
+ * Request of DescribeRealtimeLogs
  *
  * @method string getaccess_key_id()
+ * @method string getLogStartTime()
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
+ * @method string getLogEndTime()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getPageNumber()
  * @method string getTags()
- * @method string getDuration()
+ * @method string getLogType()
  * @method string getLoadBalancerId()
- * @method string getPayType()
- * @method string getPricingCycle()
+ * @method string getPageSize()
  */
-class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
+class DescribeRealtimeLogsRequest extends \RpcAcsRequest
 {
 
     /**
@@ -34,7 +36,7 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
         parent::__construct(
             'Slb',
             '2014-05-15',
-            'ModifyLoadBalancerPayType',
+            'DescribeRealtimeLogs',
             'asdfdsf'
         );
     }
@@ -48,6 +50,19 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['access_key_id'] = $access_key_id;
         $this->queryParameters['access_key_id'] = $access_key_id;
+
+        return $this;
+    }
+
+    /**
+     * @param string $logStartTime
+     *
+     * @return $this
+     */
+    public function setLogStartTime($logStartTime)
+    {
+        $this->requestParameters['LogStartTime'] = $logStartTime;
+        $this->queryParameters['LogStartTime'] = $logStartTime;
 
         return $this;
     }
@@ -79,6 +94,19 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $logEndTime
+     *
+     * @return $this
+     */
+    public function setLogEndTime($logEndTime)
+    {
+        $this->requestParameters['LogEndTime'] = $logEndTime;
+        $this->queryParameters['LogEndTime'] = $logEndTime;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -105,6 +133,19 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $pageNumber
+     *
+     * @return $this
+     */
+    public function setPageNumber($pageNumber)
+    {
+        $this->requestParameters['PageNumber'] = $pageNumber;
+        $this->queryParameters['PageNumber'] = $pageNumber;
+
+        return $this;
+    }
+
+    /**
      * @param string $tags
      *
      * @return $this
@@ -118,14 +159,14 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $duration
+     * @param string $logType
      *
      * @return $this
      */
-    public function setDuration($duration)
+    public function setLogType($logType)
     {
-        $this->requestParameters['Duration'] = $duration;
-        $this->queryParameters['Duration'] = $duration;
+        $this->requestParameters['LogType'] = $logType;
+        $this->queryParameters['LogType'] = $logType;
 
         return $this;
     }
@@ -144,27 +185,14 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $payType
+     * @param string $pageSize
      *
      * @return $this
      */
-    public function setPayType($payType)
+    public function setPageSize($pageSize)
     {
-        $this->requestParameters['PayType'] = $payType;
-        $this->queryParameters['PayType'] = $payType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pricingCycle
-     *
-     * @return $this
-     */
-    public function setPricingCycle($pricingCycle)
-    {
-        $this->requestParameters['PricingCycle'] = $pricingCycle;
-        $this->queryParameters['PricingCycle'] = $pricingCycle;
+        $this->requestParameters['PageSize'] = $pageSize;
+        $this->queryParameters['PageSize'] = $pageSize;
 
         return $this;
     }

@@ -5,16 +5,19 @@ namespace Slb\Request\V20140515;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of DeleteCACertificate
+ * Request of ModifyLoadBalancerVPCAddress
  *
  * @method string getaccess_key_id()
+ * @method string getVSwitchId()
  * @method string getResourceOwnerId()
+ * @method string getLoadBalancerId()
+ * @method string getAddress()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
- * @method string getCACertificateId()
+ * @method string getTags()
  */
-class DeleteCACertificateRequest extends \RpcAcsRequest
+class ModifyLoadBalancerVPCAddressRequest extends \RpcAcsRequest
 {
 
     /**
@@ -30,7 +33,7 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
         parent::__construct(
             'Slb',
             '2014-05-15',
-            'DeleteCACertificate',
+            'ModifyLoadBalancerVPCAddress',
             'asdfdsf'
         );
     }
@@ -49,6 +52,19 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $vSwitchId
+     *
+     * @return $this
+     */
+    public function setVSwitchId($vSwitchId)
+    {
+        $this->requestParameters['VSwitchId'] = $vSwitchId;
+        $this->queryParameters['VSwitchId'] = $vSwitchId;
+
+        return $this;
+    }
+
+    /**
      * @param string $resourceOwnerId
      *
      * @return $this
@@ -57,6 +73,32 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $loadBalancerId
+     *
+     * @return $this
+     */
+    public function setLoadBalancerId($loadBalancerId)
+    {
+        $this->requestParameters['LoadBalancerId'] = $loadBalancerId;
+        $this->queryParameters['LoadBalancerId'] = $loadBalancerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $address
+     *
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->requestParameters['Address'] = $address;
+        $this->queryParameters['Address'] = $address;
 
         return $this;
     }
@@ -101,14 +143,14 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $cACertificateId
+     * @param string $tags
      *
      * @return $this
      */
-    public function setCACertificateId($cACertificateId)
+    public function setTags($tags)
     {
-        $this->requestParameters['CACertificateId'] = $cACertificateId;
-        $this->queryParameters['CACertificateId'] = $cACertificateId;
+        $this->requestParameters['Tags'] = $tags;
+        $this->queryParameters['Tags'] = $tags;
 
         return $this;
     }

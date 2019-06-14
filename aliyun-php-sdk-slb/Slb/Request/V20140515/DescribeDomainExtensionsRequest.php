@@ -5,16 +5,19 @@ namespace Slb\Request\V20140515;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of DeleteCACertificate
+ * Request of DescribeDomainExtensions
  *
  * @method string getaccess_key_id()
  * @method string getResourceOwnerId()
+ * @method string getListenerPort()
+ * @method string getLoadBalancerId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
- * @method string getCACertificateId()
+ * @method string getTags()
+ * @method string getDomainExtensionId()
  */
-class DeleteCACertificateRequest extends \RpcAcsRequest
+class DescribeDomainExtensionsRequest extends \RpcAcsRequest
 {
 
     /**
@@ -30,7 +33,7 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
         parent::__construct(
             'Slb',
             '2014-05-15',
-            'DeleteCACertificate',
+            'DescribeDomainExtensions',
             'asdfdsf'
         );
     }
@@ -57,6 +60,32 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $listenerPort
+     *
+     * @return $this
+     */
+    public function setListenerPort($listenerPort)
+    {
+        $this->requestParameters['ListenerPort'] = $listenerPort;
+        $this->queryParameters['ListenerPort'] = $listenerPort;
+
+        return $this;
+    }
+
+    /**
+     * @param string $loadBalancerId
+     *
+     * @return $this
+     */
+    public function setLoadBalancerId($loadBalancerId)
+    {
+        $this->requestParameters['LoadBalancerId'] = $loadBalancerId;
+        $this->queryParameters['LoadBalancerId'] = $loadBalancerId;
 
         return $this;
     }
@@ -101,14 +130,27 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $cACertificateId
+     * @param string $tags
      *
      * @return $this
      */
-    public function setCACertificateId($cACertificateId)
+    public function setTags($tags)
     {
-        $this->requestParameters['CACertificateId'] = $cACertificateId;
-        $this->queryParameters['CACertificateId'] = $cACertificateId;
+        $this->requestParameters['Tags'] = $tags;
+        $this->queryParameters['Tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * @param string $domainExtensionId
+     *
+     * @return $this
+     */
+    public function setDomainExtensionId($domainExtensionId)
+    {
+        $this->requestParameters['DomainExtensionId'] = $domainExtensionId;
+        $this->queryParameters['DomainExtensionId'] = $domainExtensionId;
 
         return $this;
     }

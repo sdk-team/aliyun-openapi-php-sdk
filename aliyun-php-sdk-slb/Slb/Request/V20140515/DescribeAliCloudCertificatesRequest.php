@@ -5,20 +5,15 @@ namespace Slb\Request\V20140515;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of ModifyLoadBalancerPayType
+ * Request of DescribeAliCloudCertificates
  *
  * @method string getaccess_key_id()
  * @method string getResourceOwnerId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
- * @method string getTags()
- * @method string getDuration()
- * @method string getLoadBalancerId()
- * @method string getPayType()
- * @method string getPricingCycle()
  */
-class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
+class DescribeAliCloudCertificatesRequest extends \RpcAcsRequest
 {
 
     /**
@@ -34,7 +29,7 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
         parent::__construct(
             'Slb',
             '2014-05-15',
-            'ModifyLoadBalancerPayType',
+            'DescribeAliCloudCertificates',
             'asdfdsf'
         );
     }
@@ -100,71 +95,6 @@ class ModifyLoadBalancerPayTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $tags
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->requestParameters['Tags'] = $tags;
-        $this->queryParameters['Tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * @param string $duration
-     *
-     * @return $this
-     */
-    public function setDuration($duration)
-    {
-        $this->requestParameters['Duration'] = $duration;
-        $this->queryParameters['Duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
-     * @param string $loadBalancerId
-     *
-     * @return $this
-     */
-    public function setLoadBalancerId($loadBalancerId)
-    {
-        $this->requestParameters['LoadBalancerId'] = $loadBalancerId;
-        $this->queryParameters['LoadBalancerId'] = $loadBalancerId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $payType
-     *
-     * @return $this
-     */
-    public function setPayType($payType)
-    {
-        $this->requestParameters['PayType'] = $payType;
-        $this->queryParameters['PayType'] = $payType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $pricingCycle
-     *
-     * @return $this
-     */
-    public function setPricingCycle($pricingCycle)
-    {
-        $this->requestParameters['PricingCycle'] = $pricingCycle;
-        $this->queryParameters['PricingCycle'] = $pricingCycle;
 
         return $this;
     }

@@ -5,16 +5,19 @@ namespace Slb\Request\V20140515;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of DeleteCACertificate
+ * Request of InnerOpsDescribeAccessControlLists
  *
  * @method string getaccess_key_id()
  * @method string getResourceOwnerId()
+ * @method string getAclName()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
+ * @method string getPageSize()
  * @method string getOwnerId()
- * @method string getCACertificateId()
+ * @method string getPageNumber()
+ * @method string getTags()
  */
-class DeleteCACertificateRequest extends \RpcAcsRequest
+class InnerOpsDescribeAccessControlListsRequest extends \RpcAcsRequest
 {
 
     /**
@@ -30,7 +33,7 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
         parent::__construct(
             'Slb',
             '2014-05-15',
-            'DeleteCACertificate',
+            'InnerOpsDescribeAccessControlLists',
             'asdfdsf'
         );
     }
@@ -62,6 +65,19 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $aclName
+     *
+     * @return $this
+     */
+    public function setAclName($aclName)
+    {
+        $this->requestParameters['AclName'] = $aclName;
+        $this->queryParameters['AclName'] = $aclName;
+
+        return $this;
+    }
+
+    /**
      * @param string $resourceOwnerAccount
      *
      * @return $this
@@ -88,6 +104,19 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $pageSize
+     *
+     * @return $this
+     */
+    public function setPageSize($pageSize)
+    {
+        $this->requestParameters['PageSize'] = $pageSize;
+        $this->queryParameters['PageSize'] = $pageSize;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -101,14 +130,27 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $cACertificateId
+     * @param string $pageNumber
      *
      * @return $this
      */
-    public function setCACertificateId($cACertificateId)
+    public function setPageNumber($pageNumber)
     {
-        $this->requestParameters['CACertificateId'] = $cACertificateId;
-        $this->queryParameters['CACertificateId'] = $cACertificateId;
+        $this->requestParameters['PageNumber'] = $pageNumber;
+        $this->queryParameters['PageNumber'] = $pageNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param string $tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->requestParameters['Tags'] = $tags;
+        $this->queryParameters['Tags'] = $tags;
 
         return $this;
     }

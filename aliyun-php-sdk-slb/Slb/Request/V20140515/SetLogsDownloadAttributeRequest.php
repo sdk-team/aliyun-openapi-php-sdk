@@ -5,16 +5,19 @@ namespace Slb\Request\V20140515;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of DeleteCACertificate
+ * Request of SetLogsDownloadAttribute
  *
  * @method string getaccess_key_id()
  * @method string getResourceOwnerId()
+ * @method string getLogType()
  * @method string getResourceOwnerAccount()
+ * @method string getRoleName()
  * @method string getOwnerAccount()
+ * @method string getOSSBucketName()
  * @method string getOwnerId()
- * @method string getCACertificateId()
+ * @method string getTags()
  */
-class DeleteCACertificateRequest extends \RpcAcsRequest
+class SetLogsDownloadAttributeRequest extends \RpcAcsRequest
 {
 
     /**
@@ -30,7 +33,7 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
         parent::__construct(
             'Slb',
             '2014-05-15',
-            'DeleteCACertificate',
+            'SetLogsDownloadAttribute',
             'asdfdsf'
         );
     }
@@ -62,6 +65,19 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $logType
+     *
+     * @return $this
+     */
+    public function setLogType($logType)
+    {
+        $this->requestParameters['LogType'] = $logType;
+        $this->queryParameters['LogType'] = $logType;
+
+        return $this;
+    }
+
+    /**
      * @param string $resourceOwnerAccount
      *
      * @return $this
@@ -70,6 +86,19 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
         $this->queryParameters['ResourceOwnerAccount'] = $resourceOwnerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $roleName
+     *
+     * @return $this
+     */
+    public function setRoleName($roleName)
+    {
+        $this->requestParameters['RoleName'] = $roleName;
+        $this->queryParameters['RoleName'] = $roleName;
 
         return $this;
     }
@@ -88,6 +117,19 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $oSSBucketName
+     *
+     * @return $this
+     */
+    public function setOSSBucketName($oSSBucketName)
+    {
+        $this->requestParameters['OSSBucketName'] = $oSSBucketName;
+        $this->queryParameters['OSSBucketName'] = $oSSBucketName;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -101,14 +143,14 @@ class DeleteCACertificateRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $cACertificateId
+     * @param string $tags
      *
      * @return $this
      */
-    public function setCACertificateId($cACertificateId)
+    public function setTags($tags)
     {
-        $this->requestParameters['CACertificateId'] = $cACertificateId;
-        $this->queryParameters['CACertificateId'] = $cACertificateId;
+        $this->requestParameters['Tags'] = $tags;
+        $this->queryParameters['Tags'] = $tags;
 
         return $this;
     }
