@@ -25,7 +25,8 @@ class GetBasicInfoForAccountRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'GetBasicInfoForAccount'
+            'GetBasicInfoForAccount',
+            'aas'
         );
     }
 

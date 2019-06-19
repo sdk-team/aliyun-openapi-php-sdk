@@ -26,7 +26,8 @@ class CreateAccessKeyForAccountRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'CreateAccessKeyForAccount'
+            'CreateAccessKeyForAccount',
+            'aas'
         );
     }
 

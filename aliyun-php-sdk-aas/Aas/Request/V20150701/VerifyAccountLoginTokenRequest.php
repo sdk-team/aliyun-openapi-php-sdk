@@ -25,7 +25,8 @@ class VerifyAccountLoginTokenRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'VerifyAccountLoginToken'
+            'VerifyAccountLoginToken',
+            'aas'
         );
     }
 

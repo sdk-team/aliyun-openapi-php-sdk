@@ -25,7 +25,8 @@ class GenerateAccountLoginTokenRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'GenerateAccountLoginToken'
+            'GenerateAccountLoginToken',
+            'aas'
         );
     }
 

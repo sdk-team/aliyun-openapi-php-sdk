@@ -27,7 +27,8 @@ class GetShortTermAccessKeyForAccountRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'GetShortTermAccessKeyForAccount'
+            'GetShortTermAccessKeyForAccount',
+            'aas'
         );
     }
 

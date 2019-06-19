@@ -5,11 +5,11 @@ namespace Aas\Request\V20150701;
 /**
  * @deprecated Please use https://github.com/aliyun/openapi-sdk-php
  *
- * Request of GetAccountKinshipInfoByPK
+ * Request of GetAccountKinShipInfoByPK
  *
  * @method string getPK()
  */
-class GetAccountKinshipInfoByPKRequest extends \RpcAcsRequest
+class GetAccountKinShipInfoByPKRequest extends \RpcAcsRequest
 {
 
     /**
@@ -25,7 +25,8 @@ class GetAccountKinshipInfoByPKRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'GetAccountKinshipInfoByPK'
+            'GetAccountKinShipInfoByPK',
+            'aas'
         );
     }
 

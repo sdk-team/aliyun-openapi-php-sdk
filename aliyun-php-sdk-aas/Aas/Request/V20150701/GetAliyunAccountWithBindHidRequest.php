@@ -25,7 +25,8 @@ class GetAliyunAccountWithBindHidRequest extends \RpcAcsRequest
         parent::__construct(
             'Aas',
             '2015-07-01',
-            'GetAliyunAccountWithBindHid'
+            'GetAliyunAccountWithBindHid',
+            'aas'
         );
     }
 
