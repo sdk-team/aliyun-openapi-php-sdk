@@ -9,13 +9,13 @@ namespace cr\Request\V20150506;
  *
  * @method string getCountry()
  * @method string getHid()
- * @method string getInvoker()
- * @method string getMessage()
  * @method string getSuccess()
  * @method string getInterrupt()
  * @method string getGmtWakeup()
  * @method string getPk()
+ * @method string getInvoker()
  * @method string getBid()
+ * @method string getMessage()
  * @method string getTaskExtraData()
  * @method string getTaskIdentifier()
  */
@@ -62,32 +62,6 @@ class DoPhysicalDeleteResourceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Hid'] = $hid;
         $this->queryParameters['Hid'] = $hid;
-
-        return $this;
-    }
-
-    /**
-     * @param string $invoker
-     *
-     * @return $this
-     */
-    public function setInvoker($invoker)
-    {
-        $this->requestParameters['Invoker'] = $invoker;
-        $this->queryParameters['Invoker'] = $invoker;
-
-        return $this;
-    }
-
-    /**
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->requestParameters['Message'] = $message;
-        $this->queryParameters['Message'] = $message;
 
         return $this;
     }
@@ -145,6 +119,19 @@ class DoPhysicalDeleteResourceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $invoker
+     *
+     * @return $this
+     */
+    public function setInvoker($invoker)
+    {
+        $this->requestParameters['Invoker'] = $invoker;
+        $this->queryParameters['Invoker'] = $invoker;
+
+        return $this;
+    }
+
+    /**
      * @param string $bid
      *
      * @return $this
@@ -153,6 +140,19 @@ class DoPhysicalDeleteResourceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Bid'] = $bid;
         $this->queryParameters['Bid'] = $bid;
+
+        return $this;
+    }
+
+    /**
+     * @param string $message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->requestParameters['Message'] = $message;
+        $this->queryParameters['Message'] = $message;
 
         return $this;
     }
