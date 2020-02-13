@@ -8,16 +8,27 @@ namespace Ecs\Request\V20140526;
  * Request of DescribeRecommendInstanceType
  *
  * @method string getResourceOwnerId()
- * @method string getchannel()
+ * @method string getInstancePpsRx()
+ * @method string getMemory()
+ * @method string getInstancePpsTx()
+ * @method string getIoOptimized()
  * @method string getNetworkType()
- * @method string getoperator()
  * @method string getScene()
+ * @method string getInstanceBandwidthTx()
+ * @method string getCores()
+ * @method string getInstanceBandwidthRx()
+ * @method string getSystemDiskCategory()
  * @method string getInstanceType()
- * @method string getproxyId()
+ * @method string getInstanceChargeType()
+ * @method string getMaxPrice()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
+ * @method array getInstanceTypeFamilys()
  * @method string getOwnerId()
- * @method string gettoken()
+ * @method string getSpotStrategy()
+ * @method string getPriorityStrategy()
+ * @method string getInstanceFamilyLevel()
+ * @method string getZoneId()
  */
 class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
 {
@@ -35,7 +46,8 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeRecommendInstanceType'
+            'DescribeRecommendInstanceType',
+            'ecs'
         );
     }
 
@@ -53,14 +65,53 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $channel
+     * @param string $instancePpsRx
      *
      * @return $this
      */
-    public function setchannel($channel)
+    public function setInstancePpsRx($instancePpsRx)
     {
-        $this->requestParameters['channel'] = $channel;
-        $this->queryParameters['channel'] = $channel;
+        $this->requestParameters['InstancePpsRx'] = $instancePpsRx;
+        $this->queryParameters['InstancePpsRx'] = $instancePpsRx;
+
+        return $this;
+    }
+
+    /**
+     * @param string $memory
+     *
+     * @return $this
+     */
+    public function setMemory($memory)
+    {
+        $this->requestParameters['Memory'] = $memory;
+        $this->queryParameters['Memory'] = $memory;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instancePpsTx
+     *
+     * @return $this
+     */
+    public function setInstancePpsTx($instancePpsTx)
+    {
+        $this->requestParameters['InstancePpsTx'] = $instancePpsTx;
+        $this->queryParameters['InstancePpsTx'] = $instancePpsTx;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ioOptimized
+     *
+     * @return $this
+     */
+    public function setIoOptimized($ioOptimized)
+    {
+        $this->requestParameters['IoOptimized'] = $ioOptimized;
+        $this->queryParameters['IoOptimized'] = $ioOptimized;
 
         return $this;
     }
@@ -79,19 +130,6 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $operator
-     *
-     * @return $this
-     */
-    public function setoperator($operator)
-    {
-        $this->requestParameters['operator'] = $operator;
-        $this->queryParameters['operator'] = $operator;
-
-        return $this;
-    }
-
-    /**
      * @param string $scene
      *
      * @return $this
@@ -100,6 +138,58 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Scene'] = $scene;
         $this->queryParameters['Scene'] = $scene;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceBandwidthTx
+     *
+     * @return $this
+     */
+    public function setInstanceBandwidthTx($instanceBandwidthTx)
+    {
+        $this->requestParameters['InstanceBandwidthTx'] = $instanceBandwidthTx;
+        $this->queryParameters['InstanceBandwidthTx'] = $instanceBandwidthTx;
+
+        return $this;
+    }
+
+    /**
+     * @param string $cores
+     *
+     * @return $this
+     */
+    public function setCores($cores)
+    {
+        $this->requestParameters['Cores'] = $cores;
+        $this->queryParameters['Cores'] = $cores;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceBandwidthRx
+     *
+     * @return $this
+     */
+    public function setInstanceBandwidthRx($instanceBandwidthRx)
+    {
+        $this->requestParameters['InstanceBandwidthRx'] = $instanceBandwidthRx;
+        $this->queryParameters['InstanceBandwidthRx'] = $instanceBandwidthRx;
+
+        return $this;
+    }
+
+    /**
+     * @param string $systemDiskCategory
+     *
+     * @return $this
+     */
+    public function setSystemDiskCategory($systemDiskCategory)
+    {
+        $this->requestParameters['SystemDiskCategory'] = $systemDiskCategory;
+        $this->queryParameters['SystemDiskCategory'] = $systemDiskCategory;
 
         return $this;
     }
@@ -118,14 +208,27 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $proxyId
+     * @param string $instanceChargeType
      *
      * @return $this
      */
-    public function setproxyId($proxyId)
+    public function setInstanceChargeType($instanceChargeType)
     {
-        $this->requestParameters['proxyId'] = $proxyId;
-        $this->queryParameters['proxyId'] = $proxyId;
+        $this->requestParameters['InstanceChargeType'] = $instanceChargeType;
+        $this->queryParameters['InstanceChargeType'] = $instanceChargeType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $maxPrice
+     *
+     * @return $this
+     */
+    public function setMaxPrice($maxPrice)
+    {
+        $this->requestParameters['MaxPrice'] = $maxPrice;
+        $this->queryParameters['MaxPrice'] = $maxPrice;
 
         return $this;
     }
@@ -157,6 +260,21 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param array $instanceTypeFamily
+     *
+     * @return $this
+     */
+	public function setInstanceTypeFamilys(array $instanceTypeFamily)
+	{
+	    $this->requestParameters['InstanceTypeFamilys'] = $instanceTypeFamily;
+		foreach ($instanceTypeFamily as $i => $iValue) {
+			$this->queryParameters['InstanceTypeFamily.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -170,14 +288,53 @@ class DescribeRecommendInstanceTypeRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $token
+     * @param string $spotStrategy
      *
      * @return $this
      */
-    public function settoken($token)
+    public function setSpotStrategy($spotStrategy)
     {
-        $this->requestParameters['token'] = $token;
-        $this->queryParameters['token'] = $token;
+        $this->requestParameters['SpotStrategy'] = $spotStrategy;
+        $this->queryParameters['SpotStrategy'] = $spotStrategy;
+
+        return $this;
+    }
+
+    /**
+     * @param string $priorityStrategy
+     *
+     * @return $this
+     */
+    public function setPriorityStrategy($priorityStrategy)
+    {
+        $this->requestParameters['PriorityStrategy'] = $priorityStrategy;
+        $this->queryParameters['PriorityStrategy'] = $priorityStrategy;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceFamilyLevel
+     *
+     * @return $this
+     */
+    public function setInstanceFamilyLevel($instanceFamilyLevel)
+    {
+        $this->requestParameters['InstanceFamilyLevel'] = $instanceFamilyLevel;
+        $this->queryParameters['InstanceFamilyLevel'] = $instanceFamilyLevel;
+
+        return $this;
+    }
+
+    /**
+     * @param string $zoneId
+     *
+     * @return $this
+     */
+    public function setZoneId($zoneId)
+    {
+        $this->requestParameters['ZoneId'] = $zoneId;
+        $this->queryParameters['ZoneId'] = $zoneId;
 
         return $this;
     }

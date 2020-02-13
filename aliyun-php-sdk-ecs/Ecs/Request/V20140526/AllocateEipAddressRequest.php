@@ -14,6 +14,7 @@ namespace Ecs\Request\V20140526;
  * @method string getBandwidth()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method string getActivityId()
  * @method string getInternetChargeType()
  */
 class AllocateEipAddressRequest extends \RpcAcsRequest
@@ -32,7 +33,8 @@ class AllocateEipAddressRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AllocateEipAddress'
+            'AllocateEipAddress',
+            'ecs'
         );
     }
 
@@ -123,6 +125,19 @@ class AllocateEipAddressRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $activityId
+     *
+     * @return $this
+     */
+    public function setActivityId($activityId)
+    {
+        $this->requestParameters['ActivityId'] = $activityId;
+        $this->queryParameters['ActivityId'] = $activityId;
 
         return $this;
     }

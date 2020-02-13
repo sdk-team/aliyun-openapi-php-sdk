@@ -33,7 +33,8 @@ class CreateNatGatewayRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateNatGateway'
+            'CreateNatGateway',
+            'ecs'
         );
     }
 
@@ -81,16 +82,16 @@ class CreateNatGatewayRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setBandwidthPackages(array $bandwidthPackage)
-    {
-        $this->requestParameters['BandwidthPackages'] = $bandwidthPackage;
-        foreach ($bandwidthPackage as $depth1 => $depth1Value) {
-            $this->queryParameters['BandwidthPackage.' . ($depth1 + 1) . '.Bandwidth'] = $depth1Value['Bandwidth'];
-            $this->queryParameters['BandwidthPackage.' . ($depth1 + 1) . '.Zone'] = $depth1Value['Zone'];
-            $this->queryParameters['BandwidthPackage.' . ($depth1 + 1) . '.IpCount'] = $depth1Value['IpCount'];
-        }
+	public function setBandwidthPackages(array $bandwidthPackage)
+	{
+	    $this->requestParameters['BandwidthPackages'] = $bandwidthPackage;
+		foreach ($bandwidthPackage as $depth1 => $depth1Value) {
+			$this->queryParameters['BandwidthPackage.' . ($depth1 + 1) . '.Bandwidth'] = $depth1Value['Bandwidth'];
+			$this->queryParameters['BandwidthPackage.' . ($depth1 + 1) . '.Zone'] = $depth1Value['Zone'];
+			$this->queryParameters['BandwidthPackage.' . ($depth1 + 1) . '.IpCount'] = $depth1Value['IpCount'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

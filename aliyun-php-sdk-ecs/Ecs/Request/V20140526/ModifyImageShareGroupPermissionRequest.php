@@ -31,7 +31,8 @@ class ModifyImageShareGroupPermissionRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyImageShareGroupPermission'
+            'ModifyImageShareGroupPermission',
+            'ecs'
         );
     }
 

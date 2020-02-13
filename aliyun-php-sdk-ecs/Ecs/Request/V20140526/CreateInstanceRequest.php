@@ -16,6 +16,7 @@ namespace Ecs\Request\V20140526;
  * @method string getResourceGroupId()
  * @method string getHostName()
  * @method string getPassword()
+ * @method string getStorageSetPartitionNumber()
  * @method array getTags()
  * @method string getAutoRenewPeriod()
  * @method string getNodeControllerId()
@@ -44,6 +45,7 @@ namespace Ecs\Request\V20140526;
  * @method string getDescription()
  * @method string getSystemDiskCategory()
  * @method string getCapacityReservationId()
+ * @method string getSystemDiskPerformanceLevel()
  * @method string getUserData()
  * @method string getPasswordInherit()
  * @method string getInstanceType()
@@ -59,7 +61,9 @@ namespace Ecs\Request\V20140526;
  * @method string getDedicatedHostId()
  * @method string getClusterId()
  * @method string getCreditSpecification()
+ * @method string getSpotDuration()
  * @method array getDataDisks()
+ * @method string getStorageSetId()
  * @method string getSystemDiskSize()
  * @method string getSystemDiskDescription()
  */
@@ -79,7 +83,8 @@ class CreateInstanceRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateInstance'
+            'CreateInstance',
+            'ecs'
         );
     }
 
@@ -201,19 +206,32 @@ class CreateInstanceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $storageSetPartitionNumber
+     *
+     * @return $this
+     */
+    public function setStorageSetPartitionNumber($storageSetPartitionNumber)
+    {
+        $this->requestParameters['StorageSetPartitionNumber'] = $storageSetPartitionNumber;
+        $this->queryParameters['StorageSetPartitionNumber'] = $storageSetPartitionNumber;
+
+        return $this;
+    }
+
+    /**
      * @param array $tag
      *
      * @return $this
      */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-        }
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -568,6 +586,19 @@ class CreateInstanceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $systemDiskPerformanceLevel
+     *
+     * @return $this
+     */
+    public function setSystemDiskPerformanceLevel($systemDiskPerformanceLevel)
+    {
+        $this->requestParameters['SystemDiskPerformanceLevel'] = $systemDiskPerformanceLevel;
+        $this->queryParameters['SystemDisk.PerformanceLevel'] = $systemDiskPerformanceLevel;
+
+        return $this;
+    }
+
+    /**
      * @param string $userData
      *
      * @return $this
@@ -611,16 +642,16 @@ class CreateInstanceRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setArns(array $arn)
-    {
-        $this->requestParameters['Arns'] = $arn;
-        foreach ($arn as $depth1 => $depth1Value) {
-            $this->queryParameters['Arn.' . ($depth1 + 1) . '.Rolearn'] = $depth1Value['Rolearn'];
-            $this->queryParameters['Arn.' . ($depth1 + 1) . '.RoleType'] = $depth1Value['RoleType'];
-            $this->queryParameters['Arn.' . ($depth1 + 1) . '.AssumeRoleFor'] = $depth1Value['AssumeRoleFor'];
-        }
+	public function setArns(array $arn)
+	{
+	    $this->requestParameters['Arns'] = $arn;
+		foreach ($arn as $depth1 => $depth1Value) {
+			$this->queryParameters['Arn.' . ($depth1 + 1) . '.Rolearn'] = $depth1Value['Rolearn'];
+			$this->queryParameters['Arn.' . ($depth1 + 1) . '.RoleType'] = $depth1Value['RoleType'];
+			$this->queryParameters['Arn.' . ($depth1 + 1) . '.AssumeRoleFor'] = $depth1Value['AssumeRoleFor'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -767,24 +798,51 @@ class CreateInstanceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $spotDuration
+     *
+     * @return $this
+     */
+    public function setSpotDuration($spotDuration)
+    {
+        $this->requestParameters['SpotDuration'] = $spotDuration;
+        $this->queryParameters['SpotDuration'] = $spotDuration;
+
+        return $this;
+    }
+
+    /**
      * @param array $dataDisk
      *
      * @return $this
      */
-    public function setDataDisks(array $dataDisk)
+	public function setDataDisks(array $dataDisk)
+	{
+	    $this->requestParameters['DataDisks'] = $dataDisk;
+		foreach ($dataDisk as $depth1 => $depth1Value) {
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.PerformanceLevel'] = $depth1Value['PerformanceLevel'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.KMSKeyId'] = $depth1Value['KMSKeyId'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
+		}
+
+		return $this;
+    }
+
+    /**
+     * @param string $storageSetId
+     *
+     * @return $this
+     */
+    public function setStorageSetId($storageSetId)
     {
-        $this->requestParameters['DataDisks'] = $dataDisk;
-        foreach ($dataDisk as $depth1 => $depth1Value) {
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.KMSKeyId'] = $depth1Value['KMSKeyId'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
-        }
+        $this->requestParameters['StorageSetId'] = $storageSetId;
+        $this->queryParameters['StorageSetId'] = $storageSetId;
 
         return $this;
     }

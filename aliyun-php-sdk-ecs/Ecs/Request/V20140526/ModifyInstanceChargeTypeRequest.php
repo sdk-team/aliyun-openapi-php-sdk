@@ -9,6 +9,7 @@ namespace Ecs\Request\V20140526;
  *
  * @method string getResourceOwnerId()
  * @method string getClientToken()
+ * @method string getIsDetailFee()
  * @method string getInstanceChargeType()
  * @method string getPeriod()
  * @method string getDryRun()
@@ -36,7 +37,8 @@ class ModifyInstanceChargeTypeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyInstanceChargeType'
+            'ModifyInstanceChargeType',
+            'ecs'
         );
     }
 
@@ -62,6 +64,19 @@ class ModifyInstanceChargeTypeRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ClientToken'] = $clientToken;
         $this->queryParameters['ClientToken'] = $clientToken;
+
+        return $this;
+    }
+
+    /**
+     * @param string $isDetailFee
+     *
+     * @return $this
+     */
+    public function setIsDetailFee($isDetailFee)
+    {
+        $this->requestParameters['IsDetailFee'] = $isDetailFee;
+        $this->queryParameters['IsDetailFee'] = $isDetailFee;
 
         return $this;
     }

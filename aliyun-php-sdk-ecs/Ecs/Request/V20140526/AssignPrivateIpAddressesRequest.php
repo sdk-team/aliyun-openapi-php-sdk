@@ -31,7 +31,8 @@ class AssignPrivateIpAddressesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'AssignPrivateIpAddresses'
+            'AssignPrivateIpAddresses',
+            'ecs'
         );
     }
 
@@ -105,14 +106,14 @@ class AssignPrivateIpAddressesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setPrivateIpAddresss(array $privateIpAddress)
-    {
-        $this->requestParameters['PrivateIpAddresss'] = $privateIpAddress;
-        foreach ($privateIpAddress as $i => $iValue) {
-            $this->queryParameters['PrivateIpAddress.' . ($i + 1)] = $iValue;
-        }
+	public function setPrivateIpAddresss(array $privateIpAddress)
+	{
+	    $this->requestParameters['PrivateIpAddresss'] = $privateIpAddress;
+		foreach ($privateIpAddress as $i => $iValue) {
+			$this->queryParameters['PrivateIpAddress.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

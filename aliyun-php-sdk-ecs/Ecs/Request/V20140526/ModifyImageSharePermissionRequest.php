@@ -31,7 +31,8 @@ class ModifyImageSharePermissionRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyImageSharePermission'
+            'ModifyImageSharePermission',
+            'ecs'
         );
     }
 
@@ -105,14 +106,14 @@ class ModifyImageSharePermissionRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setAddAccounts(array $addAccount)
-    {
-        $this->requestParameters['AddAccounts'] = $addAccount;
-        foreach ($addAccount as $i => $iValue) {
-            $this->queryParameters['AddAccount.' . ($i + 1)] = $iValue;
-        }
+	public function setAddAccounts(array $addAccount)
+	{
+	    $this->requestParameters['AddAccounts'] = $addAccount;
+		foreach ($addAccount as $i => $iValue) {
+			$this->queryParameters['AddAccount.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -120,13 +121,13 @@ class ModifyImageSharePermissionRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setRemoveAccounts(array $removeAccount)
-    {
-        $this->requestParameters['RemoveAccounts'] = $removeAccount;
-        foreach ($removeAccount as $i => $iValue) {
-            $this->queryParameters['RemoveAccount.' . ($i + 1)] = $iValue;
-        }
+	public function setRemoveAccounts(array $removeAccount)
+	{
+	    $this->requestParameters['RemoveAccounts'] = $removeAccount;
+		foreach ($removeAccount as $i => $iValue) {
+			$this->queryParameters['RemoveAccount.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 }

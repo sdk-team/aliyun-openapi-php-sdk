@@ -11,6 +11,7 @@ namespace Ecs\Request\V20140526;
  * @method string getClientToken()
  * @method string getSecurityGroupId()
  * @method string getDescription()
+ * @method string getSecondaryPrivateIpAddressCount()
  * @method string getBusinessType()
  * @method string getResourceGroupId()
  * @method array getTags()
@@ -19,7 +20,9 @@ namespace Ecs\Request\V20140526;
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getOwnerId()
+ * @method array getSecurityGroupIdss()
  * @method string getVSwitchId()
+ * @method array getPrivateIpAddresss()
  * @method string getPrimaryIpAddress()
  */
 class CreateNetworkInterfaceRequest extends \RpcAcsRequest
@@ -38,7 +41,8 @@ class CreateNetworkInterfaceRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateNetworkInterface'
+            'CreateNetworkInterface',
+            'ecs'
         );
     }
 
@@ -95,6 +99,19 @@ class CreateNetworkInterfaceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $secondaryPrivateIpAddressCount
+     *
+     * @return $this
+     */
+    public function setSecondaryPrivateIpAddressCount($secondaryPrivateIpAddressCount)
+    {
+        $this->requestParameters['SecondaryPrivateIpAddressCount'] = $secondaryPrivateIpAddressCount;
+        $this->queryParameters['SecondaryPrivateIpAddressCount'] = $secondaryPrivateIpAddressCount;
+
+        return $this;
+    }
+
+    /**
      * @param string $businessType
      *
      * @return $this
@@ -125,15 +142,15 @@ class CreateNetworkInterfaceRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-        }
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -202,6 +219,21 @@ class CreateNetworkInterfaceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param array $securityGroupIds
+     *
+     * @return $this
+     */
+	public function setSecurityGroupIdss(array $securityGroupIds)
+	{
+	    $this->requestParameters['SecurityGroupIdss'] = $securityGroupIds;
+		foreach ($securityGroupIds as $i => $iValue) {
+			$this->queryParameters['SecurityGroupIds.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
+    }
+
+    /**
      * @param string $vSwitchId
      *
      * @return $this
@@ -212,6 +244,21 @@ class CreateNetworkInterfaceRequest extends \RpcAcsRequest
         $this->queryParameters['VSwitchId'] = $vSwitchId;
 
         return $this;
+    }
+
+    /**
+     * @param array $privateIpAddress
+     *
+     * @return $this
+     */
+	public function setPrivateIpAddresss(array $privateIpAddress)
+	{
+	    $this->requestParameters['PrivateIpAddresss'] = $privateIpAddress;
+		foreach ($privateIpAddress as $i => $iValue) {
+			$this->queryParameters['PrivateIpAddress.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
     }
 
     /**

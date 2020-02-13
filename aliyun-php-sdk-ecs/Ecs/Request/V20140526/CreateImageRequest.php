@@ -39,7 +39,8 @@ class CreateImageRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateImage'
+            'CreateImage',
+            'ecs'
         );
     }
 
@@ -48,17 +49,17 @@ class CreateImageRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setDiskDeviceMappings(array $diskDeviceMapping)
-    {
-        $this->requestParameters['DiskDeviceMappings'] = $diskDeviceMapping;
-        foreach ($diskDeviceMapping as $depth1 => $depth1Value) {
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskType'] = $depth1Value['DiskType'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
-        }
+	public function setDiskDeviceMappings(array $diskDeviceMapping)
+	{
+	    $this->requestParameters['DiskDeviceMappings'] = $diskDeviceMapping;
+		foreach ($diskDeviceMapping as $depth1 => $depth1Value) {
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskType'] = $depth1Value['DiskType'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -157,15 +158,15 @@ class CreateImageRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-        }
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

@@ -8,6 +8,7 @@ namespace Ecs\Request\V20140526;
  * Request of ModifyInstanceDeployment
  *
  * @method string getResourceOwnerId()
+ * @method string getInstanceType()
  * @method string getDeploymentSetId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
@@ -16,6 +17,7 @@ namespace Ecs\Request\V20140526;
  * @method string getOwnerId()
  * @method string getInstanceId()
  * @method string getForce()
+ * @method string getMigrationType()
  * @method string getAffinity()
  */
 class ModifyInstanceDeploymentRequest extends \RpcAcsRequest
@@ -34,7 +36,8 @@ class ModifyInstanceDeploymentRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyInstanceDeployment'
+            'ModifyInstanceDeployment',
+            'ecs'
         );
     }
 
@@ -47,6 +50,19 @@ class ModifyInstanceDeploymentRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ResourceOwnerId'] = $resourceOwnerId;
         $this->queryParameters['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceType
+     *
+     * @return $this
+     */
+    public function setInstanceType($instanceType)
+    {
+        $this->requestParameters['InstanceType'] = $instanceType;
+        $this->queryParameters['InstanceType'] = $instanceType;
 
         return $this;
     }
@@ -151,6 +167,19 @@ class ModifyInstanceDeploymentRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Force'] = $force;
         $this->queryParameters['Force'] = $force;
+
+        return $this;
+    }
+
+    /**
+     * @param string $migrationType
+     *
+     * @return $this
+     */
+    public function setMigrationType($migrationType)
+    {
+        $this->requestParameters['MigrationType'] = $migrationType;
+        $this->queryParameters['MigrationType'] = $migrationType;
 
         return $this;
     }

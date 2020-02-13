@@ -13,6 +13,7 @@ namespace Ecs\Request\V20140526;
  * @method string getType()
  * @method string getPageNumber()
  * @method string getResourceGroupId()
+ * @method string getNextToken()
  * @method string getPageSize()
  * @method array getTags()
  * @method string getNetworkInterfaceName()
@@ -20,9 +21,11 @@ namespace Ecs\Request\V20140526;
  * @method string getOwnerAccount()
  * @method string getOwnerId()
  * @method string getVSwitchId()
+ * @method array getPrivateIpAddresss()
  * @method string getInstanceId()
  * @method string getVpcId()
  * @method string getPrimaryIpAddress()
+ * @method string getMaxResults()
  * @method array getNetworkInterfaceIds()
  */
 class DescribeNetworkInterfacesRequest extends \RpcAcsRequest
@@ -41,7 +44,8 @@ class DescribeNetworkInterfacesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeNetworkInterfaces'
+            'DescribeNetworkInterfaces',
+            'ecs'
         );
     }
 
@@ -124,6 +128,19 @@ class DescribeNetworkInterfacesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $nextToken
+     *
+     * @return $this
+     */
+    public function setNextToken($nextToken)
+    {
+        $this->requestParameters['NextToken'] = $nextToken;
+        $this->queryParameters['NextToken'] = $nextToken;
+
+        return $this;
+    }
+
+    /**
      * @param string $pageSize
      *
      * @return $this
@@ -141,15 +158,15 @@ class DescribeNetworkInterfacesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-        }
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -218,6 +235,21 @@ class DescribeNetworkInterfacesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param array $privateIpAddress
+     *
+     * @return $this
+     */
+	public function setPrivateIpAddresss(array $privateIpAddress)
+	{
+	    $this->requestParameters['PrivateIpAddresss'] = $privateIpAddress;
+		foreach ($privateIpAddress as $i => $iValue) {
+			$this->queryParameters['PrivateIpAddress.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
+    }
+
+    /**
      * @param string $instanceId
      *
      * @return $this
@@ -257,17 +289,30 @@ class DescribeNetworkInterfacesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $maxResults
+     *
+     * @return $this
+     */
+    public function setMaxResults($maxResults)
+    {
+        $this->requestParameters['MaxResults'] = $maxResults;
+        $this->queryParameters['MaxResults'] = $maxResults;
+
+        return $this;
+    }
+
+    /**
      * @param array $networkInterfaceId
      *
      * @return $this
      */
-    public function setNetworkInterfaceIds(array $networkInterfaceId)
-    {
-        $this->requestParameters['NetworkInterfaceIds'] = $networkInterfaceId;
-        foreach ($networkInterfaceId as $i => $iValue) {
-            $this->queryParameters['NetworkInterfaceId.' . ($i + 1)] = $iValue;
-        }
+	public function setNetworkInterfaceIds(array $networkInterfaceId)
+	{
+	    $this->requestParameters['NetworkInterfaceIds'] = $networkInterfaceId;
+		foreach ($networkInterfaceId as $i => $iValue) {
+			$this->queryParameters['NetworkInterfaceId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 }

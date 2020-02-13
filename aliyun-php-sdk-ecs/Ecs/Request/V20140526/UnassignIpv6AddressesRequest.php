@@ -30,7 +30,8 @@ class UnassignIpv6AddressesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'UnassignIpv6Addresses'
+            'UnassignIpv6Addresses',
+            'ecs'
         );
     }
 
@@ -104,13 +105,13 @@ class UnassignIpv6AddressesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setIpv6Addresss(array $ipv6Address)
-    {
-        $this->requestParameters['Ipv6Addresss'] = $ipv6Address;
-        foreach ($ipv6Address as $i => $iValue) {
-            $this->queryParameters['Ipv6Address.' . ($i + 1)] = $iValue;
-        }
+	public function setIpv6Addresss(array $ipv6Address)
+	{
+	    $this->requestParameters['Ipv6Addresss'] = $ipv6Address;
+		foreach ($ipv6Address as $i => $iValue) {
+			$this->queryParameters['Ipv6Address.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 }

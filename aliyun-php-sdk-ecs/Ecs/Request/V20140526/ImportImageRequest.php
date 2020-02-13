@@ -13,6 +13,7 @@ namespace Ecs\Request\V20140526;
  * @method string getPlatform()
  * @method string getImageName()
  * @method string getArchitecture()
+ * @method string getLicenseType()
  * @method string getResourceOwnerAccount()
  * @method string getRoleName()
  * @method string getOSType()
@@ -34,7 +35,8 @@ class ImportImageRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ImportImage'
+            'ImportImage',
+            'ecs'
         );
     }
 
@@ -43,19 +45,19 @@ class ImportImageRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setDiskDeviceMappings(array $diskDeviceMapping)
-    {
-        $this->requestParameters['DiskDeviceMappings'] = $diskDeviceMapping;
-        foreach ($diskDeviceMapping as $depth1 => $depth1Value) {
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.OSSBucket'] = $depth1Value['OSSBucket'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskImSize'] = $depth1Value['DiskImSize'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Format'] = $depth1Value['Format'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.OSSObject'] = $depth1Value['OSSObject'];
-            $this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskImageSize'] = $depth1Value['DiskImageSize'];
-        }
+	public function setDiskDeviceMappings(array $diskDeviceMapping)
+	{
+	    $this->requestParameters['DiskDeviceMappings'] = $diskDeviceMapping;
+		foreach ($diskDeviceMapping as $depth1 => $depth1Value) {
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.OSSBucket'] = $depth1Value['OSSBucket'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskImSize'] = $depth1Value['DiskImSize'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Format'] = $depth1Value['Format'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.OSSObject'] = $depth1Value['OSSObject'];
+			$this->queryParameters['DiskDeviceMapping.' . ($depth1 + 1) . '.DiskImageSize'] = $depth1Value['DiskImageSize'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -119,6 +121,19 @@ class ImportImageRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Architecture'] = $architecture;
         $this->queryParameters['Architecture'] = $architecture;
+
+        return $this;
+    }
+
+    /**
+     * @param string $licenseType
+     *
+     * @return $this
+     */
+    public function setLicenseType($licenseType)
+    {
+        $this->requestParameters['LicenseType'] = $licenseType;
+        $this->queryParameters['LicenseType'] = $licenseType;
 
         return $this;
     }

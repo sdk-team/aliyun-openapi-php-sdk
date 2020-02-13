@@ -29,7 +29,8 @@ class DescribeAccountAttributesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeAccountAttributes'
+            'DescribeAccountAttributes',
+            'ecs'
         );
     }
 
@@ -51,14 +52,14 @@ class DescribeAccountAttributesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setAttributeNames(array $attributeName)
-    {
-        $this->requestParameters['AttributeNames'] = $attributeName;
-        foreach ($attributeName as $i => $iValue) {
-            $this->queryParameters['AttributeName.' . ($i + 1)] = $iValue;
-        }
+	public function setAttributeNames(array $attributeName)
+	{
+	    $this->requestParameters['AttributeNames'] = $attributeName;
+		foreach ($attributeName as $i => $iValue) {
+			$this->queryParameters['AttributeName.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

@@ -33,7 +33,8 @@ class DescribePhysicalConnectionsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribePhysicalConnections'
+            'DescribePhysicalConnections',
+            'ecs'
         );
     }
 
@@ -146,16 +147,16 @@ class DescribePhysicalConnectionsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setFilters(array $filter)
-    {
-        $this->requestParameters['Filters'] = $filter;
-        foreach ($filter as $depth1 => $depth1Value) {
-            foreach ($depth1Value['Value'] as $i => $iValue) {
-                $this->queryParameters['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
-            }
-            $this->queryParameters['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-        }
+	public function setFilters(array $filter)
+	{
+	    $this->requestParameters['Filters'] = $filter;
+		foreach ($filter as $depth1 => $depth1Value) {
+			foreach ($depth1Value['Value'] as $i => $iValue) {
+				$this->queryParameters['Filter.' . ($depth1 + 1) . '.Value.' . ($i + 1)] = $iValue;
+			}
+			$this->queryParameters['Filter.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+		}
 
-        return $this;
+		return $this;
     }
 }

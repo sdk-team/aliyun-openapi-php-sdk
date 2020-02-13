@@ -31,7 +31,8 @@ class DeleteLaunchTemplateVersionRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteLaunchTemplateVersion'
+            'DeleteLaunchTemplateVersion',
+            'ecs'
         );
     }
 
@@ -66,14 +67,14 @@ class DeleteLaunchTemplateVersionRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setDeleteVersions(array $deleteVersion)
-    {
-        $this->requestParameters['DeleteVersions'] = $deleteVersion;
-        foreach ($deleteVersion as $i => $iValue) {
-            $this->queryParameters['DeleteVersion.' . ($i + 1)] = $iValue;
-        }
+	public function setDeleteVersions(array $deleteVersion)
+	{
+	    $this->requestParameters['DeleteVersions'] = $deleteVersion;
+		foreach ($deleteVersion as $i => $iValue) {
+			$this->queryParameters['DeleteVersion.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

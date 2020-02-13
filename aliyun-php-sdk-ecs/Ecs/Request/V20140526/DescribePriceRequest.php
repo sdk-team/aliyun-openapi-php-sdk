@@ -9,28 +9,38 @@ namespace Ecs\Request\V20140526;
  *
  * @method string getDataDisk3Size()
  * @method string getResourceOwnerId()
- * @method string getImageId()
  * @method string getDataDisk3Category()
+ * @method string getDataDisk4Size()
+ * @method string getPriceUnit()
+ * @method string getPeriod()
+ * @method string getDataDisk1PerformanceLevel()
+ * @method string getOwnerId()
+ * @method string getInternetChargeType()
+ * @method string getInstanceNetworkType()
+ * @method string getInstanceAmount()
+ * @method string getDataDisk3PerformanceLevel()
+ * @method string getImageId()
  * @method string getIoOptimized()
  * @method string getInternetMaxBandwidthOut()
  * @method string getSystemDiskCategory()
+ * @method string getPlatform()
+ * @method string getCapacity()
+ * @method string getSystemDiskPerformanceLevel()
  * @method string getDataDisk4Category()
- * @method string getDataDisk4Size()
- * @method string getPriceUnit()
+ * @method string getDataDisk4PerformanceLevel()
+ * @method string getScope()
  * @method string getInstanceType()
  * @method string getDataDisk2Category()
  * @method string getDataDisk1Size()
- * @method string getPeriod()
  * @method string getAmount()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
  * @method string getDataDisk2Size()
- * @method string getOwnerId()
  * @method string getResourceType()
  * @method string getDataDisk1Category()
+ * @method string getDataDisk2PerformanceLevel()
  * @method string getSystemDiskSize()
- * @method string getInternetChargeType()
- * @method string getInstanceNetworkType()
+ * @method string getOfferingType()
  */
 class DescribePriceRequest extends \RpcAcsRequest
 {
@@ -48,7 +58,8 @@ class DescribePriceRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribePrice'
+            'DescribePrice',
+            'ecs'
         );
     }
 
@@ -79,19 +90,6 @@ class DescribePriceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $imageId
-     *
-     * @return $this
-     */
-    public function setImageId($imageId)
-    {
-        $this->requestParameters['ImageId'] = $imageId;
-        $this->queryParameters['ImageId'] = $imageId;
-
-        return $this;
-    }
-
-    /**
      * @param string $dataDisk3Category
      *
      * @return $this
@@ -100,6 +98,136 @@ class DescribePriceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DataDisk3Category'] = $dataDisk3Category;
         $this->queryParameters['DataDisk.3.Category'] = $dataDisk3Category;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dataDisk4Size
+     *
+     * @return $this
+     */
+    public function setDataDisk4Size($dataDisk4Size)
+    {
+        $this->requestParameters['DataDisk4Size'] = $dataDisk4Size;
+        $this->queryParameters['DataDisk.4.Size'] = $dataDisk4Size;
+
+        return $this;
+    }
+
+    /**
+     * @param string $priceUnit
+     *
+     * @return $this
+     */
+    public function setPriceUnit($priceUnit)
+    {
+        $this->requestParameters['PriceUnit'] = $priceUnit;
+        $this->queryParameters['PriceUnit'] = $priceUnit;
+
+        return $this;
+    }
+
+    /**
+     * @param string $period
+     *
+     * @return $this
+     */
+    public function setPeriod($period)
+    {
+        $this->requestParameters['Period'] = $period;
+        $this->queryParameters['Period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dataDisk1PerformanceLevel
+     *
+     * @return $this
+     */
+    public function setDataDisk1PerformanceLevel($dataDisk1PerformanceLevel)
+    {
+        $this->requestParameters['DataDisk1PerformanceLevel'] = $dataDisk1PerformanceLevel;
+        $this->queryParameters['DataDisk.1.PerformanceLevel'] = $dataDisk1PerformanceLevel;
+
+        return $this;
+    }
+
+    /**
+     * @param string $ownerId
+     *
+     * @return $this
+     */
+    public function setOwnerId($ownerId)
+    {
+        $this->requestParameters['OwnerId'] = $ownerId;
+        $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $internetChargeType
+     *
+     * @return $this
+     */
+    public function setInternetChargeType($internetChargeType)
+    {
+        $this->requestParameters['InternetChargeType'] = $internetChargeType;
+        $this->queryParameters['InternetChargeType'] = $internetChargeType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceNetworkType
+     *
+     * @return $this
+     */
+    public function setInstanceNetworkType($instanceNetworkType)
+    {
+        $this->requestParameters['InstanceNetworkType'] = $instanceNetworkType;
+        $this->queryParameters['InstanceNetworkType'] = $instanceNetworkType;
+
+        return $this;
+    }
+
+    /**
+     * @param string $instanceAmount
+     *
+     * @return $this
+     */
+    public function setInstanceAmount($instanceAmount)
+    {
+        $this->requestParameters['InstanceAmount'] = $instanceAmount;
+        $this->queryParameters['InstanceAmount'] = $instanceAmount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dataDisk3PerformanceLevel
+     *
+     * @return $this
+     */
+    public function setDataDisk3PerformanceLevel($dataDisk3PerformanceLevel)
+    {
+        $this->requestParameters['DataDisk3PerformanceLevel'] = $dataDisk3PerformanceLevel;
+        $this->queryParameters['DataDisk.3.PerformanceLevel'] = $dataDisk3PerformanceLevel;
+
+        return $this;
+    }
+
+    /**
+     * @param string $imageId
+     *
+     * @return $this
+     */
+    public function setImageId($imageId)
+    {
+        $this->requestParameters['ImageId'] = $imageId;
+        $this->queryParameters['ImageId'] = $imageId;
 
         return $this;
     }
@@ -144,6 +272,45 @@ class DescribePriceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $platform
+     *
+     * @return $this
+     */
+    public function setPlatform($platform)
+    {
+        $this->requestParameters['Platform'] = $platform;
+        $this->queryParameters['Platform'] = $platform;
+
+        return $this;
+    }
+
+    /**
+     * @param string $capacity
+     *
+     * @return $this
+     */
+    public function setCapacity($capacity)
+    {
+        $this->requestParameters['Capacity'] = $capacity;
+        $this->queryParameters['Capacity'] = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * @param string $systemDiskPerformanceLevel
+     *
+     * @return $this
+     */
+    public function setSystemDiskPerformanceLevel($systemDiskPerformanceLevel)
+    {
+        $this->requestParameters['SystemDiskPerformanceLevel'] = $systemDiskPerformanceLevel;
+        $this->queryParameters['SystemDisk.PerformanceLevel'] = $systemDiskPerformanceLevel;
+
+        return $this;
+    }
+
+    /**
      * @param string $dataDisk4Category
      *
      * @return $this
@@ -157,27 +324,27 @@ class DescribePriceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $dataDisk4Size
+     * @param string $dataDisk4PerformanceLevel
      *
      * @return $this
      */
-    public function setDataDisk4Size($dataDisk4Size)
+    public function setDataDisk4PerformanceLevel($dataDisk4PerformanceLevel)
     {
-        $this->requestParameters['DataDisk4Size'] = $dataDisk4Size;
-        $this->queryParameters['DataDisk.4.Size'] = $dataDisk4Size;
+        $this->requestParameters['DataDisk4PerformanceLevel'] = $dataDisk4PerformanceLevel;
+        $this->queryParameters['DataDisk.4.PerformanceLevel'] = $dataDisk4PerformanceLevel;
 
         return $this;
     }
 
     /**
-     * @param string $priceUnit
+     * @param string $scope
      *
      * @return $this
      */
-    public function setPriceUnit($priceUnit)
+    public function setScope($scope)
     {
-        $this->requestParameters['PriceUnit'] = $priceUnit;
-        $this->queryParameters['PriceUnit'] = $priceUnit;
+        $this->requestParameters['Scope'] = $scope;
+        $this->queryParameters['Scope'] = $scope;
 
         return $this;
     }
@@ -217,19 +384,6 @@ class DescribePriceRequest extends \RpcAcsRequest
     {
         $this->requestParameters['DataDisk1Size'] = $dataDisk1Size;
         $this->queryParameters['DataDisk.1.Size'] = $dataDisk1Size;
-
-        return $this;
-    }
-
-    /**
-     * @param string $period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->requestParameters['Period'] = $period;
-        $this->queryParameters['Period'] = $period;
 
         return $this;
     }
@@ -287,19 +441,6 @@ class DescribePriceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $ownerId
-     *
-     * @return $this
-     */
-    public function setOwnerId($ownerId)
-    {
-        $this->requestParameters['OwnerId'] = $ownerId;
-        $this->queryParameters['OwnerId'] = $ownerId;
-
-        return $this;
-    }
-
-    /**
      * @param string $resourceType
      *
      * @return $this
@@ -326,6 +467,19 @@ class DescribePriceRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $dataDisk2PerformanceLevel
+     *
+     * @return $this
+     */
+    public function setDataDisk2PerformanceLevel($dataDisk2PerformanceLevel)
+    {
+        $this->requestParameters['DataDisk2PerformanceLevel'] = $dataDisk2PerformanceLevel;
+        $this->queryParameters['DataDisk.2.PerformanceLevel'] = $dataDisk2PerformanceLevel;
+
+        return $this;
+    }
+
+    /**
      * @param string $systemDiskSize
      *
      * @return $this
@@ -339,27 +493,14 @@ class DescribePriceRequest extends \RpcAcsRequest
     }
 
     /**
-     * @param string $internetChargeType
+     * @param string $offeringType
      *
      * @return $this
      */
-    public function setInternetChargeType($internetChargeType)
+    public function setOfferingType($offeringType)
     {
-        $this->requestParameters['InternetChargeType'] = $internetChargeType;
-        $this->queryParameters['InternetChargeType'] = $internetChargeType;
-
-        return $this;
-    }
-
-    /**
-     * @param string $instanceNetworkType
-     *
-     * @return $this
-     */
-    public function setInstanceNetworkType($instanceNetworkType)
-    {
-        $this->requestParameters['InstanceNetworkType'] = $instanceNetworkType;
-        $this->queryParameters['InstanceNetworkType'] = $instanceNetworkType;
+        $this->requestParameters['OfferingType'] = $offeringType;
+        $this->queryParameters['OfferingType'] = $offeringType;
 
         return $this;
     }

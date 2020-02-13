@@ -29,7 +29,8 @@ class CancelSimulatedSystemEventsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CancelSimulatedSystemEvents'
+            'CancelSimulatedSystemEvents',
+            'ecs'
         );
     }
 
@@ -38,14 +39,14 @@ class CancelSimulatedSystemEventsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setEventIds(array $eventId)
-    {
-        $this->requestParameters['EventIds'] = $eventId;
-        foreach ($eventId as $i => $iValue) {
-            $this->queryParameters['EventId.' . ($i + 1)] = $iValue;
-        }
+	public function setEventIds(array $eventId)
+	{
+	    $this->requestParameters['EventIds'] = $eventId;
+		foreach ($eventId as $i => $iValue) {
+			$this->queryParameters['EventId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

@@ -34,7 +34,8 @@ class CreateRouteEntryRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateRouteEntry'
+            'CreateRouteEntry',
+            'ecs'
         );
     }
 
@@ -160,14 +161,14 @@ class CreateRouteEntryRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setNextHopLists(array $nextHopList)
-    {
-        $this->requestParameters['NextHopLists'] = $nextHopList;
-        foreach ($nextHopList as $depth1 => $depth1Value) {
-            $this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopId'] = $depth1Value['NextHopId'];
-            $this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopType'] = $depth1Value['NextHopType'];
-        }
+	public function setNextHopLists(array $nextHopList)
+	{
+	    $this->requestParameters['NextHopLists'] = $nextHopList;
+		foreach ($nextHopList as $depth1 => $depth1Value) {
+			$this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopId'] = $depth1Value['NextHopId'];
+			$this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopType'] = $depth1Value['NextHopType'];
+		}
 
-        return $this;
+		return $this;
     }
 }

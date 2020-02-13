@@ -7,6 +7,7 @@ namespace Ecs\Request\V20140526;
  *
  * Request of ModifyNetworkInterfaceAttribute
  *
+ * @method string getQueueNumber()
  * @method string getResourceOwnerId()
  * @method array getSecurityGroupIds()
  * @method string getDescription()
@@ -32,8 +33,22 @@ class ModifyNetworkInterfaceAttributeRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'ModifyNetworkInterfaceAttribute'
+            'ModifyNetworkInterfaceAttribute',
+            'ecs'
         );
+    }
+
+    /**
+     * @param string $queueNumber
+     *
+     * @return $this
+     */
+    public function setQueueNumber($queueNumber)
+    {
+        $this->requestParameters['QueueNumber'] = $queueNumber;
+        $this->queryParameters['QueueNumber'] = $queueNumber;
+
+        return $this;
     }
 
     /**
@@ -54,14 +69,14 @@ class ModifyNetworkInterfaceAttributeRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setSecurityGroupIds(array $securityGroupId)
-    {
-        $this->requestParameters['SecurityGroupIds'] = $securityGroupId;
-        foreach ($securityGroupId as $i => $iValue) {
-            $this->queryParameters['SecurityGroupId.' . ($i + 1)] = $iValue;
-        }
+	public function setSecurityGroupIds(array $securityGroupId)
+	{
+	    $this->requestParameters['SecurityGroupIds'] = $securityGroupId;
+		foreach ($securityGroupId as $i => $iValue) {
+			$this->queryParameters['SecurityGroupId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

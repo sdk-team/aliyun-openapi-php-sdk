@@ -57,7 +57,8 @@ class DescribeDisksRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeDisks'
+            'DescribeDisks',
+            'ecs'
         );
     }
 
@@ -183,15 +184,15 @@ class DescribeDisksRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-        }
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -264,14 +265,14 @@ class DescribeDisksRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setAdditionalAttributess(array $additionalAttributes)
-    {
-        $this->requestParameters['AdditionalAttributess'] = $additionalAttributes;
-        foreach ($additionalAttributes as $i => $iValue) {
-            $this->queryParameters['AdditionalAttributes.' . ($i + 1)] = $iValue;
-        }
+	public function setAdditionalAttributess(array $additionalAttributes)
+	{
+	    $this->requestParameters['AdditionalAttributess'] = $additionalAttributes;
+		foreach ($additionalAttributes as $i => $iValue) {
+			$this->queryParameters['AdditionalAttributes.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

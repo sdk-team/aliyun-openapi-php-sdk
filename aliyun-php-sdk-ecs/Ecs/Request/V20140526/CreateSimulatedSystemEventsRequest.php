@@ -31,7 +31,8 @@ class CreateSimulatedSystemEventsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'CreateSimulatedSystemEvents'
+            'CreateSimulatedSystemEvents',
+            'ecs'
         );
     }
 
@@ -105,14 +106,14 @@ class CreateSimulatedSystemEventsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setInstanceIds(array $instanceId)
-    {
-        $this->requestParameters['InstanceIds'] = $instanceId;
-        foreach ($instanceId as $i => $iValue) {
-            $this->queryParameters['InstanceId.' . ($i + 1)] = $iValue;
-        }
+	public function setInstanceIds(array $instanceId)
+	{
+	    $this->requestParameters['InstanceIds'] = $instanceId;
+		foreach ($instanceId as $i => $iValue) {
+			$this->queryParameters['InstanceId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

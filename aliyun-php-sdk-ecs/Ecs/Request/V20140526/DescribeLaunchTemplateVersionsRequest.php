@@ -37,7 +37,8 @@ class DescribeLaunchTemplateVersionsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeLaunchTemplateVersions'
+            'DescribeLaunchTemplateVersions',
+            'ecs'
         );
     }
 
@@ -189,14 +190,14 @@ class DescribeLaunchTemplateVersionsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setLaunchTemplateVersions(array $launchTemplateVersion)
-    {
-        $this->requestParameters['LaunchTemplateVersions'] = $launchTemplateVersion;
-        foreach ($launchTemplateVersion as $i => $iValue) {
-            $this->queryParameters['LaunchTemplateVersion.' . ($i + 1)] = $iValue;
-        }
+	public function setLaunchTemplateVersions(array $launchTemplateVersion)
+	{
+	    $this->requestParameters['LaunchTemplateVersions'] = $launchTemplateVersion;
+		foreach ($launchTemplateVersion as $i => $iValue) {
+			$this->queryParameters['LaunchTemplateVersion.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

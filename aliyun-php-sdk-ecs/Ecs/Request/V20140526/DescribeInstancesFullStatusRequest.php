@@ -40,7 +40,8 @@ class DescribeInstancesFullStatusRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInstancesFullStatus'
+            'DescribeInstancesFullStatus',
+            'ecs'
         );
     }
 
@@ -49,14 +50,14 @@ class DescribeInstancesFullStatusRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setEventIds(array $eventId)
-    {
-        $this->requestParameters['EventIds'] = $eventId;
-        foreach ($eventId as $i => $iValue) {
-            $this->queryParameters['EventId.' . ($i + 1)] = $iValue;
-        }
+	public function setEventIds(array $eventId)
+	{
+	    $this->requestParameters['EventIds'] = $eventId;
+		foreach ($eventId as $i => $iValue) {
+			$this->queryParameters['EventId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -116,14 +117,14 @@ class DescribeInstancesFullStatusRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setInstanceEventTypes(array $instanceEventType)
-    {
-        $this->requestParameters['InstanceEventTypes'] = $instanceEventType;
-        foreach ($instanceEventType as $i => $iValue) {
-            $this->queryParameters['InstanceEventType.' . ($i + 1)] = $iValue;
-        }
+	public function setInstanceEventTypes(array $instanceEventType)
+	{
+	    $this->requestParameters['InstanceEventTypes'] = $instanceEventType;
+		foreach ($instanceEventType as $i => $iValue) {
+			$this->queryParameters['InstanceEventType.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -196,14 +197,14 @@ class DescribeInstancesFullStatusRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setInstanceIds(array $instanceId)
-    {
-        $this->requestParameters['InstanceIds'] = $instanceId;
-        foreach ($instanceId as $i => $iValue) {
-            $this->queryParameters['InstanceId.' . ($i + 1)] = $iValue;
-        }
+	public function setInstanceIds(array $instanceId)
+	{
+	    $this->requestParameters['InstanceIds'] = $instanceId;
+		foreach ($instanceId as $i => $iValue) {
+			$this->queryParameters['InstanceId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

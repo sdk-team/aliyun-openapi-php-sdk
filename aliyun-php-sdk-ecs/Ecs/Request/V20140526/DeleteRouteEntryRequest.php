@@ -32,7 +32,8 @@ class DeleteRouteEntryRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DeleteRouteEntry'
+            'DeleteRouteEntry',
+            'ecs'
         );
     }
 
@@ -132,14 +133,14 @@ class DeleteRouteEntryRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setNextHopLists(array $nextHopList)
-    {
-        $this->requestParameters['NextHopLists'] = $nextHopList;
-        foreach ($nextHopList as $depth1 => $depth1Value) {
-            $this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopId'] = $depth1Value['NextHopId'];
-            $this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopType'] = $depth1Value['NextHopType'];
-        }
+	public function setNextHopLists(array $nextHopList)
+	{
+	    $this->requestParameters['NextHopLists'] = $nextHopList;
+		foreach ($nextHopList as $depth1 => $depth1Value) {
+			$this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopId'] = $depth1Value['NextHopId'];
+			$this->queryParameters['NextHopList.' . ($depth1 + 1) . '.NextHopType'] = $depth1Value['NextHopType'];
+		}
 
-        return $this;
+		return $this;
     }
 }

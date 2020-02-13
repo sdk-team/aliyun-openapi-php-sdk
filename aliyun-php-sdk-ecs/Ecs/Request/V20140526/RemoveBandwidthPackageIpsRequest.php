@@ -31,7 +31,8 @@ class RemoveBandwidthPackageIpsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'RemoveBandwidthPackageIps'
+            'RemoveBandwidthPackageIps',
+            'ecs'
         );
     }
 
@@ -66,14 +67,14 @@ class RemoveBandwidthPackageIpsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setRemovedIpAddressess(array $removedIpAddresses)
-    {
-        $this->requestParameters['RemovedIpAddressess'] = $removedIpAddresses;
-        foreach ($removedIpAddresses as $i => $iValue) {
-            $this->queryParameters['RemovedIpAddresses.' . ($i + 1)] = $iValue;
-        }
+	public function setRemovedIpAddressess(array $removedIpAddresses)
+	{
+	    $this->requestParameters['RemovedIpAddressess'] = $removedIpAddresses;
+		foreach ($removedIpAddresses as $i => $iValue) {
+			$this->queryParameters['RemovedIpAddresses.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**

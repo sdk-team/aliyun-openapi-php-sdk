@@ -19,7 +19,9 @@ namespace Ecs\Request\V20140526;
  * @method string getInstanceTypeFamily()
  * @method string getOwnerId()
  * @method array getDemandStatuss()
+ * @method string getDemandId()
  * @method string getZoneId()
+ * @method string getDemandType()
  */
 class DescribeDemandsRequest extends \RpcAcsRequest
 {
@@ -37,7 +39,8 @@ class DescribeDemandsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeDemands'
+            'DescribeDemands',
+            'ecs'
         );
     }
 
@@ -98,15 +101,15 @@ class DescribeDemandsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setTags(array $tag)
-    {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-        }
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -192,12 +195,25 @@ class DescribeDemandsRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setDemandStatuss(array $demandStatus)
+	public function setDemandStatuss(array $demandStatus)
+	{
+	    $this->requestParameters['DemandStatuss'] = $demandStatus;
+		foreach ($demandStatus as $i => $iValue) {
+			$this->queryParameters['DemandStatus.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
+    }
+
+    /**
+     * @param string $demandId
+     *
+     * @return $this
+     */
+    public function setDemandId($demandId)
     {
-        $this->requestParameters['DemandStatuss'] = $demandStatus;
-        foreach ($demandStatus as $i => $iValue) {
-            $this->queryParameters['DemandStatus.' . ($i + 1)] = $iValue;
-        }
+        $this->requestParameters['DemandId'] = $demandId;
+        $this->queryParameters['DemandId'] = $demandId;
 
         return $this;
     }
@@ -211,6 +227,19 @@ class DescribeDemandsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['ZoneId'] = $zoneId;
         $this->queryParameters['ZoneId'] = $zoneId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $demandType
+     *
+     * @return $this
+     */
+    public function setDemandType($demandType)
+    {
+        $this->requestParameters['DemandType'] = $demandType;
+        $this->queryParameters['DemandType'] = $demandType;
 
         return $this;
     }

@@ -19,12 +19,16 @@ namespace Ecs\Request\V20140526;
  * @method string getResourceGroupId()
  * @method string getHostName()
  * @method string getPassword()
+ * @method string getStorageSetPartitionNumber()
  * @method array getTags()
+ * @method string getSystemDiskAutoSnapshotPolicyId()
  * @method string getAutoRenewPeriod()
+ * @method string getCpuOptionsCore()
  * @method string getPeriod()
  * @method string getDryRun()
  * @method string getLaunchTemplateId()
  * @method string getIpv6AddressCount()
+ * @method string getCpuOptionsNuma()
  * @method string getOwnerId()
  * @method string getCapacityReservationPreference()
  * @method string getVSwitchId()
@@ -45,8 +49,10 @@ namespace Ecs\Request\V20140526;
  * @method string getSecurityGroupId()
  * @method string getInternetMaxBandwidthOut()
  * @method string getDescription()
+ * @method string getCpuOptionsThreadsPerCore()
  * @method string getSystemDiskCategory()
  * @method string getCapacityReservationId()
+ * @method string getSystemDiskPerformanceLevel()
  * @method string getUserData()
  * @method string getPasswordInherit()
  * @method string getInstanceType()
@@ -64,8 +70,10 @@ namespace Ecs\Request\V20140526;
  * @method string getDedicatedHostId()
  * @method string getCreditSpecification()
  * @method array getSecurityGroupIdss()
+ * @method string getSpotDuration()
  * @method array getDataDisks()
  * @method string getLaunchTemplateVersion()
+ * @method string getStorageSetId()
  * @method string getSystemDiskSize()
  * @method string getSystemDiskDescription()
  */
@@ -85,7 +93,8 @@ class RunInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'RunInstances'
+            'RunInstances',
+            'ecs'
         );
     }
 
@@ -246,17 +255,43 @@ class RunInstancesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $storageSetPartitionNumber
+     *
+     * @return $this
+     */
+    public function setStorageSetPartitionNumber($storageSetPartitionNumber)
+    {
+        $this->requestParameters['StorageSetPartitionNumber'] = $storageSetPartitionNumber;
+        $this->queryParameters['StorageSetPartitionNumber'] = $storageSetPartitionNumber;
+
+        return $this;
+    }
+
+    /**
      * @param array $tag
      *
      * @return $this
      */
-    public function setTags(array $tag)
+	public function setTags(array $tag)
+	{
+	    $this->requestParameters['Tags'] = $tag;
+		foreach ($tag as $depth1 => $depth1Value) {
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			$this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+		}
+
+		return $this;
+    }
+
+    /**
+     * @param string $systemDiskAutoSnapshotPolicyId
+     *
+     * @return $this
+     */
+    public function setSystemDiskAutoSnapshotPolicyId($systemDiskAutoSnapshotPolicyId)
     {
-        $this->requestParameters['Tags'] = $tag;
-        foreach ($tag as $depth1 => $depth1Value) {
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
-            $this->queryParameters['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-        }
+        $this->requestParameters['SystemDiskAutoSnapshotPolicyId'] = $systemDiskAutoSnapshotPolicyId;
+        $this->queryParameters['SystemDisk.AutoSnapshotPolicyId'] = $systemDiskAutoSnapshotPolicyId;
 
         return $this;
     }
@@ -270,6 +305,19 @@ class RunInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['AutoRenewPeriod'] = $autoRenewPeriod;
         $this->queryParameters['AutoRenewPeriod'] = $autoRenewPeriod;
+
+        return $this;
+    }
+
+    /**
+     * @param string $cpuOptionsCore
+     *
+     * @return $this
+     */
+    public function setCpuOptionsCore($cpuOptionsCore)
+    {
+        $this->requestParameters['CpuOptionsCore'] = $cpuOptionsCore;
+        $this->queryParameters['CpuOptions.Core'] = $cpuOptionsCore;
 
         return $this;
     }
@@ -322,6 +370,19 @@ class RunInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['Ipv6AddressCount'] = $ipv6AddressCount;
         $this->queryParameters['Ipv6AddressCount'] = $ipv6AddressCount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $cpuOptionsNuma
+     *
+     * @return $this
+     */
+    public function setCpuOptionsNuma($cpuOptionsNuma)
+    {
+        $this->requestParameters['CpuOptionsNuma'] = $cpuOptionsNuma;
+        $this->queryParameters['CpuOptions.Numa'] = $cpuOptionsNuma;
 
         return $this;
     }
@@ -461,14 +522,14 @@ class RunInstancesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setIpv6Addresss(array $ipv6Address)
-    {
-        $this->requestParameters['Ipv6Addresss'] = $ipv6Address;
-        foreach ($ipv6Address as $i => $iValue) {
-            $this->queryParameters['Ipv6Address.' . ($i + 1)] = $iValue;
-        }
+	public function setIpv6Addresss(array $ipv6Address)
+	{
+	    $this->requestParameters['Ipv6Addresss'] = $ipv6Address;
+		foreach ($ipv6Address as $i => $iValue) {
+			$this->queryParameters['Ipv6Address.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -589,6 +650,19 @@ class RunInstancesRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $cpuOptionsThreadsPerCore
+     *
+     * @return $this
+     */
+    public function setCpuOptionsThreadsPerCore($cpuOptionsThreadsPerCore)
+    {
+        $this->requestParameters['CpuOptionsThreadsPerCore'] = $cpuOptionsThreadsPerCore;
+        $this->queryParameters['CpuOptions.ThreadsPerCore'] = $cpuOptionsThreadsPerCore;
+
+        return $this;
+    }
+
+    /**
      * @param string $systemDiskCategory
      *
      * @return $this
@@ -610,6 +684,19 @@ class RunInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['CapacityReservationId'] = $capacityReservationId;
         $this->queryParameters['CapacityReservationId'] = $capacityReservationId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $systemDiskPerformanceLevel
+     *
+     * @return $this
+     */
+    public function setSystemDiskPerformanceLevel($systemDiskPerformanceLevel)
+    {
+        $this->requestParameters['SystemDiskPerformanceLevel'] = $systemDiskPerformanceLevel;
+        $this->queryParameters['SystemDisk.PerformanceLevel'] = $systemDiskPerformanceLevel;
 
         return $this;
     }
@@ -684,18 +771,21 @@ class RunInstancesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setNetworkInterfaces(array $networkInterface)
-    {
-        $this->requestParameters['NetworkInterfaces'] = $networkInterface;
-        foreach ($networkInterface as $depth1 => $depth1Value) {
-            $this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.PrimaryIpAddress'] = $depth1Value['PrimaryIpAddress'];
-            $this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.VSwitchId'] = $depth1Value['VSwitchId'];
-            $this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.SecurityGroupId'] = $depth1Value['SecurityGroupId'];
-            $this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.NetworkInterfaceName'] = $depth1Value['NetworkInterfaceName'];
-            $this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
-        }
+	public function setNetworkInterfaces(array $networkInterface)
+	{
+	    $this->requestParameters['NetworkInterfaces'] = $networkInterface;
+		foreach ($networkInterface as $depth1 => $depth1Value) {
+			$this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.PrimaryIpAddress'] = $depth1Value['PrimaryIpAddress'];
+			$this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.VSwitchId'] = $depth1Value['VSwitchId'];
+			$this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.SecurityGroupId'] = $depth1Value['SecurityGroupId'];
+			foreach ($depth1Value['SecurityGroupIds'] as $i => $iValue) {
+				$this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.SecurityGroupIds.' . ($i + 1)] = $iValue;
+			}
+			$this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.NetworkInterfaceName'] = $depth1Value['NetworkInterfaceName'];
+			$this->queryParameters['NetworkInterface.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -833,12 +923,25 @@ class RunInstancesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setSecurityGroupIdss(array $securityGroupIds)
+	public function setSecurityGroupIdss(array $securityGroupIds)
+	{
+	    $this->requestParameters['SecurityGroupIdss'] = $securityGroupIds;
+		foreach ($securityGroupIds as $i => $iValue) {
+			$this->queryParameters['SecurityGroupIds.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
+    }
+
+    /**
+     * @param string $spotDuration
+     *
+     * @return $this
+     */
+    public function setSpotDuration($spotDuration)
     {
-        $this->requestParameters['SecurityGroupIdss'] = $securityGroupIds;
-        foreach ($securityGroupIds as $i => $iValue) {
-            $this->queryParameters['SecurityGroupIds.' . ($i + 1)] = $iValue;
-        }
+        $this->requestParameters['SpotDuration'] = $spotDuration;
+        $this->queryParameters['SpotDuration'] = $spotDuration;
 
         return $this;
     }
@@ -848,22 +951,24 @@ class RunInstancesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setDataDisks(array $dataDisk)
-    {
-        $this->requestParameters['DataDisks'] = $dataDisk;
-        foreach ($dataDisk as $depth1 => $depth1Value) {
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.KMSKeyId'] = $depth1Value['KMSKeyId'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
-            $this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
-        }
+	public function setDataDisks(array $dataDisk)
+	{
+	    $this->requestParameters['DataDisks'] = $dataDisk;
+		foreach ($dataDisk as $depth1 => $depth1Value) {
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Size'] = $depth1Value['Size'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.SnapshotId'] = $depth1Value['SnapshotId'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Category'] = $depth1Value['Category'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Encrypted'] = $depth1Value['Encrypted'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.KMSKeyId'] = $depth1Value['KMSKeyId'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DiskName'] = $depth1Value['DiskName'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Description'] = $depth1Value['Description'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.Device'] = $depth1Value['Device'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.DeleteWithInstance'] = $depth1Value['DeleteWithInstance'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.PerformanceLevel'] = $depth1Value['PerformanceLevel'];
+			$this->queryParameters['DataDisk.' . ($depth1 + 1) . '.AutoSnapshotPolicyId'] = $depth1Value['AutoSnapshotPolicyId'];
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -875,6 +980,19 @@ class RunInstancesRequest extends \RpcAcsRequest
     {
         $this->requestParameters['LaunchTemplateVersion'] = $launchTemplateVersion;
         $this->queryParameters['LaunchTemplateVersion'] = $launchTemplateVersion;
+
+        return $this;
+    }
+
+    /**
+     * @param string $storageSetId
+     *
+     * @return $this
+     */
+    public function setStorageSetId($storageSetId)
+    {
+        $this->requestParameters['StorageSetId'] = $storageSetId;
+        $this->queryParameters['StorageSetId'] = $storageSetId;
 
         return $this;
     }

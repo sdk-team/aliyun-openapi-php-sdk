@@ -14,6 +14,7 @@ namespace Ecs\Request\V20140526;
  * @method string getOwnerAccount()
  * @method string getEndTime()
  * @method string getOwnerId()
+ * @method string getCategory()
  */
 class DescribeSnapshotMonitorDataRequest extends \RpcAcsRequest
 {
@@ -31,7 +32,8 @@ class DescribeSnapshotMonitorDataRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeSnapshotMonitorData'
+            'DescribeSnapshotMonitorData',
+            'ecs'
         );
     }
 
@@ -122,6 +124,19 @@ class DescribeSnapshotMonitorDataRequest extends \RpcAcsRequest
     {
         $this->requestParameters['OwnerId'] = $ownerId;
         $this->queryParameters['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->requestParameters['Category'] = $category;
+        $this->queryParameters['Category'] = $category;
 
         return $this;
     }

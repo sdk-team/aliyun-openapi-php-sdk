@@ -22,6 +22,7 @@ namespace Ecs\Request\V20140526;
  * @method string getZoneId()
  * @method string getReservedInstanceName()
  * @method array getStatuss()
+ * @method string getAllocationType()
  */
 class DescribeReservedInstancesRequest extends \RpcAcsRequest
 {
@@ -39,7 +40,8 @@ class DescribeReservedInstancesRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeReservedInstances'
+            'DescribeReservedInstances',
+            'ecs'
         );
     }
 
@@ -178,14 +180,14 @@ class DescribeReservedInstancesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setReservedInstanceIds(array $reservedInstanceId)
-    {
-        $this->requestParameters['ReservedInstanceIds'] = $reservedInstanceId;
-        foreach ($reservedInstanceId as $i => $iValue) {
-            $this->queryParameters['ReservedInstanceId.' . ($i + 1)] = $iValue;
-        }
+	public function setReservedInstanceIds(array $reservedInstanceId)
+	{
+	    $this->requestParameters['ReservedInstanceIds'] = $reservedInstanceId;
+		foreach ($reservedInstanceId as $i => $iValue) {
+			$this->queryParameters['ReservedInstanceId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -232,12 +234,25 @@ class DescribeReservedInstancesRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setStatuss(array $status)
+	public function setStatuss(array $status)
+	{
+	    $this->requestParameters['Statuss'] = $status;
+		foreach ($status as $i => $iValue) {
+			$this->queryParameters['Status.' . ($i + 1)] = $iValue;
+		}
+
+		return $this;
+    }
+
+    /**
+     * @param string $allocationType
+     *
+     * @return $this
+     */
+    public function setAllocationType($allocationType)
     {
-        $this->requestParameters['Statuss'] = $status;
-        foreach ($status as $i => $iValue) {
-            $this->queryParameters['Status.' . ($i + 1)] = $iValue;
-        }
+        $this->requestParameters['AllocationType'] = $allocationType;
+        $this->queryParameters['AllocationType'] = $allocationType;
 
         return $this;
     }

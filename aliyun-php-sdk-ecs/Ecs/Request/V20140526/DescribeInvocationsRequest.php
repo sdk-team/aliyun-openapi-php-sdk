@@ -9,8 +9,10 @@ namespace Ecs\Request\V20140526;
  *
  * @method string getResourceOwnerId()
  * @method string getInvokeStatus()
+ * @method string getIncludeOutput()
  * @method string getCommandId()
  * @method string getPageNumber()
+ * @method string getContentEncoding()
  * @method string getPageSize()
  * @method string getInvokeId()
  * @method string getTimed()
@@ -37,7 +39,8 @@ class DescribeInvocationsRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeInvocations'
+            'DescribeInvocations',
+            'ecs'
         );
     }
 
@@ -68,6 +71,19 @@ class DescribeInvocationsRequest extends \RpcAcsRequest
     }
 
     /**
+     * @param string $includeOutput
+     *
+     * @return $this
+     */
+    public function setIncludeOutput($includeOutput)
+    {
+        $this->requestParameters['IncludeOutput'] = $includeOutput;
+        $this->queryParameters['IncludeOutput'] = $includeOutput;
+
+        return $this;
+    }
+
+    /**
      * @param string $commandId
      *
      * @return $this
@@ -89,6 +105,19 @@ class DescribeInvocationsRequest extends \RpcAcsRequest
     {
         $this->requestParameters['PageNumber'] = $pageNumber;
         $this->queryParameters['PageNumber'] = $pageNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param string $contentEncoding
+     *
+     * @return $this
+     */
+    public function setContentEncoding($contentEncoding)
+    {
+        $this->requestParameters['ContentEncoding'] = $contentEncoding;
+        $this->queryParameters['ContentEncoding'] = $contentEncoding;
 
         return $this;
     }

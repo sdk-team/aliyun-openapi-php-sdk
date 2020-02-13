@@ -37,7 +37,8 @@ class DescribeDisksFullStatusRequest extends \RpcAcsRequest
         parent::__construct(
             'Ecs',
             '2014-05-26',
-            'DescribeDisksFullStatus'
+            'DescribeDisksFullStatus',
+            'ecs'
         );
     }
 
@@ -46,14 +47,14 @@ class DescribeDisksFullStatusRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setEventIds(array $eventId)
-    {
-        $this->requestParameters['EventIds'] = $eventId;
-        foreach ($eventId as $i => $iValue) {
-            $this->queryParameters['EventId.' . ($i + 1)] = $iValue;
-        }
+	public function setEventIds(array $eventId)
+	{
+	    $this->requestParameters['EventIds'] = $eventId;
+		foreach ($eventId as $i => $iValue) {
+			$this->queryParameters['EventId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
@@ -113,14 +114,14 @@ class DescribeDisksFullStatusRequest extends \RpcAcsRequest
      *
      * @return $this
      */
-    public function setDiskIds(array $diskId)
-    {
-        $this->requestParameters['DiskIds'] = $diskId;
-        foreach ($diskId as $i => $iValue) {
-            $this->queryParameters['DiskId.' . ($i + 1)] = $iValue;
-        }
+	public function setDiskIds(array $diskId)
+	{
+	    $this->requestParameters['DiskIds'] = $diskId;
+		foreach ($diskId as $i => $iValue) {
+			$this->queryParameters['DiskId.' . ($i + 1)] = $iValue;
+		}
 
-        return $this;
+		return $this;
     }
 
     /**
